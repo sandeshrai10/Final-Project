@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tech Gear</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="top-header">
+            <div class="logo">
+                <a href="#">Student Tech Gear</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for laptops, phones, and all other accessories...">
+            </div>
+            <nav class="main-nav">
+                <a href="#">How It Works</a>
+                <a href="#" id="openLoginModal">Login</a>
+                <a href="#" id="openSignupModal">Sign Up</a>
+            </nav>
+        </div>
+        <div class="bottom-header">
+            <nav class="categories">
+                <a href="#">Computers</a>
+                <a href="#">Cameras</a>
+                <a href="#">Tablets/Phones</a>
+                <a href="#">Audio & Equipment</a>
+                <a href="#">Gaming & VR</a>
+                <a href="#">Wearables</a>
+                <a href="#">Projectors & Displays</a>
+                <a href="#">Printers & Scanners</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignupModal">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" placeholder="Last Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="#">Student Tech Gear</a>
+            </div>
+            <div class="footer-links">
+                <div class="more-info">
+                    <h3>More Info</h3>
+                    <a href="#" id="openLoginModalFooter">Login/Sign Up</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Our Mission</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Browse Items</a>
+                    <a href="#">Our Story</a>
+                </div>
+                <div class="follow-us">
+                    <h3>Follow Us</h3>
+                    <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                </div>
+                <div class="contact">
+                    <h3>Have a Question?</h3>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/scripts/app.js"></script>
+</body>
+
+</html>
