@@ -60,7 +60,7 @@ nav ul li a:hover {
   margin: 0 auto;
 }
 
-.camera-item {
+.tablet-item {
   text-align: left;
   background: #444;
   padding: 20px;
@@ -69,15 +69,15 @@ nav ul li a:hover {
   color: #fff;
 }
 
-.camera-item h3 {
+.tablet-item h3 {
   margin-bottom: 20px;
 }
 
-.camera-item ul {
+.tablet-item ul {
   margin-bottom: 20px;
 }
 
-.camera-item ul li {
+.tablet-item ul li {
   margin-bottom: 10px;
 }
 
@@ -184,3 +184,5 @@ footer .social a {
 footer .social a:hover {
   color: #ddd;
 }
+
+

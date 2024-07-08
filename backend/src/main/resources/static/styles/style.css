@@ -1,256 +1,609 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Karla', sans-serif;
-  }
-  
-  body {
-    color: #fff;
-    background-image: url("/images/background.jpg");
-  }
-  
-  .container {
-    width: 100%;
-    height: 100%;
-  }
-  
-  nav {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo a {
-    background: #000;
-    border-radius: 10px;
-    padding: 3px 5px;
-    font-size: 35px;
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  span {
-    color: #f9004d;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Karla', sans-serif;
+}
+
+body {
+  color: #fff;
+  background-image: url("/images/background.jpg");
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  background: #000;
+  border-radius: 10px;
+  padding: 3px 5px;
+  font-size: 35px;
+  text-decoration: none;
+  color: #fff;
+}
+
+span {
+  color: #f9004d;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #f9004d;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.buttons .login {
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.buttons .btn {
+  background: #000;
+  border-radius: 6px;
+  padding: 9px 25px;
+  text-decoration: none;
+  transition: 0.5s;
+  font-size: 18px;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 7px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-btn {
+  padding: 7px 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background: #575757;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.content h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  margin-bottom: 30px;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+a {
+  color: #fff;
+}
+
+.link .hire {
+  color: #000;
+  text-decoration: none;
+  background: #fff;
+  padding: 9px 25px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.5s;
+}
+
+.link .hire:hover {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.customer-review {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.customer-review p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  color: #ffd700;
+}
+
+.bgimg {
+  background-image: url('https://source.unsplash.com/1600x900/?technology');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section.bg-light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services,
+.equipment-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service,
+.item {
+  background-color: #fff;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(25% - 40px);
+  text-align: center;
+  color: #333;
+}
+
+.service i,
+.item img {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.service h3,
+.item h3 {
+  margin-bottom: 10px;
+}
+
+.service p,
+.item p {
+  color: #666;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form .btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form .btn:hover {
+  background-color: #575757;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+footer .social a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer .social a:hover {
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
   nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
+    display: none;
+    flex-direction: column;
   }
-  
+
+  nav ul.active {
+    display: flex;
+  }
+
   nav ul li {
-    margin: 0 15px;
+    margin: 10px 0;
   }
-  
-  nav ul li a {
+}
+
+/* Registration and Login Page Styles */
+.register-section,
+.login-section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.register-container,
+.login-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.register-container h2,
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.register-container form label,
+.login-container form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.register-container form input,
+.login-container form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-container form .btn,
+.login-container form .btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.register-container form .btn:hover,
+.login-container form .btn:hover {
+  background-color: #575757;
+}
+
+.signup-link {
+  margin-top: 20px;
+  color: #333;
+}
+
+.signup-link a {
+  color: #f9004d;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* Additional CSS for sidebar and laptop list */
+
+.sidebar {
+    width: 20%;
+    float: left;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.sidebar h3 {
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #333;
     transition: 0.3s;
-  }
-  
-  nav ul li a:hover {
+}
+
+.sidebar ul li a:hover {
     color: #f9004d;
-  }
-  
-  .buttons {
+}
+
+/* Additional CSS for sidebar and laptop, camera, tablets, and headphones list */
+
+.sidebar {
+    width: 20%;
+    float: left;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.sidebar h3 {
+    margin-bottom: 10px;
+}
+
+.sidebar label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.sidebar select, .sidebar input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sidebar .search-form {
     display: flex;
     align-items: center;
-  }
-  
-  .buttons .login {
-    text-decoration: none;
-    margin-right: 15px;
-    font-size: 18px;
-    color: #fff;
-  }
-  
-  .buttons .btn {
-    background: #000;
-    border-radius: 6px;
-    padding: 9px 25px;
-    text-decoration: none;
-    transition: 0.5s;
-    font-size: 18px;
-    color: #fff;
-    margin-right: 15px;
-  }
-  
-  .search-form {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-input {
+}
+
+.sidebar .search-input {
     padding: 7px;
     border: none;
     border-radius: 5px 0 0 5px;
-  }
-  
-  .search-btn {
+}
+
+.sidebar .search-btn {
     padding: 7px 10px;
     border: none;
     background: #000;
     color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-  }
-  
-  .search-btn:hover {
+}
+
+.sidebar .search-btn:hover {
     background: #575757;
-  }
-  
-  .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-  }
-  
-  .content h2 {
-    font-size: 60px;
-    margin-bottom: 20px;
-  }
-  
-  .content p {
-    margin-bottom: 30px;
-    line-height: 1.5;
-    color: #f1f1f1;
-  }
-  
-  a {
-    color: #fff;
-  }
-  
-  .link .hire {
-    color: #000;
-    text-decoration: none;
-    background: #fff;
-    padding: 9px 25px;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: 0.5s;
-  }
-  
-  .link .hire:hover {
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-  }
-  
-  .customer-review {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .customer-review p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  
-  .stars {
-    display: flex;
-    justify-content: center;
-    color: #ffd700;
-  }
-  
-  .bgimg {
-    background-image: url('https://source.unsplash.com/1600x900/?technology');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    position: relative;
-  }
-  
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+.laptop-list {
+    width: 75%;
+    float: right;
     padding: 20px;
-  }
-  
-  .section {
-    padding: 100px 20px;
-    text-align: center;
-  }
-  
-  .section.bg-light {
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .services,
-  .equipment-list {
+}
+
+.camera-list {
+  width: 75%;
+  float: right;
+  padding: 20px;
+}
+
+.tablet-list {
+width: 75%;
+float: right;
+padding: 20px;
+}
+
+.laptop-item {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .service,
-  .item {
+    margin-bottom: 20px;
     background-color: #fff;
     padding: 20px;
-    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(25% - 40px);
-    text-align: center;
     color: #333;
-  }
-  
-  .service i,
-  .item img {
-    font-size: 3rem;
+}
+
+.tablet-item {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.camera-item {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.headphone-item {
+display: flex;
+margin-bottom: 20px;
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+color: #333;
+}
+
+.laptop-item img {
+    margin-right: 20px;
+}
+
+.camera-item img {
+  margin-right: 20px;
+}
+
+.tablet-item img {
+margin-right: 20px;
+}
+
+.headphone-item img {
+margin-right: 20px;
+}
+
+.laptop-details {
+    text-align: left;
+    color: #333;
+}
+
+.tablet-details {
+  text-align: left;
+  color: #333;
+}
+.camera-details {
+  text-align: left;
+  color: #333;
+}
+
+.headphone-details {
+text-align: left;
+color: #333;
+}
+
+.laptop-details h3 {
     margin-bottom: 10px;
     color: #333;
-  }
-  
-  .service h3,
-  .item h3 {
-    margin-bottom: 10px;
-  }
-  
-  .service p,
-  .item p {
+}
+
+.camera-details h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tablet-details h3 {
+margin-bottom: 10px;
+color: #333;
+}
+
+.headphone-details h3 {
+margin-bottom: 10px;
+color: #333;
+}
+
+.laptop-details p {
+    margin-bottom: 5px;
     color: #666;
-  }
-  
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  form input,
-  form select,
-  form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  form .btn {
+}
+
+.camera-details p {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.tablet-details p {
+margin-bottom: 5px;
+color: #666;
+}
+
+.headphone-details p {
+margin-bottom: 5px;
+color: #666;
+}
+
+.laptop-details .btn {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
@@ -260,356 +613,149 @@
     display: inline-block;
     cursor: pointer;
     transition: background 0.3s;
-  }
-  
-  form .btn:hover {
+}
+
+.camera-details .btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tablet-details .btn {
+background-color: #333;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+border: none;
+border-radius: 5px;
+display: inline-block;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.headphone-details .btn {
+background-color: #333;
+color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+border: none;
+border-radius: 5px;
+display: inline-block;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.laptop-details .btn:hover {
     background-color: #575757;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .footer-links {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
-  footer .social a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-  }
-  
-  footer .social a:hover {
-    color: #ddd;
-  }
-  
-  @media (max-width: 768px) {
-    nav ul {
-      display: none;
-      flex-direction: column;
-    }
-  
-    nav ul.active {
-      display: flex;
-    }
-  
-    nav ul li {
-      margin: 10px 0;
-    }
-  }
-  
-  /* Registration and Login Page Styles */
-  .register-section,
-  .login-section {
-    padding: 100px 20px;
-    text-align: center;
-  }
-  
-  .register-container,
-  .login-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
-  }
-  
-  .register-container h2,
-  .login-container h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-  }
-  
-  .register-container form label,
-  .login-container form label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  .register-container form input,
-  .login-container form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .register-container form .btn,
-  .login-container form .btn {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .register-container form .btn:hover,
-  .login-container form .btn:hover {
-    background-color: #575757;
-  }
-  
-  .signup-link {
-    margin-top: 20px;
-    color: #333;
-  }
-  
-  .signup-link a {
-    color: #f9004d;
-    text-decoration: none;
-  }
-  
-  .signup-link a:hover {
-    text-decoration: underline;
-  }
-  
-  
-  /* Additional CSS for sidebar and laptop list */
-  
-  .sidebar {
-      width: 20%;
-      float: left;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
-  }
-  
-  .sidebar h3 {
-      margin-bottom: 10px;
-  }
-  
-  .sidebar ul {
-      list-style: none;
-      padding: 0;
-  }
-  
-  .sidebar ul li {
-      margin-bottom: 10px;
-  }
-  
-  .sidebar ul li a {
-      text-decoration: none;
-      color: #333;
-      transition: 0.3s;
-  }
-  
-  .sidebar ul li a:hover {
-      color: #f9004d;
-  }
-  
-  /* Additional CSS for sidebar and laptop list */
-  
-  .sidebar {
-      width: 20%;
-      float: left;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
-  }
-  
-  .sidebar h3 {
-      margin-bottom: 10px;
-  }
-  
-  .sidebar label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-  }
-  
-  .sidebar select, .sidebar input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-  }
-  
-  .sidebar .search-form {
-      display: flex;
-      align-items: center;
-  }
-  
-  .sidebar .search-input {
-      padding: 7px;
-      border: none;
-      border-radius: 5px 0 0 5px;
-  }
-  
-  .sidebar .search-btn {
-      padding: 7px 10px;
-      border: none;
-      background: #000;
-      color: #fff;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
-  }
-  
-  .sidebar .search-btn:hover {
-      background: #575757;
-  }
-  
-  .laptop-list {
-      width: 75%;
-      float: right;
-      padding: 20px;
-  }
-  
-  .laptop-item {
-      display: flex;
-      margin-bottom: 20px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      color: #333;
-  }
-  
-  .laptop-item img {
-      margin-right: 20px;
-  }
-  
-  .laptop-details {
-      text-align: left;
-      color: #333;
-  }
-  
-  .laptop-details h3 {
-      margin-bottom: 10px;
-      color: #333;
-  }
-  
-  .laptop-details p {
-      margin-bottom: 5px;
-      color: #666;
-  }
-  
-  .laptop-details .btn {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
-      display: inline-block;
-      cursor: pointer;
-      transition: background 0.3s;
-  }
-  
-  .laptop-details .btn:hover {
-      background-color: #575757;
-  }
-  
-  .clearfix::after {
-      content: "";
-      display: table;
-      clear: both;
-  }
-  
-  nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2, .container h3 {
-      color: #000;  /* Set all text to black */
-  }
-  
-  .image-gallery {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .main-image img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 100%;
-  }
-  
-  .arrows {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-  }
-  
-  .prev, .next {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 16px;
-    border: none;
-    border-radius: 50%;
-    user-select: none;
-  }
-  
-  .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .laptop-item, .camera-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
-  }
-  
-  .laptop-details, .camera-details {
-    text-align: left;
-    width: 100%;
-  }
-  
-  .laptop-details h3, .camera-details h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-  
-  .laptop-details p, .camera-details p {
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-  }
-  
-  .btn {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 10px;
-  }
-  
-  .btn:hover {
-    background-color: #575757;
-  }
-  
+}
+
+
+.camera-details .btn:hover {
+  background-color: #575757;
+}
+
+.tablet-details .btn:hover {
+background-color: #575757;
+}
+
+.headphone-details .btn:hover {
+background-color: #575757;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2, .container h3 {
+    color: #000;  /* Set all text to black */
+}
+
+.image-gallery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-image img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100%;
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.prev, .next {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.laptop-item, .camera-item, .tablet-item, .headphone-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.laptop-details, .camera-details, .tablet-details, .headphone-details {
+  text-align: left;
+  width: 100%;
+}
+
+.laptop-details h3, .camera-details h3, .tablet-details h3, .headphone-details h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.laptop-details p, .camera-details p, .tablet-details p, .headphone-details p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #575757;
+}

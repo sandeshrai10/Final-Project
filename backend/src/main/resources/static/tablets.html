@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Cameras - TechEase Rentals</title>
-    <link rel="stylesheet" href="availability_camera.css">
+    <title>Tablets - TechEase Rentals</title>
+    <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <nav>
             <div class="logo">
-                <a href="index.html">Tech<span>Ease</span></a>
+                <a href="/index.html">Tech<span>Ease</span></a>
             </div>
             <ul>
                 <li><a href="index.html#home">Home</a></li>
@@ -22,30 +22,29 @@
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
-        <section id="availability" class="section">
-            <div class="container">
-                <div id="camera-details">
-                    <h3 id="camera-name">Camera Name</h3>
-                    <div class="image-gallery">
-                        <div class="main-image">
-                            <img src="front.png" alt="Camera Front" id="mainImage">
-                        </div>
-                        <div class="arrows">
-                            <button onclick="changeImage(-1)">&#10094;</button>
-                            <button onclick="changeImage(1)">&#10095;</button>
-                        </div>
-                    </div>
-                    <ul id="camera-specs">
-                        <!-- Specs will be populated by JS -->
-                    </ul>
-                    <p><strong id="camera-price">Price per day: $50</strong></p>
-                    <form id="availability-form">
-                        <label for="start-date">Start Date:</label>
-                        <input type="date" id="start-date" name="start-date" required>
-                        <label for="end-date">End Date:</label>
-                        <input type="date" id="end-date" name="end-date" required>
-                        <button type="submit" class="btn">Rent Now</button>
+        <section id="tablets" class="section">
+            <div class="container clearfix">
+                <div class="sidebar">
+                    <h3>Filter By</h3>
+                    <form>
+                        <label for="categories">Categories</label>
+                        <select id="categories" name="categories">
+                            <option value="all">All</option>
+                            <option value="apple">Apple</option>
+                            <option value="microsoft">Microsoft</option>
+                            <option value="amazon">Amazon</option>
+                        </select>
+                        <label for="price">Price</label>
+                        <select id="price" name="price">
+                            <option value="default">Sort by Price</option>
+                            <option value="low-to-high">Lowest to Highest</option>
+                            <option value="high-to-low">Highest to Lowest</option>
+                        </select>
+                        <button type="button" id="apply-changes-btn">Apply Changes</button>
                     </form>
+                </div>
+                <div class="tablet-list" id="tablets-container">
+                    <!-- Tablets will be dynamically inserted here by JavaScript -->
                 </div>
             </div>
         </section>
@@ -67,6 +66,6 @@
         </div>
     </footer>
 
-    <script src="availability_camera.js"></script>
+    <script src="/scripts/script.js"></script>
 </body>
 </html>

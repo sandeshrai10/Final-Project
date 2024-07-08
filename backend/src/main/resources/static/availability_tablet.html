@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Cameras - TechEase Rentals</title>
-    <link rel="stylesheet" href="availability_camera.css">
+    <title>Availability - TechEase Rentals</title>
+    <link rel="stylesheet" href="/styles/availability_tablet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -24,21 +24,21 @@
         </nav>
         <section id="availability" class="section">
             <div class="container">
-                <div id="camera-details">
-                    <h3 id="camera-name">Camera Name</h3>
+                <div id="tablet-details">
+                    <h3>Tablet Details</h3>
                     <div class="image-gallery">
                         <div class="main-image">
-                            <img src="front.png" alt="Camera Front" id="mainImage">
+                            <img src="front.png" alt="Tablet Front" id="mainImage">
                         </div>
                         <div class="arrows">
                             <button onclick="changeImage(-1)">&#10094;</button>
                             <button onclick="changeImage(1)">&#10095;</button>
                         </div>
                     </div>
-                    <ul id="camera-specs">
-                        <!-- Specs will be populated by JS -->
+                    <ul id="tablet-specs">
+                        <!-- Specs will be dynamically inserted here by JavaScript -->
                     </ul>
-                    <p><strong id="camera-price">Price per day: $50</strong></p>
+                    <p><strong>Price per day: $<span id="tablet-price"></span></strong></p>
                     <form id="availability-form">
                         <label for="start-date">Start Date:</label>
                         <input type="date" id="start-date" name="start-date" required>
@@ -67,6 +67,6 @@
         </div>
     </footer>
 
-    <script src="availability_camera.js"></script>
+    <script src="/scripts/availability_tablet.js"></script>
 </body>
 </html>
