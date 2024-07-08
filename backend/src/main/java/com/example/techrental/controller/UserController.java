@@ -26,6 +26,7 @@ public class UserController {
      */
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
+        System.out.println("Registering user: " + user.toString());
         if (userRepository.findByEmail(user.getEmail()) != null) {
             return ResponseEntity.badRequest().body("Email is already in use.");
         }
@@ -33,6 +34,7 @@ public class UserController {
         userRepository.save(user);
         return ResponseEntity.ok("User registered successfully");
     }
+
 
     /**
      * Handles user login.

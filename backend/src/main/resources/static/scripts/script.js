@@ -91,23 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Laptop related code
     const laptops = [
-        {
-            id: 1,
-            category: 'dell',
-            name: 'DELL - Latitude 5550 Laptop',
-            price: 1200,
-            images: ['front.png', 'sideview.png', 'top.png'],
-            currentImageIndex: 0,
-            specs: [
-                'Processor: Intel® Core™ Ultra 5 125U (12 MB cache, 12 cores, 14 threads, up to 4.3 GHz Turbo)',
-                'Operating System: Windows 11 Pro, English/Brazilian Portuguese/French/Spanish',
-                'Graphics Card: Integrated Intel® graphics for Intel® Core™ Ultra 5 125U processor',
-                'Display: 15.6" FHD (1920x1080), 60Hz, IPS, Non-Touch, Anti-Glare (AG), 250 nit, 45% NTSC, FHD Cam',
-                'Memory: 16 GB DDR5 (2 x 8 GB), 5600 MT/s (5200 MT/s with 13th Gen Intel® Core™ processors)',
-                'Storage: 256 GB M.2 2230 TLC Gen 4 PCIe NVMe SSD'
-            ]
-        },
-        // Other laptop entries...
+        // Laptop entries...
     ];
     function displayLaptops(filteredLaptops) {
         const laptopsContainer = document.getElementById('laptops-container');
@@ -218,91 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Camera related code...
     const cameras = [
-        {
-            id: 1,
-            name: "Fujifilm X-T30 II",
-            sensor: "26.1 megapixel APS-C X-Trans CMOS 4 sensor",
-            processor: "X-Processor 4",
-            isoRange: "160-12800 (expandable to 80-51200)",
-            autofocus: "Hybrid AF with 425 points",
-            video: "4K at 30p, Full HD at 240p",
-            display: "3.0\" tilting touchscreen LCD",
-            price: 899,
-            brand: "fujifilm",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 2,
-            name: "Sony A7 III",
-            sensor: "24.2 megapixel full-frame Exmor R CMOS sensor",
-            processor: "BIONZ X image processor",
-            isoRange: "100-51200 (expandable to 50-204800)",
-            autofocus: "Fast Hybrid AF with 693 phase-detection and 425 contrast-detection points",
-            video: "4K HDR at 30p, Full HD at 120p",
-            display: "3.0\" tilting touchscreen LCD",
-            price: 1999,
-            brand: "sony",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 3,
-            name: "Canon PowerShot SX70 HS",
-            sensor: "20.3 megapixel 1/2.3\" CMOS sensor",
-            processor: "DIGIC 8",
-            isoRange: "100-3200 (expandable to 6400)",
-            autofocus: "65x optical zoom lens (21-1365mm equivalent)",
-            video: "Full HD at 60p",
-            display: "3.0\" vari-angle LCD",
-            price: 549,
-            brand: "canon",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 4,
-            name: "Sony ZV-E10",
-            sensor: "24.2 megapixel APS-C Exmor CMOS sensor",
-            processor: "BIONZ X image processor",
-            isoRange: "100-32000 (expandable to 100-51200)",
-            autofocus: "Fast Hybrid AF with 425 phase-detection and 425 contrast-detection points",
-            video: "4K HDR at 30p, Full HD at 120p",
-            display: "3.0\" vari-angle touchscreen LCD",
-            price: 699,
-            brand: "sony",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 5,
-            name: "Fujifilm X-S10",
-            sensor: "26.1 megapixel APS-C X-Trans CMOS 4 sensor",
-            processor: "X-Processor 4",
-            isoRange: "160-12800 (expandable to 80-51200)",
-            autofocus: "Hybrid AF with 425 points",
-            video: "4K at 30p, Full HD at 240p",
-            imageStabilization: "5-axis in-body image stabilization",
-            display: "3.0\" vari-angle touchscreen LCD",
-            price: 999,
-            brand: "fujifilm",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 6,
-            name: "Canon EOS 90D",
-            sensor: "32.5 megapixel APS-C CMOS sensor",
-            processor: "DIGIC 8",
-            isoRange: "100-25600 (expandable to 51200)",
-            autofocus: "45-point all cross-type AF system",
-            video: "4K at 30p, Full HD at 120p",
-            display: "3.0\" vari-angle touchscreen LCD",
-            price: 1199,
-            brand: "canon",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        }
+        // Camera entries...
     ];
 
     function displayCameras(cameraList) {
@@ -396,5 +296,154 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display all cameras by default
     if (document.getElementById('cameras-container')) {
         displayCameras(cameras);
+    }
+
+    // Tablet related code...
+    const tablets = [
+        {
+            id: 1,
+            name: "Apple iPad Air (5th Generation)",
+            processor: "Apple A15 Bionic chip with 6-core CPU and 5-core GPU",
+            display: "10.9-inch Liquid Retina display with True Tone",
+            storageOptions: "64GB or 256GB",
+            camera: "12MP rear camera, 12MP ultra-wide front camera",
+            price: 599,
+            images: ["front.png", "sideview.png", "top.png"],
+            currentImageIndex: 0
+        },
+        {
+            id: 2,
+            name: "Apple iPad Pro (M1, 5th Generation)",
+            processor: "Apple M1 chip with 8-core CPU and 8-core GPU",
+            displayOptions: "11-inch Liquid Retina display (2388 x 1668 resolution), 12.9-inch Liquid Retina XDR display (2732 x 2048 resolution)",
+            storageOptions: "128GB, 256GB, 512GB, 1TB, or 2TB",
+            camera: "12MP Wide and 10MP Ultra Wide rear cameras, 12MP TrueDepth front camera",
+            price: 799,
+            images: ["front.png", "sideview.png", "top.png"],
+            currentImageIndex: 0
+        },
+        {
+            id: 3,
+            name: "iPad Mini (6th Generation)",
+            processor: "Apple A15 Bionic chip with 6-core CPU and 5-core GPU",
+            display: "8.3-inch Liquid Retina display with True Tone",
+            storageOptions: "64GB or 256GB",
+            camera: "12MP Wide rear camera, 12MP Ultra Wide front camera",
+            price: 499,
+            images: ["front.png", "sideview.png", "top.png"],
+            currentImageIndex: 0
+        },
+        {
+            id: 4,
+            name: "Microsoft Surface Pro 7",
+            processor: "Intel Core i3/i5/i7 options available",
+            display: "12.3-inch PixelSense display with 2736 x 1824 resolution",
+            storageOptions: "128GB, 256GB, 512GB, or 1TB SSD",
+            camera: "8MP rear camera, 5MP front-facing camera",
+            price: 749,
+            images: ["front.png", "sideview.png", "top.png"],
+            currentImageIndex: 0
+        },
+        {
+            id: 5,
+            name: "Amazon Fire HD 10 (11th Generation)",
+            processor: "Octa-core processor",
+            display: "10.1-inch Full HD display",
+            storageOptions: "32GB or 64GB (expandable up to 1TB via microSD card)",
+            camera: "5MP rear camera, 2MP front-facing camera",
+            price: 149.99,
+            images: ["front.png", "sideview.png", "top.png"],
+            currentImageIndex: 0
+        }
+    ];
+
+    function displayTablets(tabletList) {
+        const container = document.getElementById('tablets-container');
+        if (!container) {
+            return;
+        }
+        container.innerHTML = '';
+        tabletList.forEach(tablet => {
+            const tabletElement = document.createElement('div');
+            tabletElement.className = 'tablet-item';
+            tabletElement.innerHTML = `
+                <h3>${tablet.name}</h3>
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="${tablet.images[tablet.currentImageIndex]}" alt="${tablet.name}" id="mainImage${tablet.id}" width="300" height="200">
+                    </div>
+                    <div class="arrows">
+                        <button class="prev" onclick="changeTabletImage(-1, ${tablet.id})">&#10094;</button>
+                        <button class="next" onclick="changeTabletImage(1, ${tablet.id})">&#10095;</button>
+                    </div>
+                </div>
+                <ul>
+                    <li>Processor: ${tablet.processor}</li>
+                    <li>Display: ${tablet.display}</li>
+                    <li>Storage Options: ${tablet.storageOptions}</li>
+                    <li>Camera: ${tablet.camera}</li>
+                </ul>
+                <p><strong>Price: $${tablet.price}</strong></p>
+                <button class="btn" onclick="checkTabletAvailability(${tablet.id})">Check Availability</button>
+            `;
+            container.appendChild(tabletElement);
+        });
+    }
+
+    window.changeTabletImage = function(direction, tabletId) {
+        const tablet = tablets.find(tab => tab.id === tabletId);
+        tablet.currentImageIndex += direction;
+
+        if (tablet.currentImageIndex < 0) {
+            tablet.currentImageIndex = tablet.images.length - 1;
+        } else if (tablet.currentImageIndex >= tablet.images.length) {
+            tablet.currentImageIndex = 0;
+        }
+
+        document.getElementById(`mainImage${tabletId}`).src = tablet.images[tablet.currentImageIndex];
+    };
+
+    window.checkTabletAvailability = function(tabletId) {
+        const tablet = tablets.find(tab => tab.id === tabletId);
+        localStorage.setItem('selectedTablet', JSON.stringify(tablet));
+        window.location.href = 'availability_tablet.html';
+    };
+
+    const applyChangesBtnTablet = document.getElementById('apply-changes-btn');
+    if (applyChangesBtnTablet) {
+        applyChangesBtnTablet.addEventListener('click', () => {
+            const category = document.getElementById('categories').value;
+            const priceSort = document.getElementById('price').value;
+            let filteredTablets = tablets;
+
+            if (category !== 'all') {
+                filteredTablets = tablets.filter(tablet => tablet.brand === category);
+            }
+
+            if (priceSort === 'low-to-high') {
+                filteredTablets.sort((a, b) => a.price - b.price);
+            } else if (priceSort === 'high-to-low') {
+                filteredTablets.sort((a, b) => b.price - a.price);
+            }
+
+            displayTablets(filteredTablets);
+        });
+    }
+
+    const tabletSearchForm = document.getElementById('search-form');
+    if (tabletSearchForm) {
+        tabletSearchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filteredTablets = tablets.filter(tablet => 
+                tablet.name.toLowerCase().includes(query)
+            );
+            displayTablets(filteredTablets);
+        });
+    }
+
+    // Display all tablets by default
+    if (document.getElementById('tablets-container')) {
+        displayTablets(tablets);
     }
 });
