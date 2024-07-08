@@ -98,7 +98,18 @@ public class SecurityConfig {
             // Configure authorization requests
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .requestMatchers("/", "/index.html", "/styles/**", "/scripts/**", "/images/**", "/api/users/register", "/api/users/login", "/login.html", "/register.html").permitAll()
+                    .requestMatchers(
+                        "/", 
+                        "/index.html", 
+                        "/styles/**", 
+                        "/scripts/**", 
+                        "/images/**", 
+                        "/api/users/register", 
+                        "/api/users/login", 
+                        "/login.html", 
+                        "/register.html",
+                        "/equipment.html" // Explicitly allow access to equipment.html
+                    ).permitAll()
                     .anyRequest().authenticated()
             )
             // Configure form login
@@ -128,6 +139,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
 
 
 
