@@ -108,7 +108,12 @@ public class SecurityConfig {
                         "/api/users/login", 
                         "/login.html", 
                         "/register.html",
-                        "/equipment.html" // Explicitly allow access to equipment.html
+                        "/equipment.html",
+                        "/laptops.html",  // Explicitly allow access to laptops.html
+                        "/cameras.html",  // Explicitly allow access to cameras.html
+                        "/availability.html",
+                        "/availability_camera.html",
+                        "/payment.html"
                     ).permitAll()
                     .anyRequest().authenticated()
             )
@@ -139,10 +144,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-
-
-
-
-
-
