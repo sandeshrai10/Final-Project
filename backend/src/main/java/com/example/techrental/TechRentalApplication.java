@@ -1,22 +1,3 @@
-// package com.example.techrental;
-
-// import org.springframework.boot.SpringApplication;
-// import org.springframework.boot.autoconfigure.SpringBootApplication;
-// import org.springframework.boot.autoconfigure.domain.EntityScan;
-// import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
-// @SpringBootApplication
-// @EntityScan(basePackages = {"com.example.techrental.model"})
-// @EnableJpaRepositories(basePackages = {"com.example.techrental.repository"})
-// public class TechRentalApplication {
-
-//     public static void main(String[] args) {
-//         SpringApplication.run(TechRentalApplication.class, args);
-//     }
-// }
-
-
-
 package com.example.techrental;
 
 import org.springframework.boot.SpringApplication;
