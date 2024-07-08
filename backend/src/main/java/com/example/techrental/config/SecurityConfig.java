@@ -43,10 +43,15 @@ public class SecurityConfig {
                         "/login.html", 
                         "/register.html",
                         "/equipment.html",
+                        "/api/laptops.html",
                         "/laptops.html",  // Explicitly allow access to laptops.html
                         "/cameras.html",  // Explicitly allow access to cameras.html
+                        "/tablets.html",
+                        "/headphones.html",
                         "/availability.html",
                         "/availability_camera.html",
+                        "/availability_tablet.html",
+                        "/availability_headphone.html",
                         "/payment.html"
                     ).permitAll()
                     .anyRequest().authenticated()
