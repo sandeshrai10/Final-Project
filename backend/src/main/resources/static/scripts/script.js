@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('active');
     }
 
-    // Ensure this part is not repeated in the script
     const menuToggle = document.querySelector('.menu-toggle');
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
@@ -227,7 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         }
     ];
-
     function displayLaptops(filteredLaptops) {
         const laptopsContainer = document.getElementById('laptops-container');
         if (!laptopsContainer) {
@@ -334,6 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (applyChangesBtn) {
         applyChangesBtn.addEventListener('click', applyChanges);
     }
+
 
     // Camera related code...
     const cameras = [
@@ -478,23 +477,26 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'availability_camera.html';
     };
 
-    document.getElementById('apply-changes-btn').addEventListener('click', () => {
-        const category = document.getElementById('categories').value;
-        const priceSort = document.getElementById('price').value;
-        let filteredCameras = cameras;
+    const applyChangesBtnCamera = document.getElementById('apply-changes-btn');
+    if (applyChangesBtnCamera) {
+        applyChangesBtnCamera.addEventListener('click', () => {
+            const category = document.getElementById('categories').value;
+            const priceSort = document.getElementById('price').value;
+            let filteredCameras = cameras;
 
-        if (category !== 'all') {
-            filteredCameras = cameras.filter(camera => camera.brand === category);
-        }
+            if (category !== 'all') {
+                filteredCameras = cameras.filter(camera => camera.brand === category);
+            }
 
-        if (priceSort === 'low-to-high') {
-            filteredCameras.sort((a, b) => a.price - b.price);
-        } else if (priceSort === 'high-to-low') {
-            filteredCameras.sort((a, b) => b.price - a.price);
-        }
+            if (priceSort === 'low-to-high') {
+                filteredCameras.sort((a, b) => a.price - b.price);
+            } else if (priceSort === 'high-to-low') {
+                filteredCameras.sort((a, b) => b.price - a.price);
+            }
 
-        displayCameras(filteredCameras);
-    });
+            displayCameras(filteredCameras);
+        });
+    }
 
     const cameraSearchForm = document.getElementById('search-form');
     if (cameraSearchForm) {
