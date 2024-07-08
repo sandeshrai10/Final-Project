@@ -1,102 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Tech Gear</title>
-    <link rel="stylesheet" href="/styles/styles.css">
+    <title>TechEase Rentals</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-    <header>
-        <div class="top-header">
+    <div class="container">
+        <nav>
             <div class="logo">
-                <a href="#">Student Tech Gear</a>
+                <a href="#">Tech<span>Ease</span></a>
             </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search for laptops, phones, and all other accessories...">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="login.html" class="login">Log in</a>
+                <a href="register.html" class="btn">Register</a>
+                <form class="search-form">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                </form>
             </div>
-            <nav class="main-nav">
-                <a href="#">How It Works</a>
-                <a href="#" id="openLoginModal">Login</a>
-                <a href="#" id="openSignupModal">Sign Up</a>
-            </nav>
-        </div>
-        <div class="bottom-header">
-            <nav class="categories">
-                <a href="#">Computers</a>
-                <a href="#">Cameras</a>
-                <a href="#">Tablets/Phones</a>
-                <a href="#">Audio & Equipment</a>
-                <a href="#">Gaming & VR</a>
-                <a href="#">Wearables</a>
-                <a href="#">Projectors & Displays</a>
-                <a href="#">Printers & Scanners</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Signup Modal -->
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeSignupModal">&times;</span>
-            <h2>Sign Up</h2>
-            <form id="signupForm">
-                <input type="text" id="firstName" placeholder="First Name" required>
-                <input type="text" id="lastName" placeholder="Last Name" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="text" id="phoneNumber" placeholder="Phone Number" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
+        </nav>
+        <section id="home" class="content bgimg">
+            <div class="overlay">
+                <h2>Welcome to TechEase Rentals</h2>
+                <p>Your one-stop solution for renting tech equipment.</p>
+                <div class="link">
+                    <a href="#about" class="hire">Learn More</a>
+                </div>
+                <div class="customer-review">
+                    <p>"TechEase Rentals provided me with the best laptop for my college projects. Highly recommend!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeLoginModal">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <input type="email" id="loginEmail" placeholder="Email" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <button type="submit">Login</button>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>TechEase Rentals provides college students with affordable and convenient access to technology equipment.</p>
+        </div>
+    </section>
+
+    <section id="services" class="section bg-light">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Laptop Rentals</h3>
+                    <p>High-performance laptops for all your needs.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-camera"></i>
+                    <h3>Camera Rentals</h3>
+                    <p>Professional cameras for capturing stunning moments.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-tablet-alt"></i>
+                    <h3>Tablet Rentals</h3>
+                    <p>Versatile tablets for work and play.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-headphones-alt"></i>
+                    <h3>Accessories</h3>
+                    <p>All the accessories you need for your tech.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation" class="section bg-light">
+        <div class="container">
+            <h2>Make a Reservation</h2>
+            <form id="reservation-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="equipment">Equipment:</label>
+                <select id="equipment" name="equipment" required>
+                    <option value="" disabled selected>Choose your equipment</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="camera">Camera</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="headphones">Headphones</option>
+                </select>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start-date" required>
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end-date" required>
+                <button type="submit" class="btn">Reserve</button>
             </form>
         </div>
-    </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="/action_page.php" target="_blank">
+                <label for="name">Name:</label>
+                <input type="text" id="contact-name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="contact-email" name="email" required>
+                <label for="subject">Subject:</label>
+                <input type="text" id="contact-subject" name="subject" required>
+                <label for="message">Message:</label>
+                <textarea id="contact-message" name="message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <a href="#">Student Tech Gear</a>
-            </div>
+        <div class="container">
+            <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
             <div class="footer-links">
-                <div class="more-info">
-                    <h3>More Info</h3>
-                    <a href="#" id="openLoginModalFooter">Login/Sign Up</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Our Mission</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">FAQs</a>
-                    <a href="#">Browse Items</a>
-                    <a href="#">Our Story</a>
-                </div>
-                <div class="follow-us">
-                    <h3>Follow Us</h3>
-                    <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
-                </div>
-                <div class="contact">
-                    <h3>Have a Question?</h3>
-                    <a href="contact.html">Contact Us</a>
-                </div>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms and Conditions</a>
             </div>
-        </div>
-    </footer>
-
-    <script src="/scripts/app.js"></script>
-</body>
-
-</html>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href
