@@ -1,6 +1,7 @@
 package com.example.techrental.service;
 
 import com.example.techrental.model.Equipment;
+
 import java.util.List;
 
 public interface InventoryService {
