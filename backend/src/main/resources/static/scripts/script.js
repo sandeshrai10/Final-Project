@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     const user = await response.json();
+                    // Store user role in localStorage
+                    localStorage.setItem('userRole', user.role);
                     alert(`Welcome, ${user.firstName}!`);
                     window.location.href = 'index.html';
                 } else {
@@ -66,6 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Function to show admin link if the user is an admin
+    function showAdminLink() {
+        const userRole = localStorage.getItem('userRole');
+        if (userRole === 'ROLE_ADMIN') {
+            document.getElementById('admin-link').style.display = 'block';
+        }
+    }
+
+    // Call the function on page load
+    showAdminLink();
 
     // Reservation form submission
     const reservationForm = document.getElementById('reservation-form');
@@ -82,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('active');
     }
 
-    // Ensure this part is not repeated in the script
     const menuToggle = document.querySelector('.menu-toggle');
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);

@@ -16,6 +16,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @return the User entity with the specified email address, or null if no user found.
      */
     User findByEmail(String email);
+
+    /**
+     * Custom method to count all users.
+     *
+     * @return the number of users
+     */
+    long count();
+
 }
 
 
