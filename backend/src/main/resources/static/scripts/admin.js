@@ -1,99 +1,94 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const addEquipmentForm = document.getElementById('add-equipment-form');
-    const equipmentTableBody = document.getElementById('equipment-table').querySelector('tbody');
+    document.getElementById('manage-equipment-btn').addEventListener('click', loadManageEquipment);
+    document.getElementById('manage-orders-btn').addEventListener('click', loadManageOrders);
+    document.getElementById('manage-users-btn').addEventListener('click', loadManageUsers);
+    document.getElementById('manage-feedback-btn').addEventListener('click', loadManageFeedback);
 
-    // Fetch existing equipment from the server
-    async function fetchEquipment() {
-        try {
-            const response = await fetch('/api/equipment');
-            const equipmentList = await response.json();
-            renderEquipmentList(equipmentList);
-        } catch (error) {
-            console.error('Error fetching equipment:', error);
-        }
-    }
-
-    function renderEquipmentList(equipmentList) {
-        equipmentTableBody.innerHTML = '';
-        equipmentList.forEach((equipment) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${equipment.category}</td>
-                <td>${equipment.name}</td>
-                <td>${equipment.description}</td>
-                <td>${equipment.dailyRentalRate}</td>
-                <td>${equipment.availability}</td>
-                <td>
-                    <button onclick="editEquipment(${equipment.id})">Edit</button>
-                    <button onclick="deleteEquipment(${equipment.id})">Delete</button>
-                </td>
-            `;
-            equipmentTableBody.appendChild(row);
-        });
-    }
-
-    addEquipmentForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const newEquipment = {
-            category: document.getElementById('equipment-type').value,
-            name: document.getElementById('equipment-name').value,
-            description: document.getElementById('equipment-description').value,
-            dailyRentalRate: document.getElementById('equipment-price').value,
-            availability: document.getElementById('equipment-availability').value
-        };
-
-        try {
-            const response = await fetch('/api/equipment', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newEquipment)
-            });
-
-            if (response.ok) {
-                fetchEquipment();
-                addEquipmentForm.reset();
-            } else {
-                console.error('Error adding equipment');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    });
-
-    window.editEquipment = function(id) {
-        // Fetch equipment details and fill the form for editing
-        fetch(`/api/equipment/${id}`)
-            .then(response => response.json())
-            .then(equipment => {
-                document.getElementById('equipment-type').value = equipment.category;
-                document.getElementById('equipment-name').value = equipment.name;
-                document.getElementById('equipment-description').value = equipment.description;
-                document.getElementById('equipment-price').value = equipment.dailyRentalRate;
-                document.getElementById('equipment-availability').value = equipment.availability;
-
-                deleteEquipment(id); // Remove the old equipment entry before adding the updated one
-            })
-            .catch(error => console.error('Error fetching equipment details:', error));
-    };
-
-    window.deleteEquipment = async function(id) {
-        try {
-            const response = await fetch(`/api/equipment/${id}`, {
-                method: 'DELETE'
-            });
-
-            if (response.ok) {
-                fetchEquipment();
-            } else {
-                console.error('Error deleting equipment');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-
-    fetchEquipment();
+    // Add event listener for add equipment form submission
+    document.getElementById('add-equipment-form').addEventListener('submit', addEquipment);
 });
+
+function loadManageEquipment() {
+    document.getElementById('content').innerHTML = document.getElementById('manage-equipment-section').outerHTML;
+    document.getElementById('manage-equipment-section').style.display = 'block';
+    loadEquipmentList();
+}
+
+function loadManageOrders() {
+    // Implement loading of Manage Rental Orders section
+}
+
+function loadManageUsers() {
+    // Implement loading of Manage Users section
+}
+
+function loadManageFeedback() {
+    // Implement loading of Feedback and Reviews section
+}
+
+function loadEquipmentList() {
+    // Fetch and display the list of equipment from the backend
+    // This is a placeholder. You need to implement the actual fetching logic.
+    const equipmentList = [
+        { id: 1, name: 'Laptop', description: 'Dell XPS 13', category: 'Laptops', stockQuantity: 5, dailyRentalRate: 10 },
+        { id: 2, name: 'Camera', description: 'Canon EOS R', category: 'Cameras', stockQuantity: 3, dailyRentalRate: 15 }
+    ];
+
+    const equipmentListBody = document.getElementById('equipment-list-body');
+    equipmentListBody.innerHTML = '';
+
+    equipmentList.forEach(equipment => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${equipment.id}</td>
+            <td>${equipment.name}</td>
+            <td>${equipment.description}</td>
+            <td>${equipment.category}</td>
+            <td>${equipment.stockQuantity}</td>
+            <td>${equipment.dailyRentalRate}</td>
+            <td><button class="edit" onclick="editEquipment(${equipment.id})">Edit</button></td>
+            <td><button class="delete" onclick="deleteEquipment(${equipment.id})">Delete</button></td>
+        `;
+
+        equipmentListBody.appendChild(row);
+    });
+}
+
+function addEquipment(event) {
+    event.preventDefault();
+    
+    const equipment = {
+        name: document.getElementById('name').value,
+        description: document.getElementById('description').value,
+        category: document.getElementById('category').value,
+        stockQuantity: document.getElementById('stockQuantity').value,
+        dailyRentalRate: document.getElementById('dailyRentalRate').value
+    };
+
+    fetch('/api/equipment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(equipment)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        loadEquipmentList(); // Refresh the equipment list
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+function editEquipment(id) {
+    // Implement logic to fetch and populate equipment details in edit form
+    alert(`Edit Equipment with ID: ${id} - Not yet implemented`);
+}
+
+function deleteEquipment(id) {
+    // Implement logic to delete equipment
+    alert(`Delete Equipment with ID: ${id} - Not yet implemented`);
+}
