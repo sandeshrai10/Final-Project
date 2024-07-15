@@ -26,7 +26,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public Equipment getEquipmentByItemNumber(String itemNumber) {
         return equipmentRepository.findByItemNumber(itemNumber);
-    }
+    }    
 
 
     @Override

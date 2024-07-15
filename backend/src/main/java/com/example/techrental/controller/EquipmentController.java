@@ -52,11 +52,21 @@ public class EquipmentController {
 
     @GetMapping("/itemNumber/{itemNumber}")
     public ResponseEntity<Equipment> getEquipmentByItemNumber(@PathVariable String itemNumber) {
+        System.out.println("Received request for item number: " + itemNumber);
         Equipment equipment = inventoryService.getEquipmentByItemNumber(itemNumber);
         if (equipment != null) {
             return ResponseEntity.ok(equipment);
         }
         return ResponseEntity.notFound().build();
+    }
+    
+    public ResponseEntity<Equipment> getEquipmentAvailability(@PathVariable String itemNumber) {
+        Equipment equipment = inventoryService.getEquipmentByItemNumber(itemNumber);
+        if (equipment != null) {
+            return ResponseEntity.ok(equipment);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
     
 

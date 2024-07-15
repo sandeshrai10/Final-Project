@@ -10,6 +10,7 @@ public interface InventoryService {
     Equipment addEquipment(Equipment equipment);
     Equipment updateEquipment(Long id, Equipment equipment);
     void deleteEquipment(Long id);
-    Equipment getEquipmentByItemNumber(String itemNumber);
+    public Equipment getEquipmentByItemNumber(String itemNumber);
+
 
 }

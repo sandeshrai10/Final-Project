@@ -195,23 +195,9 @@
     };
     
     window.checkAvailability = function(itemNumber) {
-        fetch(`/api/admin/equipment/itemNumber/${itemNumber}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                localStorage.setItem('selectedEquipment', JSON.stringify(data));
-                window.location.href = 'availability.html';
-            })
-            .catch(error => {
-                console.error('Error fetching availability:', error);
-                alert('Error fetching availability: ' + error.message);
-            });
+        localStorage.setItem('selectedItemNumber', itemNumber);
+        window.location.href = 'availability.html';
     };
-    
     
     function filterLaptops() {
         const category = document.getElementById('categories').value;
