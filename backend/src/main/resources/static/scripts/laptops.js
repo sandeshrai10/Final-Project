@@ -147,8 +147,11 @@
         }
     ];
 
-
     function displayLaptops(filteredLaptops) {
+        if (!Array.isArray(filteredLaptops)) {
+            console.error("Expected filteredLaptops to be an array, got:", typeof filteredLaptops);
+            return;
+        }
         const laptopsContainer = document.getElementById('laptops-container');
         if (!laptopsContainer) {
             return;
@@ -161,11 +164,11 @@
             laptopItem.innerHTML = `
                 <div class="image-gallery">
                     <div class="main-image">
-                        <img src="${laptop.images[laptop.currentImageIndex]}" alt="${laptop.name}" width="300" height="200" id="mainImage${laptop.id}">
+                        <img src="${laptop.images[laptop.currentImageIndex]}" alt="${laptop.name}" width="300" height="200" id="mainImage${laptop.itemNumber}">
                     </div>
                     <div class="arrows">
-                        <button class="prev" onclick="changeImage(-1, ${laptop.id})">&#10094;</button>
-                        <button class="next" onclick="changeImage(1, ${laptop.id})">&#10095;</button>
+                        <button class="prev" onclick="changeImage(-1, ${laptop.itemNumber})">&#10094;</button>
+                        <button class="next" onclick="changeImage(1, ${laptop.itemNumber})">&#10095;</button>
                     </div>
                 </div>
                 <div class="laptop-details">
@@ -181,21 +184,29 @@
         });
     }
     
-    window.changeImage = function(direction, laptopId) {
-        const laptop = laptops.find(l => l.id === laptopId);
-        laptop.currentImageIndex += direction;
-    
-        if (laptop.currentImageIndex < 0) {
-            laptop.currentImageIndex = laptop.images.length - 1;
-        } else if (laptop.currentImageIndex >= laptop.images.length) {
-            laptop.currentImageIndex = 0;
+    window.checkAvailability = function(itemNumber) {
+        const laptop = laptops.find(l => l.itemNumber === itemNumber);
+        
+        // Debugging logs
+        console.log("Item Number:", itemNumber);
+        console.log("Selected Laptop:", laptop);
+        
+        if (!laptop) {
+            console.error("Laptop not found for Item Number:", itemNumber);
+            return;
         }
     
-        document.getElementById(`mainImage${laptopId}`).src = laptop.images[laptop.currentImageIndex];
-    };
-    
-    window.checkAvailability = function(itemNumber) {
-        localStorage.setItem('selectedItemNumber', itemNumber);
+        localStorage.setItem('selectedItemNumber', laptop.itemNumber);
+        localStorage.setItem('selectedLaptopSpecs', JSON.stringify(laptop.specs));
+        localStorage.setItem('selectedLaptopName', laptop.name);
+        localStorage.setItem('selectedLaptopImages', JSON.stringify(laptop.images));
+        
+        // Debugging logs
+        console.log("Stored item number:", localStorage.getItem('selectedItemNumber'));
+        console.log("Stored laptop specs:", localStorage.getItem('selectedLaptopSpecs'));
+        console.log("Stored laptop name:", localStorage.getItem('selectedLaptopName'));
+        console.log("Stored laptop images:", localStorage.getItem('selectedLaptopImages'));
+        
         window.location.href = 'availability.html';
     };
     
@@ -210,21 +221,8 @@
         return filteredLaptops;
     }
     
-    function sortLaptops(laptopsToSort) {
-        const sortOption = document.getElementById('price').value;
-    
-        if (sortOption === 'low-to-high') {
-            laptopsToSort.sort((a, b) => a.price - b.price);
-        } else if (sortOption === 'high-to-low') {
-            laptopsToSort.sort((a, b) => b.price - a.price);
-        }
-    
-        return laptopsToSort;
-    }
-    
     function applyChanges() {
         let filteredLaptops = filterLaptops();
-        filteredLaptops = sortLaptops(filteredLaptops);
         displayLaptops(filteredLaptops);
     }
     
