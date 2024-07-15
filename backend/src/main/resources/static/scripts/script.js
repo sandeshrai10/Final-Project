@@ -348,504 +348,504 @@ document.addEventListener('DOMContentLoaded', () => {
     //     applyChangesBtn.addEventListener('click', applyChanges);
     // }
 
-    // Camera related code...
-    const cameras = [
-        {
-            id: 1,
-            name: "Fujifilm X-T30 II",
-            sensor: "26.1 megapixel APS-C X-Trans CMOS 4 sensor",
-            processor: "X-Processor 4",
-            isoRange: "160-12800 (expandable to 80-51200)",
-            autofocus: "Hybrid AF with 425 points",
-            video: "4K at 30p, Full HD at 240p",
-            display: "3.0\" tilting touchscreen LCD",
-            price: 899,
-            brand: "fujifilm",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 2,
-            name: "Sony A7 III",
-            sensor: "24.2 megapixel full-frame Exmor R CMOS sensor",
-            processor: "BIONZ X image processor",
-            isoRange: "100-51200 (expandable to 50-204800)",
-            autofocus: "Fast Hybrid AF with 693 phase-detection and 425 contrast-detection points",
-            video: "4K HDR at 30p, Full HD at 120p",
-            display: "3.0\" tilting touchscreen LCD",
-            price: 1999,
-            brand: "sony",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 3,
-            name: "Canon PowerShot SX70 HS",
-            sensor: "20.3 megapixel 1/2.3\" CMOS sensor",
-            processor: "DIGIC 8",
-            isoRange: "100-3200 (expandable to 6400)",
-            autofocus: "65x optical zoom lens (21-1365mm equivalent)",
-            video: "Full HD at 60p",
-            display: "3.0\" vari-angle LCD",
-            price: 549,
-            brand: "canon",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 4,
-            name: "Sony ZV-E10",
-            sensor: "24.2 megapixel APS-C Exmor CMOS sensor",
-            processor: "BIONZ X image processor",
-            isoRange: "100-32000 (expandable to 100-51200)",
-            autofocus: "Fast Hybrid AF with 425 phase-detection and 425 contrast-detection points",
-            video: "4K HDR at 30p, Full HD at 120p",
-            display: "3.0\" vari-angle touchscreen LCD",
-            price: 699,
-            brand: "sony",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 5,
-            name: "Fujifilm X-S10",
-            sensor: "26.1 megapixel APS-C X-Trans CMOS 4 sensor",
-            processor: "X-Processor 4",
-            isoRange: "160-12800 (expandable to 80-51200)",
-            autofocus: "Hybrid AF with 425 points",
-            video: "4K at 30p, Full HD at 240p",
-            imageStabilization: "5-axis in-body image stabilization",
-            display: "3.0\" vari-angle touchscreen LCD",
-            price: 999,
-            brand: "fujifilm",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        },
-        {
-            id: 6,
-            name: "Canon EOS 90D",
-            sensor: "32.5 megapixel APS-C CMOS sensor",
-            processor: "DIGIC 8",
-            isoRange: "100-25600 (expandable to 51200)",
-            autofocus: "45-point all cross-type AF system",
-            video: "4K at 30p, Full HD at 120p",
-            display: "3.0\" vari-angle touchscreen LCD",
-            price: 1199,
-            brand: "canon",
-            images: ["front.png", "sideview.png", "top.png"],
-            currentImageIndex: 0
-        }
-    ];
+    // // Camera related code...
+    // const cameras = [
+    //     {
+    //         id: 1,
+    //         name: "Fujifilm X-T30 II",
+    //         sensor: "26.1 megapixel APS-C X-Trans CMOS 4 sensor",
+    //         processor: "X-Processor 4",
+    //         isoRange: "160-12800 (expandable to 80-51200)",
+    //         autofocus: "Hybrid AF with 425 points",
+    //         video: "4K at 30p, Full HD at 240p",
+    //         display: "3.0\" tilting touchscreen LCD",
+    //         price: 899,
+    //         brand: "fujifilm",
+    //         images: ["front.png", "sideview.png", "top.png"],
+    //         currentImageIndex: 0
+    //     },
+    //     {
+    //         id: 2,
+    //         name: "Sony A7 III",
+    //         sensor: "24.2 megapixel full-frame Exmor R CMOS sensor",
+    //         processor: "BIONZ X image processor",
+    //         isoRange: "100-51200 (expandable to 50-204800)",
+    //         autofocus: "Fast Hybrid AF with 693 phase-detection and 425 contrast-detection points",
+    //         video: "4K HDR at 30p, Full HD at 120p",
+    //         display: "3.0\" tilting touchscreen LCD",
+    //         price: 1999,
+    //         brand: "sony",
+    //         images: ["front.png", "sideview.png", "top.png"],
+    //         currentImageIndex: 0
+    //     },
+    //     {
+    //         id: 3,
+    //         name: "Canon PowerShot SX70 HS",
+    //         sensor: "20.3 megapixel 1/2.3\" CMOS sensor",
+    //         processor: "DIGIC 8",
+    //         isoRange: "100-3200 (expandable to 6400)",
+    //         autofocus: "65x optical zoom lens (21-1365mm equivalent)",
+    //         video: "Full HD at 60p",
+    //         display: "3.0\" vari-angle LCD",
+    //         price: 549,
+    //         brand: "canon",
+    //         images: ["front.png", "sideview.png", "top.png"],
+    //         currentImageIndex: 0
+    //     },
+    //     {
+    //         id: 4,
+    //         name: "Sony ZV-E10",
+    //         sensor: "24.2 megapixel APS-C Exmor CMOS sensor",
+    //         processor: "BIONZ X image processor",
+    //         isoRange: "100-32000 (expandable to 100-51200)",
+    //         autofocus: "Fast Hybrid AF with 425 phase-detection and 425 contrast-detection points",
+    //         video: "4K HDR at 30p, Full HD at 120p",
+    //         display: "3.0\" vari-angle touchscreen LCD",
+    //         price: 699,
+    //         brand: "sony",
+    //         images: ["front.png", "sideview.png", "top.png"],
+    //         currentImageIndex: 0
+    //     },
+    //     {
+    //         id: 5,
+    //         name: "Fujifilm X-S10",
+    //         sensor: "26.1 megapixel APS-C X-Trans CMOS 4 sensor",
+    //         processor: "X-Processor 4",
+    //         isoRange: "160-12800 (expandable to 80-51200)",
+    //         autofocus: "Hybrid AF with 425 points",
+    //         video: "4K at 30p, Full HD at 240p",
+    //         imageStabilization: "5-axis in-body image stabilization",
+    //         display: "3.0\" vari-angle touchscreen LCD",
+    //         price: 999,
+    //         brand: "fujifilm",
+    //         images: ["front.png", "sideview.png", "top.png"],
+    //         currentImageIndex: 0
+    //     },
+    //     {
+    //         id: 6,
+    //         name: "Canon EOS 90D",
+    //         sensor: "32.5 megapixel APS-C CMOS sensor",
+    //         processor: "DIGIC 8",
+    //         isoRange: "100-25600 (expandable to 51200)",
+    //         autofocus: "45-point all cross-type AF system",
+    //         video: "4K at 30p, Full HD at 120p",
+    //         display: "3.0\" vari-angle touchscreen LCD",
+    //         price: 1199,
+    //         brand: "canon",
+    //         images: ["front.png", "sideview.png", "top.png"],
+    //         currentImageIndex: 0
+    //     }
+    // ];
 
-    function displayCameras(cameraList) {
-        const container = document.getElementById('cameras-container');
-        if (!container) {
-            return;
-        }
-        container.innerHTML = '';
-        cameraList.forEach(camera => {
-            const cameraElement = document.createElement('div');
-            cameraElement.className = 'camera-item';
-            cameraElement.innerHTML = `
-                <h3>${camera.name}</h3>
-                <div class="image-gallery">
-                    <div class="main-image">
-                        <img src="${camera.images[camera.currentImageIndex]}" alt="${camera.name}" id="mainImage${camera.id}" width="300" height="200">
-                    </div>
-                    <div class="arrows">
-                        <button class="prev" onclick="changeCameraImage(-1, ${camera.id})">&#10094;</button>
-                        <button class="next" onclick="changeCameraImage(1, ${camera.id})">&#10095;</button>
-                    </div>
-                </div>
-                <ul>
-                    <li>Sensor: ${camera.sensor}</li>
-                    <li>Processor: ${camera.processor}</li>
-                    <li>ISO Range: ${camera.isoRange}</li>
-                    <li>Autofocus: ${camera.autofocus}</li>
-                    <li>Video: ${camera.video}</li>
-                    <li>Display: ${camera.display}</li>
-                </ul>
-                <p><strong>Price: $${camera.price}</strong></p>
-                <button class="btn" onclick="checkCameraAvailability(${camera.id})">Check Availability</button>
-            `;
-            container.appendChild(cameraElement);
-        });
-    }
+    // function displayCameras(cameraList) {
+    //     const container = document.getElementById('cameras-container');
+    //     if (!container) {
+    //         return;
+    //     }
+    //     container.innerHTML = '';
+    //     cameraList.forEach(camera => {
+    //         const cameraElement = document.createElement('div');
+    //         cameraElement.className = 'camera-item';
+    //         cameraElement.innerHTML = `
+    //             <h3>${camera.name}</h3>
+    //             <div class="image-gallery">
+    //                 <div class="main-image">
+    //                     <img src="${camera.images[camera.currentImageIndex]}" alt="${camera.name}" id="mainImage${camera.id}" width="300" height="200">
+    //                 </div>
+    //                 <div class="arrows">
+    //                     <button class="prev" onclick="changeCameraImage(-1, ${camera.id})">&#10094;</button>
+    //                     <button class="next" onclick="changeCameraImage(1, ${camera.id})">&#10095;</button>
+    //                 </div>
+    //             </div>
+    //             <ul>
+    //                 <li>Sensor: ${camera.sensor}</li>
+    //                 <li>Processor: ${camera.processor}</li>
+    //                 <li>ISO Range: ${camera.isoRange}</li>
+    //                 <li>Autofocus: ${camera.autofocus}</li>
+    //                 <li>Video: ${camera.video}</li>
+    //                 <li>Display: ${camera.display}</li>
+    //             </ul>
+    //             <p><strong>Price: $${camera.price}</strong></p>
+    //             <button class="btn" onclick="checkCameraAvailability(${camera.id})">Check Availability</button>
+    //         `;
+    //         container.appendChild(cameraElement);
+    //     });
+    // }
 
-    window.changeCameraImage = function(direction, cameraId) {
-        const camera = cameras.find(cam => cam.id === cameraId);
-        camera.currentImageIndex += direction;
+    // window.changeCameraImage = function(direction, cameraId) {
+    //     const camera = cameras.find(cam => cam.id === cameraId);
+    //     camera.currentImageIndex += direction;
 
-        if (camera.currentImageIndex < 0) {
-            camera.currentImageIndex = camera.images.length - 1;
-        } else if (camera.currentImageIndex >= camera.images.length) {
-            camera.currentImageIndex = 0;
-        }
+    //     if (camera.currentImageIndex < 0) {
+    //         camera.currentImageIndex = camera.images.length - 1;
+    //     } else if (camera.currentImageIndex >= camera.images.length) {
+    //         camera.currentImageIndex = 0;
+    //     }
 
-        document.getElementById(`mainImage${cameraId}`).src = camera.images[camera.currentImageIndex];
-    };
+    //     document.getElementById(`mainImage${cameraId}`).src = camera.images[camera.currentImageIndex];
+    // };
 
-    window.checkCameraAvailability = function(cameraId) {
-        const camera = cameras.find(cam => cam.id === cameraId);
-        localStorage.setItem('selectedCamera', JSON.stringify(camera));
-        window.location.href = 'availability_camera.html';
-    };
+    // window.checkCameraAvailability = function(cameraId) {
+    //     const camera = cameras.find(cam => cam.id === cameraId);
+    //     localStorage.setItem('selectedCamera', JSON.stringify(camera));
+    //     window.location.href = 'availability_camera.html';
+    // };
 
-    document.getElementById('apply-changes-btn').addEventListener('click', () => {
-        const category = document.getElementById('categories').value;
-        const priceSort = document.getElementById('price').value;
-        let filteredCameras = cameras;
+    // document.getElementById('apply-changes-btn').addEventListener('click', () => {
+    //     const category = document.getElementById('categories').value;
+    //     const priceSort = document.getElementById('price').value;
+    //     let filteredCameras = cameras;
 
-        if (category !== 'all') {
-            filteredCameras = cameras.filter(camera => camera.brand === category);
-        }
+    //     if (category !== 'all') {
+    //         filteredCameras = cameras.filter(camera => camera.brand === category);
+    //     }
 
-        if (priceSort === 'low-to-high') {
-            filteredCameras.sort((a, b) => a.price - b.price);
-        } else if (priceSort === 'high-to-low') {
-            filteredCameras.sort((a, b) => b.price - a.price);
-        }
+    //     if (priceSort === 'low-to-high') {
+    //         filteredCameras.sort((a, b) => a.price - b.price);
+    //     } else if (priceSort === 'high-to-low') {
+    //         filteredCameras.sort((a, b) => b.price - a.price);
+    //     }
 
-        displayCameras(filteredCameras);
-    });
+    //     displayCameras(filteredCameras);
+    // });
 
-    const cameraSearchForm = document.getElementById('search-form');
-    if (cameraSearchForm) {
-        cameraSearchForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const filteredCameras = cameras.filter(camera => 
-                camera.name.toLowerCase().includes(query) || 
-                camera.brand.toLowerCase().includes(query)
-            );
-            displayCameras(filteredCameras);
-        });
-    }
+    // const cameraSearchForm = document.getElementById('search-form');
+    // if (cameraSearchForm) {
+    //     cameraSearchForm.addEventListener('submit', (event) => {
+    //         event.preventDefault();
+    //         const query = document.getElementById('search-input').value.toLowerCase();
+    //         const filteredCameras = cameras.filter(camera => 
+    //             camera.name.toLowerCase().includes(query) || 
+    //             camera.brand.toLowerCase().includes(query)
+    //         );
+    //         displayCameras(filteredCameras);
+    //     });
+    // }
 
-    // Display all cameras by default
-    if (document.getElementById('cameras-container')) {
-        displayCameras(cameras);
-    }
+    // // Display all cameras by default
+    // if (document.getElementById('cameras-container')) {
+    //     displayCameras(cameras);
+    // }
 
-    const tablets = [
-            {
-                id: 1,
-                name: "Apple iPad Air (5th Generation)",
-                processor: "Apple A15 Bionic chip with 6-core CPU and 5-core GPU",
-                display: "10.9-inch Liquid Retina display with True Tone",
-                storageOptions: "64GB or 256GB",
-                camera: "12MP rear camera, 12MP ultra-wide front camera",
-                price: 599,
-                brand: "apple",
-                images: ["front.png", "sideview.png", "top.png"],
-                currentImageIndex: 0
-            },
-            {
-                id: 2,
-                name: "Apple iPad Pro (M1, 5th Generation)",
-                processor: "Apple M1 chip with 8-core CPU and 8-core GPU",
-                display: "11-inch Liquid Retina display (2388 x 1668 resolution) or 12.9-inch Liquid Retina XDR display (2732 x 2048 resolution)",
-                storageOptions: "128GB, 256GB, 512GB, 1TB, or 2TB",
-                camera: "12MP Wide and 10MP Ultra Wide rear cameras, 12MP TrueDepth front camera",
-                price: 799,
-                brand: "apple",
-                images: ["front.png", "sideview.png", "top.png"],
-                currentImageIndex: 0
-            },
-            {
-                id: 3,
-                name: "iPad Mini (6th Generation)",
-                processor: "Apple A15 Bionic chip with 6-core CPU and 5-core GPU",
-                display: "8.3-inch Liquid Retina display with True Tone",
-                storageOptions: "64GB or 256GB",
-                camera: "12MP Wide rear camera, 12MP Ultra Wide front camera",
-                price: 499,
-                brand: "apple",
-                images: ["front.png", "sideview.png", "top.png"],
-                currentImageIndex: 0
-            },
-            {
-                id: 4,
-                name: "Microsoft Surface Pro 7",
-                processor: "Intel Core i3/i5/i7 options available",
-                display: "12.3-inch PixelSense display with 2736 x 1824 resolution",
-                storageOptions: "128GB, 256GB, 512GB, or 1TB SSD",
-                camera: "8MP rear camera, 5MP front-facing camera",
-                price: 749,
-                brand: "microsoft",
-                images: ["front.png", "sideview.png", "top.png"],
-                currentImageIndex: 0
-            },
-            {
-                id: 5,
-                name: "Amazon Fire HD 10 (11th Generation)",
-                processor: "Octa-core processor",
-                display: "10.1-inch Full HD display",
-                storageOptions: "32GB or 64GB (expandable up to 1TB via microSD card)",
-                camera: "5MP rear camera, 2MP front-facing camera",
-                price: 149.99,
-                brand: "amazon",
-                images: ["front.png", "sideview.png", "top.png"],
-                currentImageIndex: 0
-            }
-        ];
+    // const tablets = [
+    //         {
+    //             id: 1,
+    //             name: "Apple iPad Air (5th Generation)",
+    //             processor: "Apple A15 Bionic chip with 6-core CPU and 5-core GPU",
+    //             display: "10.9-inch Liquid Retina display with True Tone",
+    //             storageOptions: "64GB or 256GB",
+    //             camera: "12MP rear camera, 12MP ultra-wide front camera",
+    //             price: 599,
+    //             brand: "apple",
+    //             images: ["front.png", "sideview.png", "top.png"],
+    //             currentImageIndex: 0
+    //         },
+    //         {
+    //             id: 2,
+    //             name: "Apple iPad Pro (M1, 5th Generation)",
+    //             processor: "Apple M1 chip with 8-core CPU and 8-core GPU",
+    //             display: "11-inch Liquid Retina display (2388 x 1668 resolution) or 12.9-inch Liquid Retina XDR display (2732 x 2048 resolution)",
+    //             storageOptions: "128GB, 256GB, 512GB, 1TB, or 2TB",
+    //             camera: "12MP Wide and 10MP Ultra Wide rear cameras, 12MP TrueDepth front camera",
+    //             price: 799,
+    //             brand: "apple",
+    //             images: ["front.png", "sideview.png", "top.png"],
+    //             currentImageIndex: 0
+    //         },
+    //         {
+    //             id: 3,
+    //             name: "iPad Mini (6th Generation)",
+    //             processor: "Apple A15 Bionic chip with 6-core CPU and 5-core GPU",
+    //             display: "8.3-inch Liquid Retina display with True Tone",
+    //             storageOptions: "64GB or 256GB",
+    //             camera: "12MP Wide rear camera, 12MP Ultra Wide front camera",
+    //             price: 499,
+    //             brand: "apple",
+    //             images: ["front.png", "sideview.png", "top.png"],
+    //             currentImageIndex: 0
+    //         },
+    //         {
+    //             id: 4,
+    //             name: "Microsoft Surface Pro 7",
+    //             processor: "Intel Core i3/i5/i7 options available",
+    //             display: "12.3-inch PixelSense display with 2736 x 1824 resolution",
+    //             storageOptions: "128GB, 256GB, 512GB, or 1TB SSD",
+    //             camera: "8MP rear camera, 5MP front-facing camera",
+    //             price: 749,
+    //             brand: "microsoft",
+    //             images: ["front.png", "sideview.png", "top.png"],
+    //             currentImageIndex: 0
+    //         },
+    //         {
+    //             id: 5,
+    //             name: "Amazon Fire HD 10 (11th Generation)",
+    //             processor: "Octa-core processor",
+    //             display: "10.1-inch Full HD display",
+    //             storageOptions: "32GB or 64GB (expandable up to 1TB via microSD card)",
+    //             camera: "5MP rear camera, 2MP front-facing camera",
+    //             price: 149.99,
+    //             brand: "amazon",
+    //             images: ["front.png", "sideview.png", "top.png"],
+    //             currentImageIndex: 0
+    //         }
+    //     ];
 
-        function displayTablets(tabletList) {
-            const container = document.getElementById('tablets-container');
-            if (!container) {
-                return;
-            }
-            container.innerHTML = '';
-            tabletList.forEach(tablet => {
-                const tabletElement = document.createElement('div');
-                tabletElement.className = 'tablet-item';
-                tabletElement.innerHTML = `
-                    <h3>${tablet.name}</h3>
-                    <div class="image-gallery">
-                        <div class="main-image">
-                            <img src="${tablet.images[tablet.currentImageIndex]}" alt="${tablet.name}" id="mainImage${tablet.id}" width="300" height="200">
-                        </div>
-                        <div class="arrows">
-                            <button class="prev" onclick="changeTabletImage(-1, ${tablet.id})">&#10094;</button>
-                            <button class="next" onclick="changeTabletImage(1, ${tablet.id})">&#10095;</button>
-                        </div>
-                    </div>
-                    <ul>
-                        <li>Processor: ${tablet.processor}</li>
-                        <li>Display: ${tablet.display}</li>
-                        <li>Storage Options: ${tablet.storageOptions}</li>
-                        <li>Camera: ${tablet.camera}</li>
-                    </ul>
-                    <p><strong>Price: $${tablet.price}</strong></p>
-                    <button class="btn" onclick="checkTabletAvailability(${tablet.id})">Check Availability</button>
-                `;
-                container.appendChild(tabletElement);
-            });
-        }
+    //     function displayTablets(tabletList) {
+    //         const container = document.getElementById('tablets-container');
+    //         if (!container) {
+    //             return;
+    //         }
+    //         container.innerHTML = '';
+    //         tabletList.forEach(tablet => {
+    //             const tabletElement = document.createElement('div');
+    //             tabletElement.className = 'tablet-item';
+    //             tabletElement.innerHTML = `
+    //                 <h3>${tablet.name}</h3>
+    //                 <div class="image-gallery">
+    //                     <div class="main-image">
+    //                         <img src="${tablet.images[tablet.currentImageIndex]}" alt="${tablet.name}" id="mainImage${tablet.id}" width="300" height="200">
+    //                     </div>
+    //                     <div class="arrows">
+    //                         <button class="prev" onclick="changeTabletImage(-1, ${tablet.id})">&#10094;</button>
+    //                         <button class="next" onclick="changeTabletImage(1, ${tablet.id})">&#10095;</button>
+    //                     </div>
+    //                 </div>
+    //                 <ul>
+    //                     <li>Processor: ${tablet.processor}</li>
+    //                     <li>Display: ${tablet.display}</li>
+    //                     <li>Storage Options: ${tablet.storageOptions}</li>
+    //                     <li>Camera: ${tablet.camera}</li>
+    //                 </ul>
+    //                 <p><strong>Price: $${tablet.price}</strong></p>
+    //                 <button class="btn" onclick="checkTabletAvailability(${tablet.id})">Check Availability</button>
+    //             `;
+    //             container.appendChild(tabletElement);
+    //         });
+    //     }
 
-        window.changeTabletImage = function(direction, tabletId) {
-            const tablet = tablets.find(tab => tab.id === tabletId);
-            tablet.currentImageIndex += direction;
+    //     window.changeTabletImage = function(direction, tabletId) {
+    //         const tablet = tablets.find(tab => tab.id === tabletId);
+    //         tablet.currentImageIndex += direction;
 
-            if (tablet.currentImageIndex < 0) {
-                tablet.currentImageIndex = tablet.images.length - 1;
-            } else if (tablet.currentImageIndex >= tablet.images.length) {
-                tablet.currentImageIndex = 0;
-            }
+    //         if (tablet.currentImageIndex < 0) {
+    //             tablet.currentImageIndex = tablet.images.length - 1;
+    //         } else if (tablet.currentImageIndex >= tablet.images.length) {
+    //             tablet.currentImageIndex = 0;
+    //         }
 
-            document.getElementById(`mainImage${tabletId}`).src = tablet.images[tablet.currentImageIndex];
-        };
+    //         document.getElementById(`mainImage${tabletId}`).src = tablet.images[tablet.currentImageIndex];
+    //     };
 
-        window.checkTabletAvailability = function(tabletId) {
-            const tablet = tablets.find(tab => tab.id === tabletId);
-            localStorage.setItem('selectedTablet', JSON.stringify(tablet));
-            window.location.href = 'availability_tablet.html';
-        };
+    //     window.checkTabletAvailability = function(tabletId) {
+    //         const tablet = tablets.find(tab => tab.id === tabletId);
+    //         localStorage.setItem('selectedTablet', JSON.stringify(tablet));
+    //         window.location.href = 'availability_tablet.html';
+    //     };
 
-        document.getElementById('apply-changes-btn').addEventListener('click', () => {
-            const category = document.getElementById('categories').value;
-            const priceSort = document.getElementById('price').value;
-            let filteredTablets = tablets;
+    //     document.getElementById('apply-changes-btn').addEventListener('click', () => {
+    //         const category = document.getElementById('categories').value;
+    //         const priceSort = document.getElementById('price').value;
+    //         let filteredTablets = tablets;
 
-            if (category !== 'all') {
-                filteredTablets = tablets.filter(tablet => tablet.brand === category);
-            }
+    //         if (category !== 'all') {
+    //             filteredTablets = tablets.filter(tablet => tablet.brand === category);
+    //         }
 
-            if (priceSort === 'low-to-high') {
-                filteredTablets.sort((a, b) => a.price - b.price);
-            } else if (priceSort === 'high-to-low') {
-                filteredTablets.sort((a, b) => b.price - a.price);
-            }
+    //         if (priceSort === 'low-to-high') {
+    //             filteredTablets.sort((a, b) => a.price - b.price);
+    //         } else if (priceSort === 'high-to-low') {
+    //             filteredTablets.sort((a, b) => b.price - a.price);
+    //         }
 
-            displayTablets(filteredTablets);
-        });
+    //         displayTablets(filteredTablets);
+    //     });
 
-        const tabletSearchForm = document.getElementById('search-form');
-        if (tabletSearchForm) {
-            tabletSearchForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const query = document.getElementById('search-input').value.toLowerCase();
-                const filteredTablets = tablets.filter(tablet =>
-                    tablet.name.toLowerCase().includes(query) ||
-                    tablet.brand.toLowerCase().includes(query)
-                );
-                displayTablets(filteredTablets);
-            });
-        }
+    //     const tabletSearchForm = document.getElementById('search-form');
+    //     if (tabletSearchForm) {
+    //         tabletSearchForm.addEventListener('submit', (event) => {
+    //             event.preventDefault();
+    //             const query = document.getElementById('search-input').value.toLowerCase();
+    //             const filteredTablets = tablets.filter(tablet =>
+    //                 tablet.name.toLowerCase().includes(query) ||
+    //                 tablet.brand.toLowerCase().includes(query)
+    //             );
+    //             displayTablets(filteredTablets);
+    //         });
+    //     }
 
-        // Display all tablets by default
-        if (document.getElementById('tablets-container')) {
-            displayTablets(tablets);
-        }
+    //     // Display all tablets by default
+    //     if (document.getElementById('tablets-container')) {
+    //         displayTablets(tablets);
+    //     }
     
 
-        // Headphones related code...
-    const headphones = [
-        {
-            id: 1,
-            name: 'Apple AirPods Pro',
-            type: 'True wireless earbuds',
-            noiseCancellation: 'Active Noise Cancellation',
-            batteryLife: 'Up to 4.5 hours of listening time with ANC on',
-            compatibility: 'Works seamlessly with Apple devices',
-            price: 249,
-            brand: 'apple',
-            images: ['airpods_pro_front.png', 'airpods_pro_side.png', 'airpods_pro_case.png'],
-            currentImageIndex: 0
-        },
-        {
-            id: 2,
-            name: 'Sony WH-1000XM4',
-            type: 'Over-ear wireless headphones',
-            noiseCancellation: 'Yes (industry-leading)',
-            batteryLife: 'Up to 30 hours (with noise cancellation on)',
-            specialFeatures: 'Touch sensor controls, ambient sound control, and voice assistant integration',
-            price: 349,
-            brand: 'sony',
-            images: ['sony_wh1000xm4_front.png', 'sony_wh1000xm4_side.png', 'sony_wh1000xm4_top.png'],
-            currentImageIndex: 0
-        },
-        {
-            id: 3,
-            name: 'Bose QuietComfort 45',
-            type: 'Over-ear wireless headphones',
-            noiseCancellation: 'Yes',
-            batteryLife: 'Up to 24 hours (with noise cancellation on)',
-            specialFeatures: 'Aware mode for hearing ambient sound, voice assistant support',
-            price: 329,
-            brand: 'bose',
-            images: ['bose_qc45_front.png', 'bose_qc45_side.png', 'bose_qc45_top.png'],
-            currentImageIndex: 0
-        },
-        {
-            id: 4,
-            name: 'Jabra Elite 85t',
-            type: 'True wireless earbuds',
-            noiseCancellation: 'Active Noise Cancellation',
-            batteryLife: 'Up to 5.5 hours (with ANC on), additional 19.5 hours with charging case',
-            specialFeatures: 'Customizable sound via Jabra Sound+ app, strong connectivity',
-            price: 229,
-            brand: 'jabra',
-            images: ['jabra_elite85t_front.png', 'jabra_elite85t_side.png', 'jabra_elite85t_case.png'],
-            currentImageIndex: 0
-        },
-        {
-            id: 5,
-            name: 'Sennheiser Momentum 3 Wireless',
-            type: 'Over-ear wireless headphones',
-            noiseCancellation: 'Yes',
-            batteryLife: 'Up to 17 hours',
-            specialFeatures: 'Transparent Hearing mode, auto on/off when folding/unfolding',
-            price: 399,
-            brand: 'sennheiser',
-            images: ['sennheiser_momentum3_front.png', 'sennheiser_momentum3_side.png', 'sennheiser_momentum3_top.png'],
-            currentImageIndex: 0
-        },
-        {
-            id: 6,
-            name: 'Skullcandy Indy ANC',
-            type: 'True wireless earbuds',
-            noiseCancellation: 'Active Noise Cancellation',
-            batteryLife: 'Up to 5 hours (earbuds) + 16 hours (charging case)',
-            specialFeatures: 'Tile tracking, touch controls, rapid charge (10 minutes for 2 hours)',
-            price: 129,
-            brand: 'skullcandy',
-            images: ['skullcandy_indyanc_front.png', 'skullcandy_indyanc_side.png', 'skullcandy_indyanc_case.png'],
-            currentImageIndex: 0
-        }
-    ];
+//         // Headphones related code...
+//     const headphones = [
+//         {
+//             id: 1,
+//             name: 'Apple AirPods Pro',
+//             type: 'True wireless earbuds',
+//             noiseCancellation: 'Active Noise Cancellation',
+//             batteryLife: 'Up to 4.5 hours of listening time with ANC on',
+//             compatibility: 'Works seamlessly with Apple devices',
+//             price: 249,
+//             brand: 'apple',
+//             images: ['airpods_pro_front.png', 'airpods_pro_side.png', 'airpods_pro_case.png'],
+//             currentImageIndex: 0
+//         },
+//         {
+//             id: 2,
+//             name: 'Sony WH-1000XM4',
+//             type: 'Over-ear wireless headphones',
+//             noiseCancellation: 'Yes (industry-leading)',
+//             batteryLife: 'Up to 30 hours (with noise cancellation on)',
+//             specialFeatures: 'Touch sensor controls, ambient sound control, and voice assistant integration',
+//             price: 349,
+//             brand: 'sony',
+//             images: ['sony_wh1000xm4_front.png', 'sony_wh1000xm4_side.png', 'sony_wh1000xm4_top.png'],
+//             currentImageIndex: 0
+//         },
+//         {
+//             id: 3,
+//             name: 'Bose QuietComfort 45',
+//             type: 'Over-ear wireless headphones',
+//             noiseCancellation: 'Yes',
+//             batteryLife: 'Up to 24 hours (with noise cancellation on)',
+//             specialFeatures: 'Aware mode for hearing ambient sound, voice assistant support',
+//             price: 329,
+//             brand: 'bose',
+//             images: ['bose_qc45_front.png', 'bose_qc45_side.png', 'bose_qc45_top.png'],
+//             currentImageIndex: 0
+//         },
+//         {
+//             id: 4,
+//             name: 'Jabra Elite 85t',
+//             type: 'True wireless earbuds',
+//             noiseCancellation: 'Active Noise Cancellation',
+//             batteryLife: 'Up to 5.5 hours (with ANC on), additional 19.5 hours with charging case',
+//             specialFeatures: 'Customizable sound via Jabra Sound+ app, strong connectivity',
+//             price: 229,
+//             brand: 'jabra',
+//             images: ['jabra_elite85t_front.png', 'jabra_elite85t_side.png', 'jabra_elite85t_case.png'],
+//             currentImageIndex: 0
+//         },
+//         {
+//             id: 5,
+//             name: 'Sennheiser Momentum 3 Wireless',
+//             type: 'Over-ear wireless headphones',
+//             noiseCancellation: 'Yes',
+//             batteryLife: 'Up to 17 hours',
+//             specialFeatures: 'Transparent Hearing mode, auto on/off when folding/unfolding',
+//             price: 399,
+//             brand: 'sennheiser',
+//             images: ['sennheiser_momentum3_front.png', 'sennheiser_momentum3_side.png', 'sennheiser_momentum3_top.png'],
+//             currentImageIndex: 0
+//         },
+//         {
+//             id: 6,
+//             name: 'Skullcandy Indy ANC',
+//             type: 'True wireless earbuds',
+//             noiseCancellation: 'Active Noise Cancellation',
+//             batteryLife: 'Up to 5 hours (earbuds) + 16 hours (charging case)',
+//             specialFeatures: 'Tile tracking, touch controls, rapid charge (10 minutes for 2 hours)',
+//             price: 129,
+//             brand: 'skullcandy',
+//             images: ['skullcandy_indyanc_front.png', 'skullcandy_indyanc_side.png', 'skullcandy_indyanc_case.png'],
+//             currentImageIndex: 0
+//         }
+//     ];
 
-    function displayHeadphones(headphoneList) {
-        const container = document.getElementById('headphones-container');
-        if (!container) {
-            return;
-        }
-        container.innerHTML = '';
-        headphoneList.forEach(headphone => {
-            const headphoneElement = document.createElement('div');
-            headphoneElement.className = 'headphone-item';
-            headphoneElement.innerHTML = `
-                <h3>${headphone.name}</h3>
-                <div class="image-gallery">
-                    <div class="main-image">
-                        <img src="${headphone.images[headphone.currentImageIndex]}" alt="${headphone.name}" id="mainImage${headphone.id}" width="300" height="200">
-                    </div>
-                    <div class="arrows">
-                        <button class="prev" onclick="changeHeadphoneImage(-1, ${headphone.id})">&#10094;</button>
-                        <button class="next" onclick="changeHeadphoneImage(1, ${headphone.id})">&#10095;</button>
-                    </div>
-                </div>
-                <ul>
-                    <li>Type: ${headphone.type}</li>
-                    <li>Noise Cancellation: ${headphone.noiseCancellation}</li>
-                    <li>Battery Life: ${headphone.batteryLife}</li>
-                    <li>${headphone.specialFeatures ? `Special Features: ${headphone.specialFeatures}` : ''}</li>
-                </ul>
-                <p><strong>Price: $${headphone.price}</strong></p>
-                <button class="btn" onclick="checkHeadphoneAvailability(${headphone.id})">Check Availability</button>
-            `;
-            container.appendChild(headphoneElement);
-        });
-    }
+//     function displayHeadphones(headphoneList) {
+//         const container = document.getElementById('headphones-container');
+//         if (!container) {
+//             return;
+//         }
+//         container.innerHTML = '';
+//         headphoneList.forEach(headphone => {
+//             const headphoneElement = document.createElement('div');
+//             headphoneElement.className = 'headphone-item';
+//             headphoneElement.innerHTML = `
+//                 <h3>${headphone.name}</h3>
+//                 <div class="image-gallery">
+//                     <div class="main-image">
+//                         <img src="${headphone.images[headphone.currentImageIndex]}" alt="${headphone.name}" id="mainImage${headphone.id}" width="300" height="200">
+//                     </div>
+//                     <div class="arrows">
+//                         <button class="prev" onclick="changeHeadphoneImage(-1, ${headphone.id})">&#10094;</button>
+//                         <button class="next" onclick="changeHeadphoneImage(1, ${headphone.id})">&#10095;</button>
+//                     </div>
+//                 </div>
+//                 <ul>
+//                     <li>Type: ${headphone.type}</li>
+//                     <li>Noise Cancellation: ${headphone.noiseCancellation}</li>
+//                     <li>Battery Life: ${headphone.batteryLife}</li>
+//                     <li>${headphone.specialFeatures ? `Special Features: ${headphone.specialFeatures}` : ''}</li>
+//                 </ul>
+//                 <p><strong>Price: $${headphone.price}</strong></p>
+//                 <button class="btn" onclick="checkHeadphoneAvailability(${headphone.id})">Check Availability</button>
+//             `;
+//             container.appendChild(headphoneElement);
+//         });
+//     }
 
-    window.changeHeadphoneImage = function(direction, headphoneId) {
-        const headphone = headphones.find(h => h.id === headphoneId);
-        headphone.currentImageIndex += direction;
+//     window.changeHeadphoneImage = function(direction, headphoneId) {
+//         const headphone = headphones.find(h => h.id === headphoneId);
+//         headphone.currentImageIndex += direction;
 
-        if (headphone.currentImageIndex < 0) {
-            headphone.currentImageIndex = headphone.images.length - 1;
-        } else if (headphone.currentImageIndex >= headphone.images.length) {
-            headphone.currentImageIndex = 0;
-        }
+//         if (headphone.currentImageIndex < 0) {
+//             headphone.currentImageIndex = headphone.images.length - 1;
+//         } else if (headphone.currentImageIndex >= headphone.images.length) {
+//             headphone.currentImageIndex = 0;
+//         }
 
-        document.getElementById(`mainImage${headphoneId}`).src = headphone.images[headphone.currentImageIndex];
-    };
+//         document.getElementById(`mainImage${headphoneId}`).src = headphone.images[headphone.currentImageIndex];
+//     };
 
-    window.checkHeadphoneAvailability = function(headphoneId) {
-        const headphone = headphones.find(h => h.id === headphoneId);
-        localStorage.setItem('selectedHeadphone', JSON.stringify(headphone));
-        window.location.href = 'availability_headphone.html';
-    };
+//     window.checkHeadphoneAvailability = function(headphoneId) {
+//         const headphone = headphones.find(h => h.id === headphoneId);
+//         localStorage.setItem('selectedHeadphone', JSON.stringify(headphone));
+//         window.location.href = 'availability_headphone.html';
+//     };
 
-    // Initial display of all headphones
-    if (document.getElementById('headphones-container')) {
-        displayHeadphones(headphones);
-    }
+//     // Initial display of all headphones
+//     if (document.getElementById('headphones-container')) {
+//         displayHeadphones(headphones);
+//     }
 
-    document.getElementById('apply-changes-btn').addEventListener('click', () => {
-        const category = document.getElementById('categories').value;
-        const priceSort = document.getElementById('price').value;
-        let filteredHeadphones = headphones;
+//     document.getElementById('apply-changes-btn').addEventListener('click', () => {
+//         const category = document.getElementById('categories').value;
+//         const priceSort = document.getElementById('price').value;
+//         let filteredHeadphones = headphones;
 
-        if (category !== 'all') {
-            filteredHeadphones = headphones.filter(headphone => headphone.brand === category);
-        }
+//         if (category !== 'all') {
+//             filteredHeadphones = headphones.filter(headphone => headphone.brand === category);
+//         }
 
-        if (priceSort === 'low-to-high') {
-            filteredHeadphones.sort((a, b) => a.price - b.price);
-        } else if (priceSort === 'high-to-low') {
-            filteredHeadphones.sort((a, b) => b.price - a.price);
-        }
+//         if (priceSort === 'low-to-high') {
+//             filteredHeadphones.sort((a, b) => a.price - b.price);
+//         } else if (priceSort === 'high-to-low') {
+//             filteredHeadphones.sort((a, b) => b.price - a.price);
+//         }
 
-        displayHeadphones(filteredHeadphones);
-    });
+//         displayHeadphones(filteredHeadphones);
+//     });
 
-    const headphoneSearchForm = document.getElementById('search-form');
-    if (headphoneSearchForm) {
-        headphoneSearchForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const filteredHeadphones = headphones.filter(headphone =>
-                headphone.name.toLowerCase().includes(query) ||
-                headphone.brand.toLowerCase().includes(query)
-            );
-            displayHeadphones(filteredHeadphones);
-        });
-    }
+//     const headphoneSearchForm = document.getElementById('search-form');
+//     if (headphoneSearchForm) {
+//         headphoneSearchForm.addEventListener('submit', (event) => {
+//             event.preventDefault();
+//             const query = document.getElementById('search-input').value.toLowerCase();
+//             const filteredHeadphones = headphones.filter(headphone =>
+//                 headphone.name.toLowerCase().includes(query) ||
+//                 headphone.brand.toLowerCase().includes(query)
+//             );
+//             displayHeadphones(filteredHeadphones);
+//         });
+//     }
 
-    // Display all headphones by default
-    if (document.getElementById('headphones-container')) {
-        displayHeadphones(headphones);
-    }//ooo
-});
+//     // Display all headphones by default
+//     if (document.getElementById('headphones-container')) {
+//         displayHeadphones(headphones);
+//     }//ooo
+ });
 
