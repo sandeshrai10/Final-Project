@@ -12,23 +12,16 @@ function changeImage(direction) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const selectedLaptop = JSON.parse(localStorage.getItem('selectedLaptop'));
-    const selectedCamera = JSON.parse(localStorage.getItem('selectedCamera'));
-    let product;
-
-    if (selectedLaptop) {
-        product = selectedLaptop;
-    } else if (selectedCamera) {
-        product = selectedCamera;
-    }
-
-    if (product) {
-        document.getElementById('product-name').textContent = product.name;
-        images = product.images;
+    const selectedEquipment = JSON.parse(localStorage.getItem('selectedEquipment'));
+    if (selectedEquipment) {
+        document.getElementById('product-name').textContent = selectedEquipment.name;
+        images = selectedEquipment.images;
         document.getElementById('mainImage').src = images[0];
         const specsList = document.getElementById('product-specs');
-        specsList.innerHTML = product.specs.map(spec => `<li>${spec}</li>`).join('');
-        document.getElementById('product-price').textContent = `Price per day: $${product.price}`;
+        specsList.innerHTML = selectedEquipment.specs.map(spec => `<li>${spec}</li>`).join('');
+        document.getElementById('product-price').textContent = `Price per day: $${selectedEquipment.dailyRentalRate}`;
+        document.getElementById('product-quantity').textContent = `Stock Quantity: ${selectedEquipment.stockQuantity}`;
+        document.getElementById('product-status').textContent = `Status: ${selectedEquipment.availability ? 'Available' : 'Not Available'}`;
     }
 
     document.getElementById('availability-form').addEventListener('submit', function(event) {

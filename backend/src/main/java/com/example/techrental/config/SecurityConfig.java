@@ -1,184 +1,3 @@
-// package com.example.techrental.config;
-
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.security.web.SecurityFilterChain;
-
-// /**
-//  * Security configuration class for the TechRental application.
-//  * This class configures security settings such as authentication,
-//  * authorization, and password encoding.
-//  */
-// @Configuration
-// @EnableWebSecurity
-// public class SecurityConfig {
-
-//     /**
-//      * Configures the security filter chain.
-//      * 
-//      * @param http the HttpSecurity to modify
-//      * @return the SecurityFilterChain
-//      * @throws Exception if an error occurs
-//      */
-//     @Bean
-//     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//         http
-//             // Disable CSRF protection
-//             .csrf(csrf -> csrf.disable())
-//             // Configure authorization requests
-//             .authorizeHttpRequests(authorizeRequests ->
-//                 authorizeRequests
-//                     .requestMatchers(
-//                         "/", 
-//                         "/index.html", 
-//                         "/styles/**", 
-//                         "/scripts/**", 
-//                         "/images/**", 
-//                         "/api/users/register", 
-//                         "/api/users/login", 
-//                         "/login.html", 
-//                         "/register.html",
-//                         "/equipment.html",
-//                         "/api/laptops.html",
-//                         "/laptops.html",  // Explicitly allow access to laptops.html
-//                         "/cameras.html",  // Explicitly allow access to cameras.html
-//                         "/tablets.html",
-//                         "/headphones.html",
-//                         "/availability.html",
-//                         "/availability_camera.html",
-//                         "/availability_tablet.html",
-//                         "/availability_headphone.html",
-//                         "/payment.html"
-//                     ).permitAll()
-//                     .anyRequest().authenticated()
-//             )
-//             // Configure form login
-//             .formLogin(formLogin ->
-//                 formLogin
-//                     .loginPage("/login.html")
-//                     .defaultSuccessUrl("/", true)
-//                     .permitAll()
-//             )
-//             // Configure logout
-//             .logout(logout ->
-//                 logout
-//                     .logoutSuccessUrl("/")
-//                     .permitAll()
-//             );
-
-//         return http.build();
-//     }
-
-//     /**
-//      * Provides a password encoder bean.
-//      * 
-//      * @return a BCryptPasswordEncoder
-//      */
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//         return new BCryptPasswordEncoder();
-//     }
-// }
-
-
-
-
-
-// package com.example.techrental.config;
-
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.security.web.SecurityFilterChain;
-
-// /**
-//  * Security configuration class for the TechRental application.
-//  * This class configures security settings such as authentication,
-//  * authorization, and password encoding.
-//  */
-// @Configuration
-// @EnableWebSecurity
-// public class SecurityConfig {
-
-//     /**
-//      * Configures the security filter chain.
-//      * 
-//      * @param http the HttpSecurity to modify
-//      * @return the SecurityFilterChain
-//      * @throws Exception if an error occurs
-//      */
-//     @Bean
-//     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//         http
-//             // Disable CSRF protection
-//             .csrf(csrf -> csrf.disable())
-//             // Configure authorization requests
-//             .authorizeHttpRequests(authorizeRequests ->
-//                 authorizeRequests
-//                     .requestMatchers(
-//                         "/", 
-//                         "/index.html", 
-//                         "/styles/**", 
-//                         "/scripts/**", 
-//                         "/images/**", 
-//                         "/api/users/register", 
-//                         "/api/users/login", 
-//                         "/login.html", 
-//                         "/register.html",
-//                         "/equipment.html",
-//                         "/api/laptops.html",
-//                         "/laptops.html",  // Explicitly allow access to laptops.html
-//                         "/cameras.html",  // Explicitly allow access to cameras.html
-//                         "/tablets.html",
-//                         "/headphones.html",
-//                         "/availability.html",
-//                         "/availability_camera.html",
-//                         "/availability_tablet.html",
-//                         "/availability_headphone.html",
-//                         "/payment.html"
-//                     ).permitAll()
-//                     .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict access to admin URLs
-//                     .anyRequest().authenticated()
-//             )
-//             // Configure form login
-//             .formLogin(formLogin ->
-//                 formLogin
-//                     .loginPage("/login.html")
-//                     .defaultSuccessUrl("/", true)
-//                     .permitAll()
-//             )
-//             // Configure logout
-//             .logout(logout ->
-//                 logout
-//                     .logoutSuccessUrl("/")
-//                     .permitAll()
-//             );
-
-//         return http.build();
-//     }
-
-//     /**
-//      * Provides a password encoder bean.
-//      * 
-//      * @return a BCryptPasswordEncoder
-//      */
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//         return new BCryptPasswordEncoder();
-//     }
-// }
-
-
-
-
-
 package com.example.techrental.config;
 
 import org.springframework.context.annotation.Bean;
@@ -190,64 +9,57 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-/**
- * Security configuration class for the TechRental application.
- * This class configures security settings such as authentication,
- * authorization, and password encoding.
- */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    /**
-     * Configures the security filter chain.
-     * 
-     * @param http the HttpSecurity to modify
-     * @return the SecurityFilterChain
-     * @throws Exception if an error occurs
-     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // Disable CSRF protection
             .csrf(csrf -> csrf.disable())
-            // Configure authorization requests
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
                     .requestMatchers(
-                        "/", 
-                        "/index.html", 
-                        "/styles/**", 
-                        "/scripts/**", 
-                        "/images/**", 
-                        "/api/users/register", 
-                        "/api/users/login", 
-                        "/login.html", 
+                        "/",
+                        "/index.html",
+                        "/styles/**",
+                        "/scripts/**",
+                        "/images/**",
+                        "/api/users/register",
+                        "/api/users/login",
+                        "/login.html",
                         "/register.html",
-                        "/equipment.html",
-                        "/api/laptops.html",
-                        "/laptops.html",  // Explicitly allow access to laptops.html
-                        "/cameras.html",  // Explicitly allow access to cameras.html
+                        "/laptops.html",
+                        "/cameras.html",
                         "/tablets.html",
                         "/headphones.html",
+                        "/equipment.html",
                         "/availability.html",
                         "/availability_camera.html",
                         "/availability_tablet.html",
                         "/availability_headphone.html",
-                        "/payment.html",
-                        "/admin.html"
+                        "/admin.html",
+                        "/adminRegister.html",
+                        "/adminLogin.html",
+                        "/api/admin/register",
+                        "/api/admin/login",
+                        "/api/admin/**",
+                        "/payment.html"
                     ).permitAll()
-                    .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict access to admin URLs
+                    .requestMatchers(
+                        "/admin.html",
+                        "/api/admin/**",
+                        "/api/admin/equipment",
+                        "/api/admin/equipment/**"
+                    ).hasRole("ADMIN")
                     .anyRequest().authenticated()
             )
-            // Configure form login
             .formLogin(formLogin ->
                 formLogin
                     .loginPage("/login.html")
-                    .successHandler(authenticationSuccessHandler()) // Custom success handler
+                    .successHandler(authenticationSuccessHandler())
                     .permitAll()
             )
-            // Configure logout
             .logout(logout ->
                 logout
                     .logoutSuccessUrl("/")
@@ -257,21 +69,11 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /**
-     * Provides a password encoder bean.
-     * 
-     * @return a BCryptPasswordEncoder
-     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * Custom authentication success handler to redirect users based on roles.
-     * 
-     * @return the authentication success handler
-     */
     @Bean
     public AuthenticationSuccessHandler authenticationSuccessHandler() {
         return (request, response, authentication) -> {
@@ -289,4 +91,3 @@ public class SecurityConfig {
         };
     }
 }
-

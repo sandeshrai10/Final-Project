@@ -1,197 +1,40 @@
-// package com.example.techrental.controller;
-
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.web.bind.annotation.*;
-
-// import com.example.techrental.model.User;
-// import com.example.techrental.repository.UserRepository;
-
-// @RestController
-// @RequestMapping("/api/users")
-// public class UserController {
-
-//     @Autowired
-//     private UserRepository userRepository;
-
-//     @Autowired
-//     private PasswordEncoder passwordEncoder;
-
-//     /**
-//      * Handles user registration.
-//      *
-//      * @param user the user to be registered
-//      * @return a response indicating the result of the registration
-//      */
-//     @PostMapping("/register")
-//     public ResponseEntity<?> registerUser(@RequestBody User user) {
-//         System.out.println("Registering user: " + user.toString());
-//         if (userRepository.findByEmail(user.getEmail()) != null) {
-//             return ResponseEntity.badRequest().body("Email is already in use.");
-//         }
-//         user.setPassword(passwordEncoder.encode(user.getPassword()));
-//         userRepository.save(user);
-//         return ResponseEntity.ok("User registered successfully");
-//     }
-
-
-//     /**
-//      * Handles user login.
-//      *
-//      * @param user the login request containing email and password
-//      * @return a response indicating the result of the login attempt
-//      */
-//     @PostMapping("/login")
-//     public ResponseEntity<?> loginUser(@RequestBody User user) {
-//         User foundUser = userRepository.findByEmail(user.getEmail());
-//         if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
-//             return ResponseEntity.ok(foundUser);
-//         }
-//         return ResponseEntity.status(401).body("Invalid email or password");
-//     }
-// }
-
-
-
-
-// package com.example.techrental.controller;
-
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.web.bind.annotation.*;
-
-// import com.example.techrental.model.User;
-// import com.example.techrental.repository.UserRepository;
-
-// @RestController
-// @RequestMapping("/api/users")
-// public class UserController {
-
-//     @Autowired
-//     private UserRepository userRepository;
-
-//     @Autowired
-//     private PasswordEncoder passwordEncoder;
-
-//     /**
-//      * Handles user registration.
-//      *
-//      * @param user the user to be registered
-//      * @return a response indicating the result of the registration
-//      */
-//     @PostMapping("/register")
-//     public ResponseEntity<?> registerUser(@RequestBody User user) {
-//         System.out.println("Registering user: " + user.toString());
-//         if (userRepository.findByEmail(user.getEmail()) != null) {
-//             return ResponseEntity.badRequest().body("Email is already in use.");
-//         }
-
-//         // Check if there are any users in the database
-//         long userCount = userRepository.count();
-
-//         // Set role based on user count
-//         if (userCount == 0) {
-//             user.setRole("ROLE_ADMIN");
-//         } else {
-//             user.setRole("ROLE_USER");
-//         }
-
-//         user.setPassword(passwordEncoder.encode(user.getPassword()));
-//         userRepository.save(user);
-//         return ResponseEntity.ok("User registered successfully");
-//     }
-
-//     /**
-//      * Handles user login.
-//      *
-//      * @param user the login request containing email and password
-//      * @return a response indicating the result of the login attempt
-//      */
-//     @PostMapping("/login")
-//     public ResponseEntity<?> loginUser(@RequestBody User user) {
-//         User foundUser = userRepository.findByEmail(user.getEmail());
-//         if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
-//             return ResponseEntity.ok(foundUser);
-//         }
-//         return ResponseEntity.status(401).body("Invalid email or password");
-//     }
-// }
-
-
-
-
 package com.example.techrental.controller;
 
+import com.example.techrental.model.User;
+import com.example.techrental.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import com.example.techrental.model.User;
-import com.example.techrental.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    /**
-     * Handles user registration.
-     *
-     * @param user the user to be registered
-     * @return a response indicating the result of the registration
-     */
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
-        System.out.println("Registering user: " + user.toString());
-        if (userRepository.findByEmail(user.getEmail()) != null) {
-            return ResponseEntity.badRequest().body("Email is already in use.");
-        }
-
-        // Check if there are any users in the database
-        long userCount = userRepository.count();
-
-        // Set role based on user count
-        if (userCount == 0) {
-            user.setRole("ROLE_ADMIN");
-        } else {
-            user.setRole("ROLE_USER");
-        }
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return ResponseEntity.ok("User registered successfully");
+        user.setRole("ROLE_USER");
+        userService.saveUser(user);
+        return ResponseEntity.ok().body(new ApiResponse(true, "User registered successfully"));
     }
 
-    /**
-     * Handles user login.
-     *
-     * @param user the login request containing email and password
-     * @return a response indicating the result of the login attempt
-     */
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody User user) {
-        User foundUser = userRepository.findByEmail(user.getEmail());
-        if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
-            // Return user details including role
-            return ResponseEntity.ok(foundUser);
-        }
-        return ResponseEntity.status(401).body("Invalid email or password");
-    }
+   @PostMapping("/login")
+   public ResponseEntity<?> loginUser(@RequestBody User user) {
+       User foundUser = userService.findByEmail(user.getEmail());
+       if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
+           // Generate token (mock implementation, replace with actual token generation)
+           String token = "mock-token"; 
+           return ResponseEntity.ok().body(new AuthResponse(token, foundUser.getEmail(), foundUser.getFirstName()));
+       }
+       return ResponseEntity.status(401).body(new ApiResponse(false, "Invalid credentials"));
+   }
+   
+
 }
-
-
-
-
-
-
-
-
-

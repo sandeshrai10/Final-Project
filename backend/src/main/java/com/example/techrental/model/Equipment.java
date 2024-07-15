@@ -12,6 +12,7 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String itemNumber;
     private String name;
     private String description;
     private String category;
@@ -34,6 +35,14 @@ public class Equipment {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getItemNumber() {
+        return itemNumber;
+    }
+
+    public void setItemNumber(String itemNumber) {
+        this.itemNumber = itemNumber;
     }
 
     public String getName() {
@@ -92,6 +101,3 @@ public class Equipment {
         this.dateAdded = dateAdded;
     }
 }
-
-
-

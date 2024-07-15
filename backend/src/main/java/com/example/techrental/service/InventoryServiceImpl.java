@@ -24,24 +24,33 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
+    public Equipment getEquipmentByItemNumber(String itemNumber) {
+        return equipmentRepository.findByItemNumber(itemNumber);
+    }
+
+
+    @Override
     public Equipment addEquipment(Equipment equipment) {
+       
+        System.out.println("Saving equipment: " + equipment);
         return equipmentRepository.save(equipment);
     }
 
     @Override
     public Equipment updateEquipment(Long id, Equipment equipment) {
-        Equipment existingEquipment = equipmentRepository.findById(id).orElse(null);
-        if (existingEquipment != null) {
-            existingEquipment.setName(equipment.getName());
-            existingEquipment.setDescription(equipment.getDescription());
-            existingEquipment.setCategory(equipment.getCategory());
-            existingEquipment.setAvailability(equipment.getAvailability());
-            existingEquipment.setStockQuantity(equipment.getStockQuantity());
-            existingEquipment.setDailyRentalRate(equipment.getDailyRentalRate());
-            return equipmentRepository.save(existingEquipment);
-        }
-        return null;
+    Equipment existingEquipment = equipmentRepository.findById(id).orElse(null);
+    if (existingEquipment != null) {
+        existingEquipment.setItemNumber(equipment.getItemNumber());
+        existingEquipment.setName(equipment.getName());
+        existingEquipment.setDescription(equipment.getDescription());
+        existingEquipment.setCategory(equipment.getCategory());
+        existingEquipment.setAvailability(equipment.getAvailability());
+        existingEquipment.setStockQuantity(equipment.getStockQuantity());
+        existingEquipment.setDailyRentalRate(equipment.getDailyRentalRate());
+        return equipmentRepository.save(existingEquipment);
     }
+    return null;
+}
 
     @Override
     public void deleteEquipment(Long id) {
