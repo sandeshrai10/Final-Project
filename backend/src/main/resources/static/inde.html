@@ -22,6 +22,7 @@
                 <li><a href="/equipment.html">Equipment</a></li>
                 <li><a href="#reservation">Reservation</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li id="admin-link" style="display: none;"><a href="/admin.html">Admin Panel</a></li>
             </ul>
             <div class="buttons">
                 <a href="/login.html" class="login">Log in</a>
@@ -149,6 +150,18 @@
     </footer>
 
     <script src="/scripts/script.js"></script>
+    <script>
+        // Function to show admin link if the user is an admin
+        function showAdminLink() {
+            const userRole = localStorage.getItem('userRole');
+            if (userRole === 'ROLE_ADMIN') {
+                document.getElementById('admin-link').style.display = 'block';
+            }
+        }
+
+        // Call the function on page load
+        showAdminLink();
+    </script>
 </body>
 
 </html>

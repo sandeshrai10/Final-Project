@@ -214,3 +214,70 @@ const applyChangesBtn = document.getElementById('apply-changes-btn');
 if (applyChangesBtn) {
     applyChangesBtn.addEventListener('click', applyChanges);
 }
+
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const suggestions = document.getElementById('suggestions');
+const searchButton = document.getElementById('search-button');
+
+if (searchInput && suggestions && searchButton) {
+    const equipmentSuggestions = ['laptops', 'cameras', 'tablets', 'headphones'];
+
+    searchInput.addEventListener('focus', () => {
+        showSuggestions('');
+    });
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        showSuggestions(query);
+    });
+
+    searchInput.addEventListener('blur', () => {
+        setTimeout(() => {
+            suggestions.innerHTML = '';
+        }, 200);
+    });
+
+    searchButton.addEventListener('click', () => {
+        const query = searchInput.value.toLowerCase();
+        navigateToPage(query);
+    });
+
+    function showSuggestions(query) {
+        suggestions.innerHTML = '';
+        const filteredSuggestions = equipmentSuggestions.filter(item => item.startsWith(query));
+        filteredSuggestions.forEach(item => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.textContent = item;
+            suggestionItem.classList.add('suggestion-item');
+            suggestionItem.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                navigateToPage(item);
+            });
+            suggestions.appendChild(suggestionItem);
+        });
+    }
+
+    function navigateToPage(query) {
+        switch (query) {
+            case 'laptops':
+            case 'laptop':
+                window.location.href = '/laptops.html';
+                break;
+            case 'cameras':
+            case 'camera':
+                window.location.href = '/cameras.html';
+                break;
+            case 'tablets':
+            case 'tablet':
+                window.location.href = '/tablets.html';
+                break;
+            case 'headphones':
+            case 'headphone':
+                window.location.href = '/headphones.html';
+                break;
+            default:
+                alert('No matching equipment found');
+        }
+    }
+}

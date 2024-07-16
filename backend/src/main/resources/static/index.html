@@ -27,10 +27,11 @@
             <div class="buttons">
                 <a href="/login.html" class="login">Log in</a>
                 <a href="/register.html" class="btn">Register</a>
-                <form class="search-form">
-                    <input type="text" placeholder="Search..." class="search-input">
-                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-                </form>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for equipment..." class="search-input">
+                    <div id="suggestions" class="suggestions"></div>
+                    <button id="search-button" class="search-btn"><i class="fa fa-search"></i></button>
+                </div>
             </div>
         </nav>
         <section id="home" class="content bgimg">

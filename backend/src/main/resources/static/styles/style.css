@@ -759,3 +759,33 @@ nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2
 .btn:hover {
   background-color: #575757;
 }
+
+
+
+/* styles.css */
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: black;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  color: white;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #333;
+}

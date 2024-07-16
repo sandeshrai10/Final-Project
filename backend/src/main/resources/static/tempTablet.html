@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cameras - TechEase Rentals</title>
+    <title>Tablets - TechEase Rentals</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,7 +13,7 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <a href="index.html">Tech<span>Ease</span></a>
+                <a href="/index.html">Tech<span>Ease</span></a>
             </div>
             <ul>
                 <li><a href="index.html#home">Home</a></li>
@@ -23,17 +23,8 @@
                 <li><a href="index.html#reservation">Reservation</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <div class="buttons">
-                <a href="login.html" class="login">Log in</a>
-                <a href="register.html" class="btn">Register</a>
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search for equipment..." class="search-input">
-                    <div id="suggestions" class="suggestions"></div>
-                    <button id="search-button" class="search-btn"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
         </nav>
-        <section id="cameras" class="section">
+        <section id="tablets" class="section">
             <div class="container clearfix">
                 <div class="sidebar">
                     <h3>Filter By</h3>
@@ -41,9 +32,9 @@
                         <label for="categories">Categories</label>
                         <select id="categories" name="categories">
                             <option value="all">All</option>
-                            <option value="fujifilm">Fujifilm</option>
-                            <option value="sony">Sony</option>
-                            <option value="canon">Canon</option>
+                            <option value="apple">Apple</option>
+                            <option value="microsoft">Microsoft</option>
+                            <option value="amazon">Amazon</option>
                         </select>
                         <label for="price">Price</label>
                         <select id="price" name="price">
@@ -54,8 +45,8 @@
                         <button type="button" id="apply-changes-btn">Apply Changes</button>
                     </form>
                 </div>
-                <div class="camera-list" id="cameras-container">
-                    <!-- Cameras will be dynamically inserted here by JavaScript -->
+                <div class="tablet-list" id="tablets-container">
+                    <!-- Tablets will be dynamically inserted here by JavaScript -->
                 </div>
             </div>
         </section>
@@ -77,7 +68,7 @@
         </div>
     </footer>
 
-    <script src="/scripts/cameras.js"></script>
+    <script src="/scripts/tablets.js"></script>
 </body>
 
 </html>
