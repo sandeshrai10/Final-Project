@@ -30,6 +30,7 @@ public class SecurityConfig {
                         "/login.html",
                         "/register.html",
                         "/laptops.html",
+                        "/cart.html",
                         "/cameras.html",
                         "/tablets.html",
                         "/headphones.html",
@@ -42,6 +43,7 @@ public class SecurityConfig {
                         "/adminRegister.html",
                         "/adminLogin.html",
                         "/api/admin/register",
+                        "/api/payments",
                         "/api/admin/login",
                         "/api/admin/**",
                         "/payment.html"

@@ -56,8 +56,28 @@ nav ul li a:hover {
 }
 
 .section .container {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.payment-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-form, .cart-summary {
+  background: #444;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.payment-form {
+  width: 60%;
+}
+
+.cart-summary {
+  width: 35%;
 }
 
 h2 {
@@ -80,9 +100,6 @@ h2 {
 }
 
 form {
-  background: #444;
-  padding: 20px;
-  border-radius: 10px;
   color: #fff;
 }
 
@@ -150,6 +167,72 @@ form .btn:hover {
   margin-top: 20px;
   font-size: 14px;
   color: #999;
+}
+
+.cart-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-items {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.cart-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #555;
+  border-radius: 5px;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h4 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+}
+
+.cart-item-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.cart-item-price {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.cart-total {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.remove-item {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 footer {

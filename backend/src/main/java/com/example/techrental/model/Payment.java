@@ -3,6 +3,7 @@ package com.example.techrental.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "payments")
@@ -12,12 +13,20 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long rentalOrderId;
-    private BigDecimal amount;
-    private String paymentMethod;
+    private String cardName;
+    private String email;
+    private String cardNumber;
+    private String expiryDate;
+    private String cvv;
+    private String country;
+    private BigDecimal totalAmount;
+    private String orderNumber;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date transactionDate;
+
+    @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL)
+    private List<PaymentItem> paymentItems;
 
     @PrePersist
     protected void onCreate() {
@@ -34,28 +43,68 @@ public class Payment {
         this.id = id;
     }
 
-    public Long getRentalOrderId() {
-        return rentalOrderId;
+    public String getCardName() {
+        return cardName;
     }
 
-    public void setRentalOrderId(Long rentalOrderId) {
-        this.rentalOrderId = rentalOrderId;
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public Date getTransactionDate() {
@@ -64,5 +113,13 @@ public class Payment {
 
     public void setTransactionDate(Date transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public List<PaymentItem> getPaymentItems() {
+        return paymentItems;
+    }
+
+    public void setPaymentItems(List<PaymentItem> paymentItems) {
+        this.paymentItems = paymentItems;
     }
 }

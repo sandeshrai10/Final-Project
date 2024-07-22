@@ -11,19 +11,11 @@ function changeImage(direction) {
     document.getElementById('mainImage').src = images[currentImageIndex];
 }
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const itemNumber = localStorage.getItem('selectedItemNumber');
     const laptopName = localStorage.getItem('selectedLaptopName');
     const laptopSpecs = JSON.parse(localStorage.getItem('selectedLaptopSpecs'));
     images = JSON.parse(localStorage.getItem('selectedLaptopImages'));
-
-    // Debugging logs
-    console.log("Fetched item number:", itemNumber);
-    console.log("Fetched laptop name:", laptopName);
-    console.log("Fetched laptop specs:", laptopSpecs);
-    console.log("Fetched laptop images:", images);
 
     if (itemNumber) {
         fetch(`/api/admin/equipment/itemNumber/${itemNumber}`)
@@ -52,14 +44,34 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const startDate = document.getElementById('start-date').value;
         const endDate = document.getElementById('end-date').value;
-        alert(`Availability checked for dates: ${startDate} to ${endDate}`);
-        // If available, show the "Proceed to Checkout" button
-        const proceedButton = document.createElement('button');
-        proceedButton.textContent = 'Proceed to Checkout';
-        proceedButton.classList.add('btn');
-        proceedButton.onclick = () => {
-            window.location.href = 'payment.html';
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const stockQuantity = parseInt(document.getElementById('stock-quantity').textContent.split(' ')[2]);
+        const productName = document.getElementById('product-name').textContent;
+        const productPrice = parseFloat(document.getElementById('product-price').textContent.split('$')[1]);
+        const productImage = document.getElementById('mainImage').src;
+
+        if (quantity > stockQuantity) {
+            alert('The quantity exceeds the available stock. Please reduce the quantity.');
+            return;
+        }
+
+        const rentalDays = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
+        const totalPrice = productPrice * quantity * rentalDays;
+
+        const cartItem = {
+            itemNumber: itemNumber, // Include item number
+            name: productName,
+            description: `Rental from ${startDate} to ${endDate}`,
+            price: totalPrice.toFixed(2),
+            image: productImage,
+            quantity: quantity
         };
-        document.getElementById('availability-form').appendChild(proceedButton);
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(cartItem);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        alert('Item added to cart!');
+        location.reload(); // Refresh the page after successfully adding to the cart
     });
 });

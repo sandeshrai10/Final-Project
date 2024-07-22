@@ -25,51 +25,61 @@
         <section id="payment" class="section">
             <div class="container">
                 <h2>Payment Methods</h2>
-                <div class="price">
-                    <span id="total-amount" class="new-price">$0.00</span>
+                <div class="payment-container">
+                    <div class="payment-form">
+                        <form id="payment-form">
+                            <label for="card-name">Name on card</label>
+                            <input type="text" id="card-name" name="card-name" placeholder="Name on card" required>
+                            
+                            <label for="email">Email address*</label>
+                            <input type="email" id="email" name="email" placeholder="Email address" required>
+
+                            <div class="payment-options">
+                                <div class="option active">
+                                    <i class="fas fa-credit-card"></i> Card
+                                </div>
+                                <div class="option">
+                                    <i class="fab fa-apple-pay"></i> Apple Pay
+                                </div>
+                                <div class="option">
+                                    <i class="fab fa-kickstarter-k"></i> Klarna
+                                </div>
+                                <div class="option">
+                                    <i class="fab fa-afterpay"></i> Afterpay
+                                </div>
+                            </div>
+
+                            <label for="card-number">Card number</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="1234 1234 1234 1234" required>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="expiry-date">Expiration</label>
+                                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                                </div>
+                                <div class="col">
+                                    <label for="cvv">CVC</label>
+                                    <input type="text" id="cvv" name="cvv" required>
+                                </div>
+                            </div>
+
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" value="Mexico" required>
+
+                            <button type="submit" class="btn">Pay $<span id="pay-amount">0.00</span></button>
+                        </form>
+                        <p class="secure">Payments are secure & encrypted</p>
+                    </div>
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
+                        <div id="cart-items" class="cart-items">
+                            <!-- Cart items will be dynamically inserted here -->
+                        </div>
+                        <div class="cart-total">
+                            <p>Total Amount: $<span id="total-amount">0.00</span></p>
+                        </div>
+                    </div>
                 </div>
-                <form id="payment-form">
-                    <label for="card-name">Name on card</label>
-                    <input type="text" id="card-name" name="card-name" placeholder="Name on card" required>
-                    
-                    <label for="email">Email address*</label>
-                    <input type="email" id="email" name="email" placeholder="Email address" required>
-
-                    <div class="payment-options">
-                        <div class="option active">
-                            <i class="fas fa-credit-card"></i> Card
-                        </div>
-                        <div class="option">
-                            <i class="fab fa-apple-pay"></i> Apple Pay
-                        </div>
-                        <div class="option">
-                            <i class="fab fa-kickstarter-k"></i> Klarna
-                        </div>
-                        <div class="option">
-                            <i class="fab fa-afterpay"></i> Afterpay
-                        </div>
-                    </div>
-
-                    <label for="card-number">Card number</label>
-                    <input type="text" id="card-number" name="card-number" placeholder="1234 1234 1234 1234" required>
-
-                    <div class="row">
-                        <div class="col">
-                            <label for="expiry-date">Expiration</label>
-                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
-                        </div>
-                        <div class="col">
-                            <label for="cvv">CVC</label>
-                            <input type="text" id="cvv" name="cvv" required>
-                        </div>
-                    </div>
-
-                    <label for="country">Country</label>
-                    <input type="text" id="country" name="country" value="Mexico" required>
-
-                    <button type="submit" class="btn">Pay $<span id="pay-amount">0.00</span></button>
-                </form>
-                <p class="secure">Payments are secure & encrypted</p>
             </div>
         </section>
     </div>

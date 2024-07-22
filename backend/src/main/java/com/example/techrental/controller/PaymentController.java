@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/api/payments")
 public class PaymentController {
@@ -14,8 +15,8 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping
-    public ResponseEntity<?> processPayment(@RequestBody Payment payment) {
-        Payment processedPayment = paymentService.processPayment(payment);
+    public ResponseEntity<?> processPayment(@RequestBody PaymentRequest paymentRequest) {
+        Payment processedPayment = paymentService.processPayment(paymentRequest.getPayment(), paymentRequest.getPaymentItems());
         return ResponseEntity.ok(processedPayment);
     }
 }
