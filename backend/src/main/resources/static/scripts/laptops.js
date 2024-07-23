@@ -147,43 +147,91 @@
         }
     ];
 
-    function displayLaptops(filteredLaptops) {
-        if (!Array.isArray(filteredLaptops)) {
-            console.error("Expected filteredLaptops to be an array, got:", typeof filteredLaptops);
-            return;
-        }
-        const laptopsContainer = document.getElementById('laptops-container');
-        if (!laptopsContainer) {
-            return;
-        }
-        laptopsContainer.innerHTML = '';
+    // function displayLaptops(filteredLaptops) {
+    //     if (!Array.isArray(filteredLaptops)) {
+    //         console.error("Expected filteredLaptops to be an array, got:", typeof filteredLaptops);
+    //         return;
+    //     }
+    //     const laptopsContainer = document.getElementById('laptops-container');
+    //     if (!laptopsContainer) {
+    //         return;
+    //     }
+    //     laptopsContainer.innerHTML = '';
     
-        filteredLaptops.forEach(laptop => {
-            const laptopItem = document.createElement('div');
-            laptopItem.className = 'laptop-item';
-            laptopItem.innerHTML = `
-                <div class="image-gallery">
-                    <div class="main-image">
-                        <img src="${laptop.images[laptop.currentImageIndex]}" alt="${laptop.name}" width="300" height="200" id="mainImage${laptop.itemNumber}">
-                    </div>
-                    <div class="arrows">
-                        <button class="prev" onclick="changeImage(-1, ${laptop.itemNumber})">&#10094;</button>
-                        <button class="next" onclick="changeImage(1, ${laptop.itemNumber})">&#10095;</button>
-                    </div>
-                </div>
-                <div class="laptop-details">
-                    <h3>${laptop.name}</h3>
-                    <ul>
-                        ${laptop.specs.map(spec => `<li>${spec}</li>`).join('')}
-                    </ul>
-                    <p><strong>Price: $${laptop.price}</strong></p>
-                    <button class="btn" onclick="checkAvailability(${laptop.itemNumber})">Check Availability</button>
-                </div>
-            `;
-            laptopsContainer.appendChild(laptopItem);
-        });
+    //     filteredLaptops.forEach(laptop => {
+    //         const laptopItem = document.createElement('div');
+    //         laptopItem.className = 'laptop-item';
+    //         laptopItem.innerHTML = `
+    //             <div class="image-gallery">
+    //                 <div class="main-image">
+    //                     <img src="${laptop.images[laptop.currentImageIndex]}" alt="${laptop.name}" width="300" height="200" id="mainImage${laptop.itemNumber}">
+    //                 </div>
+    //                 <div class="arrows">
+    //                     <button class="prev" onclick="changeImage(-1, ${laptop.itemNumber})">&#10094;</button>
+    //                     <button class="next" onclick="changeImage(1, ${laptop.itemNumber})">&#10095;</button>
+    //                 </div>
+    //             </div>
+    //             <div class="laptop-details">
+    //                 <h3>${laptop.name}</h3>
+    //                 <ul>
+    //                     ${laptop.specs.map(spec => `<li>${spec}</li>`).join('')}
+    //                 </ul>
+    //                 <p><strong>Price: $${laptop.price}</strong></p>
+    //                 <button class="btn" onclick="checkAvailability(${laptop.itemNumber})">Check Availability</button>
+    //             </div>
+    //         `;
+    //         laptopsContainer.appendChild(laptopItem);
+    //     });
+    // }
+    
+
+function displayLaptops(filteredLaptops) {
+    if (!Array.isArray(filteredLaptops)) {
+        console.error("Expected filteredLaptops to be an array, got:", typeof filteredLaptops);
+        return;
     }
-    
+    const laptopsContainer = document.getElementById('laptops-container');
+    if (!laptopsContainer) {
+        return;
+    }
+    laptopsContainer.innerHTML = '';
+
+    filteredLaptops.forEach(laptop => {
+        const laptopItem = document.createElement('div');
+        laptopItem.className = 'laptop-item';
+        laptopItem.innerHTML = `
+            <div class="image-gallery">
+                <div class="main-image">
+                    <img src="${laptop.images[laptop.currentImageIndex]}" alt="${laptop.name}" width="300" height="200" id="mainImage${laptop.itemNumber}">
+                </div>
+                <div class="arrows">
+                    <button class="prev" onclick="changeImage(-1, ${laptop.itemNumber})">&#10094;</button>
+                    <button class="next" onclick="changeImage(1, ${laptop.itemNumber})">&#10095;</button>
+                </div>
+            </div>
+            <div class="laptop-details">
+                <h3>${laptop.name}</h3>
+                <ul>
+                    ${laptop.specs.map(spec => `<li>${spec}</li>`).join('')}
+                </ul>
+                <p><strong>Price: $${laptop.price}</strong></p>
+                <button class="btn" onclick="checkAvailability(${laptop.itemNumber})">Check Availability</button>
+            </div>
+            <div class="rating" onclick="navigateToReviews(${laptop.itemNumber})">
+                1.0 &#9733;&#9733;&#9733;&#9733;&#9733; 5.0
+            </div>
+        `;
+        laptopsContainer.appendChild(laptopItem);
+    });
+}
+
+function navigateToReviews(itemNumber) {
+    // Navigate to the reviews page for the specific laptop
+    window.location.href = `/reviews.html?itemNumber=${itemNumber}`;
+}
+
+
+
     window.checkAvailability = function(itemNumber) {
         const laptop = laptops.find(l => l.itemNumber === itemNumber);
         

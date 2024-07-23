@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - TechEase Rentals</title>
+    <link rel="stylesheet" href="/styles/reviews.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <a href="index.html">Tech<span>Ease</span></a>
+            </div>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="index.html#reservation">Reservation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="login.html" class="login">Log in</a>
+                <a href="register.html" class="btn">Register</a>
+            </div>
+        </nav>
+        <section id="reviews" class="section">
+            <div class="container">
+                <div class="review-header">
+                    <h2>Reviews</h2>
+                    <button id="write-review-btn">Write a Review</button>
+                </div>
+                <div id="reviews-container">
+                    <p>No reviews yet. Be the first to write a review!</p>
+                </div>
+                <div id="write-review" style="display: none;">
+                    <form id="review-form">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="rating">Rating:</label>
+                        <div id="star-rating">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <input type="hidden" id="rating" name="rating" required>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms and Conditions</a>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="/scripts/reviews.js"></script>
+</body>
+
+</html>

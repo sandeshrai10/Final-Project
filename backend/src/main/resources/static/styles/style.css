@@ -789,3 +789,35 @@ nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2
 .suggestion-item:hover {
   background-color: #333;
 }
+
+
+.laptop-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating:hover {
+  background: #f0f0f0;
+}
+
+.rating span {
+  margin-left: 5px;
+}

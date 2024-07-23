@@ -1,0 +1,162 @@
+/* Make the Reviews heading bigger and more visible */
+#reviews h2 {
+    font-size: 3em;
+    /* Make it bigger */
+    color: white;
+    /* Make the color white */
+    text-align: left;
+    /* Align text to the left */
+    margin: 0;
+    /* Remove default margin */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Make the Write a Review button bigger and more visible */
+#write-review-btn {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 15px 20px;
+    font-size: 1.5em;
+    background-color: #ff6600;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#write-review-btn:hover {
+    background-color: #e65c00;
+}
+
+.review-header {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    position: relative;
+    /* Position it relative to its normal flow */
+    top: -41px;
+    /* Move it 1 inch above the current position */
+    left: 50%;
+    /* Center it horizontally */
+    transform: translateX(-50%);
+    /* Adjust to perfectly center */
+    background: rgba(0, 0, 0, 0.5);
+    /* Optional: Add background for better visibility */
+    padding: 10px;
+    /* Optional: Add padding for better appearance */
+    border-radius: 5px;
+    /* Optional: Add border radius for rounded corners */
+}
+
+/* Style the star rating system */
+#star-rating {
+    display: flex;
+    gap: 10px;
+}
+
+.star {
+    font-size: 2em;
+    cursor: pointer;
+    color: #cccccc;
+}
+
+.star.selected,
+.star:hover,
+.star:hover~.star {
+    color: #ffcc00;
+}
+
+/* Style the review form for better visibility */
+#write-review {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#write-review label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+#write-review input[type="number"],
+#write-review input[type="text"],
+#write-review textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#write-review button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#write-review button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Style for review items */
+.review-item {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.review-item .reviewer-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: red;
+}
+
+.review-item .reviewer-name:before {
+    content: '\1F464';
+    /* Unicode for profile icon */
+    margin-right: 8px;
+}
+
+.review-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.review-item .star-rating {
+    color: yellow;
+}
+
+.review-item p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: black;
+}
+
+.review-item .review-date {
+    font-size: 1em;
+    font-style: italic;
+    color: black;
+}

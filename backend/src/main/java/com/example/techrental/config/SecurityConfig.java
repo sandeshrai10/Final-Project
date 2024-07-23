@@ -40,6 +40,7 @@ public class SecurityConfig {
                         "/availability_tablet.html",
                         "/availability_headphone.html",
                         "/admin.html",
+                        "/reviews.html",
                         "/adminRegister.html",
                         "/adminLogin.html",
                         "/api/admin/register",
