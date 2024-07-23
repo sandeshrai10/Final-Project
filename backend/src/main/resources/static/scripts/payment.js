@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     cartItemsContainer.innerHTML = '';
 
     cartItems.forEach(item => {
-        const itemPrice = parseFloat(item.price) || 0; // Ensure item price is a valid number
-        totalAmount += itemPrice * item.quantity; // Consider item quantity in the total amount
+        totalAmount += parseFloat(item.price);
         const cartItemElement = document.createElement('div');
         cartItemElement.className = 'cart-item';
         cartItemElement.innerHTML = `
@@ -19,14 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>${item.description}</p>
                 <p>Quantity: ${item.quantity}</p>
             </div>
-            <div class="cart-item-price">$${(itemPrice * item.quantity).toFixed(2)}</div>
+            <div class="cart-item-price">$${item.price}</div>
         `;
         cartItemsContainer.appendChild(cartItemElement);
     });
 
-    totalAmount = totalAmount.toFixed(2); // Ensure totalAmount is a string with 2 decimal places
-    totalAmountElement.textContent = totalAmount;
-    payAmountElement.textContent = totalAmount;
+    totalAmountElement.textContent = totalAmount.toFixed(2);
+    payAmountElement.textContent = totalAmount.toFixed(2);
 
     document.getElementById('payment-form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -39,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 expiryDate: document.getElementById('expiry-date').value,
                 cvv: document.getElementById('cvv').value,
                 country: document.getElementById('country').value,
-                amount: totalAmount,
+                amount: totalAmount.toFixed(2),
                 orderNumber: generateOrderNumber()
             },
             paymentItems: cartItems.map(item => ({
