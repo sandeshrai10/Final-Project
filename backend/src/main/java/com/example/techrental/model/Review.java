@@ -11,14 +11,10 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "item_number", nullable = false)
+    private int itemNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "equipment_id")
-    private Equipment equipment;
-
+    private String userName;
     private int rating;
     private String title;
     private String comments;
@@ -41,20 +37,20 @@ public class Review {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public int getItemNumber() {
+        return itemNumber;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setItemNumber(int itemNumber) {
+        this.itemNumber = itemNumber;
     }
 
-    public Equipment getEquipment() {
-        return equipment;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setEquipment(Equipment equipment) {
-        this.equipment = equipment;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getRating() {

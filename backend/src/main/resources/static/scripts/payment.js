@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     cartItemsContainer.innerHTML = '';
 
     cartItems.forEach(item => {
-        totalAmount += parseFloat(item.price);
+        const itemPrice = parseFloat(item.price) || 0;
+        const itemTotal = itemPrice * item.quantity;
+        totalAmount += itemTotal;
         const cartItemElement = document.createElement('div');
         cartItemElement.className = 'cart-item';
         cartItemElement.innerHTML = `
@@ -17,14 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4>${item.name}</h4>
                 <p>${item.description}</p>
                 <p>Quantity: ${item.quantity}</p>
+                <p>Rental Period: ${item.rentalPeriod} days</p>
             </div>
-            <div class="cart-item-price">$${item.price}</div>
+            <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
         `;
         cartItemsContainer.appendChild(cartItemElement);
     });
 
-    totalAmountElement.textContent = totalAmount.toFixed(2);
-    payAmountElement.textContent = totalAmount.toFixed(2);
+    totalAmount = parseFloat(totalAmount.toFixed(2)); // Ensure totalAmount is a number
+    totalAmountElement.textContent = `Total Amount: $${totalAmount}`;
+    payAmountElement.textContent = totalAmount;
 
     document.getElementById('payment-form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -37,14 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 expiryDate: document.getElementById('expiry-date').value,
                 cvv: document.getElementById('cvv').value,
                 country: document.getElementById('country').value,
-                amount: totalAmount.toFixed(2),
+                totalAmount: totalAmount, // Ensure this is a number
                 orderNumber: generateOrderNumber()
             },
             paymentItems: cartItems.map(item => ({
+                itemNumber: item.itemNumber, // Ensure itemNumber is included
                 itemName: item.name,
                 itemDescription: item.description,
                 itemQuantity: item.quantity,
-                itemPrice: item.price
+                itemPrice: parseFloat(item.price)
             }))
         };
 

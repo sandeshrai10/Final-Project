@@ -15,6 +15,7 @@ public class PaymentItem {
     @JoinColumn(name = "payment_id")
     private Payment payment;
 
+    private String itemNumber;  // Added field
     private String itemName;
     private String itemDescription;
     private int itemQuantity;
@@ -28,6 +29,14 @@ public class PaymentItem {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getItemNumber() {
+        return itemNumber;
+    }
+
+    public void setItemNumber(String itemNumber) {
+        this.itemNumber = itemNumber;
     }
 
     public String getItemName() {

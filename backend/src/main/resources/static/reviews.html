@@ -34,11 +34,9 @@
                     <h2>Reviews</h2>
                     <button id="write-review-btn">Write a Review</button>
                 </div>
-                <div id="reviews-container">
-                    <p>No reviews yet. Be the first to write a review!</p>
-                </div>
                 <div id="write-review" style="display: none;">
                     <form id="review-form">
+                        <input type="hidden" id="itemNumber" name="itemNumber" value="">
                         <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required>
                         <label for="rating">Rating:</label>
@@ -56,6 +54,9 @@
                         <textarea id="comments" name="comments" required></textarea>
                         <button type="submit">Submit</button>
                     </form>
+                </div>
+                <div id="reviews-container">
+                    <p id="placeholder-text">No reviews yet. Be the first to write a review!</p>
                 </div>
             </div>
         </section>
