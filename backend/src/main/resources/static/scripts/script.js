@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 password: document.getElementById('password').value
             };
 
+            // Client-side validation
+            if (data.phoneNumber.length !== 10) {
+                alert('Phone number must be exactly 10 digits.');
+                return;
+            }
+
             try {
                 const response = await fetch('/api/users/register', {
                     method: 'POST',
@@ -25,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Registration successful!');
                     window.location.href = 'login.html';
                 } else {
-                    alert('Registration failed.');
+                    const errorText = await response.text(); // Capture the error message
+                    alert('Registration failed: ' + errorText);
                 }
             } catch (error) {
                 console.error('Error:', error);

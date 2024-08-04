@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class PaymentItemDTO {
+    private Long id;  // Ensure this field exists
     private String orderNumber;
     private BigDecimal totalAmount;
     private Date transactionDate;
@@ -14,6 +15,13 @@ public class PaymentItemDTO {
     private BigDecimal itemPrice;
 
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getOrderNumber() {
         return orderNumber;

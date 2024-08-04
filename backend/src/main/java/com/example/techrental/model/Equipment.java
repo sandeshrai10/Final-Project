@@ -82,7 +82,17 @@ public class Equipment {
     }
 
     public void setStockQuantity(Integer stockQuantity) {
-        this.stockQuantity = stockQuantity;
+        if(stockQuantity<0){
+            System.out.println("Stock qunatity cannot be 0. Setting by default to 0");
+            this.stockQuantity = 0;
+        }else if(stockQuantity==0){
+            this.stockQuantity = stockQuantity;
+            this.availability  =false;
+            System.out.println("Stocks 0. Not available");  
+        }else{
+            this.stockQuantity = stockQuantity;
+        }
+        
     }
 
     public BigDecimal getDailyRentalRate() {

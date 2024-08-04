@@ -39,8 +39,9 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
 
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" pattern="\d{10}"
+                        title="Phone number must be 10 digits" required><br><br>
 
                     <button type="submit" class="btn">Register</button>
                 </form>
