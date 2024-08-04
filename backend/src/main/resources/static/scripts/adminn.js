@@ -1,23 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('manage-equipment-btn').addEventListener('click', loadManageEquipment);
-    document.getElementById('manage-orders-btn').addEventListener('click', redirectToRentalOrders);
     document.getElementById('manage-feedback-btn').addEventListener('click', () => {
         window.location.href = 'adminReviews.html';
     });
     document.getElementById('manage-users-btn').addEventListener('click', () => {
         window.location.href = 'adminUsers.html'; 
     });
-
-    // Hide the loading indicator and show the admin panel
-    document.getElementById('loading').style.display = 'none';
-    document.querySelector('.admin-panel').style.display = 'block';
 });
 
-function isAuthenticated() {
-    // Here you would implement the logic to check if the user is authenticated
-    // For simplicity, we assume the presence of a token in localStorage indicates authentication
-    return !!localStorage.getItem('authToken');
-}
+
 
 function loadManageEquipment() {
     const content = document.getElementById('content');
@@ -78,10 +69,6 @@ function loadManageEquipment() {
 
     document.getElementById('add-equipment-form').addEventListener('submit', addEquipment);
     loadEquipmentList();
-}
-
-function redirectToRentalOrders() {
-    window.location.href = 'ManageOrder.html';
 }
 
 function loadEquipmentList() {
@@ -247,22 +234,3 @@ function deleteEquipment(id) {
         console.error('Error:', error);
     });
 }
-
-// Attach token to every request
-(function() {
-    const originalFetch = window.fetch;
-    window.fetch = function() {
-        const token = localStorage.getItem('authToken');
-        if (token) {
-            if (!arguments[1]) {
-                arguments[1] = {};
-            }
-            if (!arguments[1].headers) {
-                arguments[1].headers = {};
-            }
-            arguments[1].headers['Authorization'] = 'Bearer ' + token;
-            console.log('Adding token to request:', arguments[0]); // Log the URL being fetched
-        }
-        return originalFetch.apply(this, arguments);
-    };
-})();

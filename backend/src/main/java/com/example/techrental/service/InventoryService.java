@@ -12,5 +12,8 @@ public interface InventoryService {
     void deleteEquipment(Long id);
     public Equipment getEquipmentByItemNumber(String itemNumber);
 
+    void reduceStockQuantity(String itemNumber, int quantity);
+    void increaseStockQuantity(String itemNumber, int quantity);
+
 
 }

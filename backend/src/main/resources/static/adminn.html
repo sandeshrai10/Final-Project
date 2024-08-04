@@ -43,18 +43,11 @@
         button {
             margin: 5px;
         }
-
-        #loading {
-            text-align: center;
-            font-size: 24px;
-            margin-top: 100px;
-        }
     </style>
 </head>
 
 <body>
-    <div id="loading">Loading...</div>
-    <div class="admin-panel" style="display: none;">
+    <div class="admin-panel">
         <h1>Admin Panel</h1>
         <div class="buttons">
             <button id="manage-equipment-btn">Manage Equipment</button>
@@ -123,6 +116,45 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function checkAuthentication() {
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                window.location.href = '/adminLogin.html';
+                return;
+            }
+
+            fetch('/api/admin/verify-token', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Token verification failed');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('admin-panel').style.display = 'block';
+                        // Initialize your admin panel functionality here
+                    } else {
+                        throw new Error('Invalid token');
+                    }
+                })
+                .catch(error => {
+                    console.error('Authentication error:', error);
+                    localStorage.removeItem('authToken');
+                    window.location.href = '/adminLogin.html';
+                });
+        }
+
+        checkAuthentication();
+    </script>
 
 
 </body>

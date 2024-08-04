@@ -100,4 +100,8 @@ public class Equipment {
     public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
     }
+
+    public Equipment orElseThrow(Object object) {
+        return null;
+    }
 }

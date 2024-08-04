@@ -155,15 +155,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
-    // Function to show admin link if the user is an admin
-    function showAdminLink() {
-        const userRole = localStorage.getItem('userRole');
-        if (userRole === 'ROLE_ADMIN') {
-            document.getElementById('admin-link').style.display = 'block';
-        }
-    }
-
-    // Call the function on page load
-    showAdminLink();
 });

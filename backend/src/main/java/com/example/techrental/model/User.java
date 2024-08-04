@@ -11,18 +11,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
     private String password;
     private String role;
 
     private String firstName;
     private String lastName;
+
+    @Column(unique = true)
     private String email;
     private String phoneNumber;
-    private String userType;
+    
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date registrationDate;
+
+    @PrePersist
+    protected void onCreate() {
+        registrationDate = new Date();
+    }
+
 
     // Getters and Setters
 
@@ -32,14 +39,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -88,14 +87,6 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 
     public Date getRegistrationDate() {

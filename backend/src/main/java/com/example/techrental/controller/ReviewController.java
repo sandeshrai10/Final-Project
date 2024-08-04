@@ -17,6 +17,19 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    // Endpoint to fetch all reviews
+    @GetMapping
+    public ResponseEntity<List<Review>> getAllReviews() {
+        try {
+            List<Review> reviews = reviewRepository.findAll();
+            return ResponseEntity.ok(reviews);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
+    // Endpoint to fetch reviews by item number
     @GetMapping("/item/{itemNumber}")
     public ResponseEntity<List<Review>> getReviewsByItemNumber(@PathVariable int itemNumber) {
         try {
@@ -28,6 +41,7 @@ public class ReviewController {
         }
     }
 
+    // Endpoint to create a new review
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Review review) {
         try {
@@ -40,7 +54,7 @@ public class ReviewController {
         }
     }
 
-    // New endpoint to provide rating summary
+    // Endpoint to provide rating summary for an item
     @GetMapping("/item/{itemNumber}/summary")
     public ResponseEntity<Map<String, Object>> getItemRatingSummary(@PathVariable int itemNumber) {
         try {
@@ -67,7 +81,19 @@ public class ReviewController {
             return ResponseEntity.status(500).body(null);
         }
     }
+
+    // Endpoint to delete a review by ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteReview(@PathVariable Long id) {
+        try {
+            reviewRepository.deleteById(id);
+            Map<String, Boolean> response = new HashMap<>();
+            response.put("deleted", Boolean.TRUE);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }
-
-
-
