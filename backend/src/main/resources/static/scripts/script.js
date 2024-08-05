@@ -28,8 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
+                    const user = await response.json();
+                    // Store user data in localStorage
+                    // localStorage.setItem('user', JSON.stringify(user));
+                    // localStorage.setItem('userName', user.firstName);
+                    // alert('Registration successful!');
+                    // window.location.href = 'index.html'; // Redirect to the home page after registration
                     alert('Registration successful!');
-                    window.location.href = 'login.html';
+                    // const redirectUrl = document.getElementById('redirectUrl').value;
+                    window.location.href = 'index.html'; // Redirect to login page with redirectUrl
                 } else {
                     const errorText = await response.text(); // Capture the error message
                     alert('Registration failed: ' + errorText);
@@ -62,10 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     const user = await response.json();
-                    // Store user role in localStorage
-                    localStorage.setItem('userRole', user.role);
+                    // Store user data in localStorage
+                    localStorage.setItem('user', JSON.stringify(user));
+                    localStorage.setItem('userName', user.firstName);
                     alert(`Welcome, ${user.firstName}!`);
-                    window.location.href = 'index.html';
+                    // window.location.href = 'index.html';
+                    // const redirectUrl = new URLSearchParams(window.location.search).get('redirectUrl') || 'index.html';
+                    // window.location.href = 'index.html'; // Redirect to the original page or home page
+                    
+                    // Check if the user was redirected from the rating button
+                    if (localStorage.getItem('redirectToReviews') === 'true') {
+                        localStorage.removeItem('redirectToReviews');
+                        window.location.href = 'reviews.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                
                 } else {
                     alert('Login failed.');
                 }

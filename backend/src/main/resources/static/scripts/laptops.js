@@ -590,12 +590,24 @@ function fetchRatingSummary(itemNumber) {
         });
 }
 
+
+
+
 function navigateToReviews(itemNumber) {
-    // Store itemNumber in localStorage
-    localStorage.setItem('selectedItemNumber', itemNumber);
-    // Navigate to the reviews page
-    window.location.href = '/reviews.html';
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        localStorage.setItem('selectedItemNumber', itemNumber);
+        window.location.href = 'reviews.html';
+    } else {
+        localStorage.setItem('redirectToReviews', 'true');
+        localStorage.setItem('selectedItemNumber', itemNumber);
+        window.location.href = 'login.html';
+    }
 }
+
+
+
+
 
 window.checkAvailability = function(itemNumber) {
     const laptop = laptops.find(l => l.itemNumber === itemNumber);

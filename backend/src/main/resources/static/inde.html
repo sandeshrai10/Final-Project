@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechEase Rentals</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -32,6 +33,9 @@
                     <div id="suggestions" class="suggestions"></div>
                     <button id="search-button" class="search-btn"><i class="fa fa-search"></i></button>
                 </div>
+                <button id="cart-button" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
             </div>
         </nav>
         <section id="home" class="content bgimg">
@@ -92,42 +96,17 @@
         </div>
     </section>
 
-    <!-- <section id="reservation" class="section bg-light">
-        <div class="container">
-            <h2>Make a Reservation</h2>
-            <form id="reservation-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="equipment">Equipment:</label>
-                <select id="equipment" name="equipment" required>
-                    <option value="" disabled selected>Choose your equipment</option>
-                    <option value="laptop">Laptop</option>
-                    <option value="camera">Camera</option>
-                    <option value="tablet">Tablet</option>
-                    <option value="headphones">Headphones</option>
-                </select>
-                <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date" name="start-date" required>
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date" name="end-date" required>
-                <button type="submit" class="btn">Reserve</button>
-            </form>
-        </div>
-    </section> -->
-
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact Us</h2>
-            <form action="/action_page.php" target="_blank">
-                <label for="name">Name:</label>
+            <form id="contact-form">
+                <label for="contact-name">Name:</label>
                 <input type="text" id="contact-name" name="name" required>
-                <label for="email">Email:</label>
+                <label for="contact-email">Email:</label>
                 <input type="email" id="contact-email" name="email" required>
-                <label for="subject">Subject:</label>
+                <label for="contact-subject">Subject:</label>
                 <input type="text" id="contact-subject" name="subject" required>
-                <label for="message">Message:</label>
+                <label for="contact-message">Message:</label>
                 <textarea id="contact-message" name="message" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
             </form>
@@ -150,8 +129,25 @@
         </div>
     </footer>
 
-    <script src="/scripts/script.js"></script>
+    <div id="cart-container" class="cart-container">
+        <div class="cart-header">
+            <h2>My Cart</h2>
+            <button id="close-cart" class="close-cart">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="cart-footer">
+            <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+        </div>
+    </div>
 
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/cart.js"></script>
+    <script src="/scripts/contact.js"></script>
+
+    <script>
+    </script>
 </body>
 
 </html>

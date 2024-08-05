@@ -388,92 +388,93 @@ footer .social a:hover {
 /* Additional CSS for sidebar and laptop list */
 
 .sidebar {
-    width: 20%;
-    float: left;
-    padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+  width: 20%;
+  float: left;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 .sidebar h3 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s;
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
 }
 
 .sidebar ul li a:hover {
-    color: #f9004d;
+  color: #f9004d;
 }
 
 /* Additional CSS for sidebar and laptop, camera, tablets, and headphones list */
 
 .sidebar {
-    width: 20%;
-    float: left;
-    padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+  width: 20%;
+  float: left;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 .sidebar h3 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
 }
 
-.sidebar select, .sidebar input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.sidebar select,
+.sidebar input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .sidebar .search-form {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar .search-input {
-    padding: 7px;
-    border: none;
-    border-radius: 5px 0 0 5px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px 0 0 5px;
 }
 
 .sidebar .search-btn {
-    padding: 7px 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
+  padding: 7px 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }
 
 .sidebar .search-btn:hover {
-    background: #575757;
+  background: #575757;
 }
 
 .laptop-list {
-    width: 75%;
-    float: right;
-    padding: 20px;
+  width: 75%;
+  float: right;
+  padding: 20px;
 }
 
 .camera-list {
@@ -483,19 +484,19 @@ footer .social a:hover {
 }
 
 .tablet-list {
-width: 75%;
-float: right;
-padding: 20px;
+  width: 75%;
+  float: right;
+  padding: 20px;
 }
 
 .laptop-item {
-    display: flex;
-    margin-bottom: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 .tablet-item {
@@ -519,17 +520,17 @@ padding: 20px;
 }
 
 .headphone-item {
-display: flex;
-margin-bottom: 20px;
-background-color: #fff;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-color: #333;
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 .laptop-item img {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .camera-item img {
@@ -537,35 +538,36 @@ color: #333;
 }
 
 .tablet-item img {
-margin-right: 20px;
+  margin-right: 20px;
 }
 
 .headphone-item img {
-margin-right: 20px;
+  margin-right: 20px;
 }
 
 .laptop-details {
-    text-align: left;
-    color: #333;
+  text-align: left;
+  color: #333;
 }
 
 .tablet-details {
   text-align: left;
   color: #333;
 }
+
 .camera-details {
   text-align: left;
   color: #333;
 }
 
 .headphone-details {
-text-align: left;
-color: #333;
+  text-align: left;
+  color: #333;
 }
 
 .laptop-details h3 {
-    margin-bottom: 10px;
-    color: #333;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .camera-details h3 {
@@ -574,18 +576,18 @@ color: #333;
 }
 
 .tablet-details h3 {
-margin-bottom: 10px;
-color: #333;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .headphone-details h3 {
-margin-bottom: 10px;
-color: #333;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .laptop-details p {
-    margin-bottom: 5px;
-    color: #666;
+  margin-bottom: 5px;
+  color: #666;
 }
 
 .camera-details p {
@@ -594,25 +596,25 @@ color: #333;
 }
 
 .tablet-details p {
-margin-bottom: 5px;
-color: #666;
+  margin-bottom: 5px;
+  color: #666;
 }
 
 .headphone-details p {
-margin-bottom: 5px;
-color: #666;
+  margin-bottom: 5px;
+  color: #666;
 }
 
 .laptop-details .btn {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-    transition: background 0.3s;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .camera-details .btn {
@@ -628,31 +630,31 @@ color: #666;
 }
 
 .tablet-details .btn {
-background-color: #333;
-color: #fff;
-padding: 10px 20px;
-text-decoration: none;
-border: none;
-border-radius: 5px;
-display: inline-block;
-cursor: pointer;
-transition: background 0.3s;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .headphone-details .btn {
-background-color: #333;
-color: #fff;
-padding: 10px 20px;
-text-decoration: none;
-border: none;
-border-radius: 5px;
-display: inline-block;
-cursor: pointer;
-transition: background 0.3s;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .laptop-details .btn:hover {
-    background-color: #575757;
+  background-color: #575757;
 }
 
 
@@ -661,21 +663,28 @@ transition: background 0.3s;
 }
 
 .tablet-details .btn:hover {
-background-color: #575757;
+  background-color: #575757;
 }
 
 .headphone-details .btn:hover {
-background-color: #575757;
+  background-color: #575757;
 }
 
 .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
-nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2, .container h3 {
-    color: #000;  /* Set all text to black */
+nav ul li a,
+footer,
+.footer-links a,
+.social a,
+.sidebar ul li a,
+.container h2,
+.container h3 {
+  color: #000;
+  /* Set all text to black */
 }
 
 .image-gallery {
@@ -702,7 +711,8 @@ nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2
   transform: translateY(-50%);
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -712,11 +722,15 @@ nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2
   user-select: none;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.laptop-item, .camera-item, .tablet-item, .headphone-item {
+.laptop-item,
+.camera-item,
+.tablet-item,
+.headphone-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -728,17 +742,26 @@ nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2
   color: #333;
 }
 
-.laptop-details, .camera-details, .tablet-details, .headphone-details {
+.laptop-details,
+.camera-details,
+.tablet-details,
+.headphone-details {
   text-align: left;
   width: 100%;
 }
 
-.laptop-details h3, .camera-details h3, .tablet-details h3, .headphone-details h3 {
+.laptop-details h3,
+.camera-details h3,
+.tablet-details h3,
+.headphone-details h3 {
   margin-bottom: 10px;
   font-size: 1.2rem;
 }
 
-.laptop-details p, .camera-details p, .tablet-details p, .headphone-details p {
+.laptop-details p,
+.camera-details p,
+.tablet-details p,
+.headphone-details p {
   margin-bottom: 5px;
   font-size: 0.9rem;
 }
@@ -792,6 +815,113 @@ nav ul li a, footer, .footer-links a, .social a, .sidebar ul li a, .container h2
 
 
 .laptop-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating:hover {
+  background: #f0f0f0;
+}
+
+.rating span {
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+.camera-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating:hover {
+  background: #f0f0f0;
+}
+
+.rating span {
+  margin-left: 5px;
+}
+
+
+
+
+.tablet-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating:hover {
+  background: #f0f0f0;
+}
+
+.rating span {
+  margin-left: 5px;
+}
+
+
+
+
+.headphone-item {
   position: relative;
   margin-bottom: 20px;
   padding: 10px;

@@ -244,7 +244,9 @@ public class SecurityConfig {
 
                         "/adminRegister.html",
 
-                        "api/contacts"
+                        "api/contacts",
+
+                        "/reviews.html"
 
 
 

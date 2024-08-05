@@ -7,25 +7,40 @@
     <title>Reviews - TechEase Rentals</title>
     <link rel="stylesheet" href="/styles/reviews.css">
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+    <script src="/scripts/auth.js" defer></script>
 </head>
 
 <body>
     <div class="container">
         <nav>
             <div class="logo">
-                <a href="index.html">Tech<span>Ease</span></a>
+                <a href="/">Tech<span>Ease</span></a>
             </div>
             <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="equipment.html">Equipment</a></li>
-                <li><a href="index.html#reservation">Reservation</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="/equipment.html">Equipment</a></li>
+                <!-- <li><a href="#reservation">Reservation</a></li> -->
+                <li><a href="#contact">Contact</a></li>
+                <li id="admin-link" style="display: none;"><a href="/admin.html">Admin Panel</a></li>
             </ul>
             <div class="buttons">
-                <a href="login.html" class="login">Log in</a>
-                <a href="register.html" class="btn">Register</a>
+                <a href="/login.html" id="login-link" class="login">Log in</a>
+                <a href="/register.html" id="register-link" class="btn">Register</a>
+                <div id="user-greeting" class="user-greeting" style="display: none;"> <!-- Added this div -->
+                    <span id="user-name"></span>
+                    <a href="#" id="logout-link" style="display: none;">Logout</a>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for equipment..." class="search-input">
+                    <div id="suggestions" class="suggestions"></div>
+                    <button id="search-button" class="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+                <button id="cart-button" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
             </div>
         </nav>
         <section id="reviews" class="section">

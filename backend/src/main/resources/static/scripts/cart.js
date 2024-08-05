@@ -1,3 +1,4 @@
+
 // document.addEventListener('DOMContentLoaded', () => {
 //     const cartContainer = document.getElementById('cart-container');
 //     const closeCartButton = document.getElementById('close-cart');
@@ -17,7 +18,7 @@
 //         cartItems.forEach((item, index) => {
 //             const cartItemElement = document.createElement('div');
 //             cartItemElement.className = 'cart-item';
-//             totalAmount += parseFloat(item.price);
+//             totalAmount += parseFloat(item.price) * item.quantity; // Calculate total amount considering quantity
 //             cartItemElement.innerHTML = `
 //                 <img src="${item.image}" alt="${item.name}">
 //                 <div class="cart-item-details">
@@ -25,7 +26,7 @@
 //                     <p>${item.description}</p>
 //                     <p>Quantity: ${item.quantity}</p>
 //                 </div>
-//                 <div class="cart-item-price">$${item.price}</div>
+//                 <div class="cart-item-price">$${(parseFloat(item.price) * item.quantity).toFixed(2)}</div>
 //                 <button class="remove-item" data-index="${index}">&times;</button>
 //             `;
 //             cartItemsContainer.appendChild(cartItemElement);
@@ -50,9 +51,15 @@
 
 //     closeCartButton.addEventListener('click', toggleCart);
 //     checkoutButton.addEventListener('click', () => {
-//         alert('Proceeding to checkout!');
-//         window.location.href = 'payment.html';
+//         const user = localStorage.getItem('user');
 
+//         if (user) {
+//             // User is logged in, proceed to the payment page
+//             window.location.href = '/payment.html';
+//         } else {
+//             // User is not logged in, redirect to the login page with redirect URL to cart
+//             window.location.href = '/login.html?redirectUrl=cart.html';
+//         }
 //     });
 
 //     const cartButton = document.getElementById('cart-button');
@@ -91,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="cart-item-details">
                     <h4>${item.name}</h4>
-                    <p>${item.description}</p>
+                    <p>Rental from ${item.startDate} to ${item.endDate}</p>
                     <p>Quantity: ${item.quantity}</p>
                 </div>
                 <div class="cart-item-price">$${(parseFloat(item.price) * item.quantity).toFixed(2)}</div>
@@ -117,11 +124,27 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCartItems();
     }
 
+    // closeCartButton.addEventListener('click', toggleCart);
+    // checkoutButton.addEventListener('click', () => {
+    //     alert('Proceeding to checkout!');
+    //     window.location.href = 'payment.html';
+    // });
+
+
     closeCartButton.addEventListener('click', toggleCart);
     checkoutButton.addEventListener('click', () => {
         alert('Proceeding to checkout!');
-        window.location.href = 'payment.html';
+        const user = localStorage.getItem('user');
+
+        if (user) {
+            // User is logged in, proceed to the payment page
+            window.location.href = '/payment.html';
+        } else {
+            // User is not logged in, redirect to the login page with redirect URL to cart
+            window.location.href = '/login.html?redirectUrl=cart.html';
+        }
     });
+
 
     const cartButton = document.getElementById('cart-button');
     if (cartButton) {

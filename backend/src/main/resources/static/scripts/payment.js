@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const cartItemsContainer = document.getElementById('cart-items');
@@ -17,9 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <img src="${item.image}" alt="${item.name}">
             <div class="cart-item-details">
                 <h4>${item.name}</h4>
-                <p>${item.description}</p>
+                <p>Rental from ${item.startDate} to ${item.endDate}</p>
                 <p>Quantity: ${item.quantity}</p>
-                <p>Rental Period: ${item.rentalPeriod} days</p>
             </div>
             <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
         `;
@@ -49,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 itemName: item.name,
                 itemDescription: item.description,
                 itemQuantity: item.quantity,
-                itemPrice: parseFloat(item.price)
+                itemPrice: parseFloat(item.price),
+                startDate: item.startDate, // Include startDate
+                endDate: item.endDate // Include endDate
             }))
         };
 
