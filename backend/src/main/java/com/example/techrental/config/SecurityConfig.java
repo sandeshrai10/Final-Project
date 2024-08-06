@@ -80,7 +80,7 @@ public class SecurityConfig {
 
                         "/api/admin/equipment",
                         "api/admin/equipment/**",
-                        "//api/users/equipment/itemNumber/${itemNumber}",
+                        "/api/users/equipment/itemNumber/${itemNumber}",
 
                         "/adminRegister.html",
 
