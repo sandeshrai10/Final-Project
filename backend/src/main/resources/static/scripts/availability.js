@@ -120,6 +120,14 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      // /////
+      // Check if the user is logged in before adding to cart
+      if (!isUserLoggedIn()) {
+        // Redirect to register page if not logged in
+        redirectToLogin();
+        return;
+      }
+
       const rentalDays = Math.ceil(
         (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24)
       );

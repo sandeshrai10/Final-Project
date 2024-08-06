@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Success</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #4caf50;
+      }
+      .order-details,
+      .item {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background: #fafafa;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+      }
+      .item-details {
+        flex: 1;
+      }
+      .item-price {
+        text-align: right;
+      }
+      .total {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your Order has been successfully placed!</h1>
+      <div id="order-details" class="order-details">
+        <!-- Order details will be populated here -->
+      </div>
+      <div id="total-amount" class="total">
+        <!-- Total amount will be displayed here -->
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const paymentData = JSON.parse(localStorage.getItem("paymentData"));
+        if (!paymentData) {
+          alert("No payment data found.");
+          return;
+        }
+
+        const orderDetailsContainer = document.getElementById("order-details");
+        const totalAmountElement = document.getElementById("total-amount");
+
+        const transactionDate = paymentData.payment.transactionDate;
+        const orderNumber = paymentData.payment.orderNumber;
+        const items = paymentData.paymentItems;
+        const totalAmount = paymentData.payment.totalAmount;
+
+        orderDetailsContainer.innerHTML = `
+      <p><strong>Transaction Date:</strong> ${transactionDate}</p>
+      <p><strong>Order Number:</strong> ${orderNumber}</p>
+    `;
+
+        items.forEach((item) => {
+          const rentalDays =
+            Math.ceil(
+              (new Date(item.endDate) - new Date(item.startDate)) /
+                (1000 * 60 * 60 * 24)
+            ) + 1; // Including both start and end days
+          const itemTotal = item.itemPrice * item.itemQuantity * rentalDays;
+
+          const itemElement = document.createElement("div");
+          itemElement.className = "item";
+          itemElement.innerHTML = `
+        <div class="item-details">
+          <h4>${item.itemName}</h4>
+          <p>${item.itemDescription}</p>
+          <p>Quantity: ${item.itemQuantity}</p>
+          <p>Rental from ${item.startDate} to ${item.endDate}</p>
+        </div>
+        <div class="item-price">
+          $${itemTotal.toFixed(2)}
+        </div>
+      `;
+          orderDetailsContainer.appendChild(itemElement);
+        });
+
+        totalAmountElement.textContent = `Total Amount: $${totalAmount.toFixed(
+          2
+        )}`;
+      });
+    </script>
+  </body>
+</html>

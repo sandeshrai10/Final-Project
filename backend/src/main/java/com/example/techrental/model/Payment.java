@@ -1,8 +1,4 @@
 
-
-
-
-
 package com.example.techrental.model;
 
 import jakarta.persistence.*;

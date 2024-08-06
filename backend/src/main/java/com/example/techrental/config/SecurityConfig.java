@@ -1,5 +1,4 @@
 
-
 package com.example.techrental.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +60,6 @@ public class SecurityConfig {
 
                         "/tc.html",
 
-
                         "/api/payments",
                         "/api/payments/orders",
                         "/api/payments/**",
@@ -91,9 +89,9 @@ public class SecurityConfig {
                         "/api/users/create",
 
                         "/api/stock-handler",
-                        "/api/stock-handler/check-availability"
+                        "/api/stock-handler/check-availability",
 
-
+                        "/success.html"
 
 
                     ).permitAll()
@@ -115,7 +113,9 @@ public class SecurityConfig {
                     "/api/admin/equipment",
                     "api/admin/equipment/**",
 
-                    "/api/users/create"
+                    "/api/users/create", 
+                    "/api/reviews",
+                    "/api/reviews/**",
 
 
 

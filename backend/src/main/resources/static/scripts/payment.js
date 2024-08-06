@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const cartItemsContainer = document.getElementById("cart-items");
   const totalAmountElement = document.getElementById("total-amount");
@@ -7,23 +7,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cartItemsContainer.innerHTML = "";
 
-  cartItems.forEach((item) => {
-    const itemPrice = parseFloat(item.price) || 0;
-    const itemTotal = itemPrice * item.quantity;
+  async function fetchDailyRentalRate(itemNumber) {
+    try {
+      const response = await fetch(
+        `/api/admin/equipment/itemNumber/${itemNumber}`
+      );
+      const product = await response.json();
+      return product.dailyRentalRate;
+    } catch (error) {
+      console.error("Error fetching daily rental rate:", error);
+      alert("Error fetching daily rental rate: " + error.message);
+      return 0;
+    }
+  }
+
+  for (const item of cartItems) {
+    const dailyRentalRate = await fetchDailyRentalRate(item.itemNumber);
+    const rentalDays =
+      Math.ceil(
+        (new Date(item.endDate) - new Date(item.startDate)) /
+          (1000 * 60 * 60 * 24)
+      ) + 1; // Including both start and end days
+    const itemTotal = dailyRentalRate * item.quantity * rentalDays;
     totalAmount += itemTotal;
+
     const cartItemElement = document.createElement("div");
     cartItemElement.className = "cart-item";
     cartItemElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div class="cart-item-details">
-                <h4>${item.name}</h4>
-                <p>Rental from ${item.startDate} to ${item.endDate}</p>
-                <p>Quantity: ${item.quantity}</p>
-            </div>
-            <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
-        `;
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-details">
+        <h4>${item.name}</h4>
+        <p>Rental from ${item.startDate} to ${item.endDate}</p>
+        <p>Quantity: ${item.quantity}</p>
+      </div>
+      <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
+    `;
     cartItemsContainer.appendChild(cartItemElement);
-  });
+  }
 
   totalAmount = parseFloat(totalAmount.toFixed(2)); // Ensure totalAmount is a number
   totalAmountElement.textContent = `${totalAmount}`;
@@ -34,16 +54,55 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("submit", function (event) {
       event.preventDefault();
 
+      const cardName = document.getElementById("card-name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const cardNumber = document.getElementById("card-number").value.trim();
+      const expiryDate = document.getElementById("expiry-date").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+      const country = document.getElementById("country").value.trim();
+
+      // Validation
+      if (!/^[a-zA-Z\s]+$/.test(cardName)) {
+        alert("Card name must contain only letters and spaces.");
+        return;
+      }
+      if (!email) {
+        alert("Email is required.");
+        return;
+      }
+      if (!/^\d{16}$/.test(cardNumber)) {
+        alert(
+          "Card number must be a non-negative number with exactly 16 digits."
+        );
+        return;
+      }
+      if (!/^(0[1-9]|1[0-2])\/\d{4}$/.test(expiryDate)) {
+        alert("Expiry date must be in MM/YYYY format.");
+        return;
+      }
+      const [month, year] = expiryDate.split("/").map(Number);
+      const expiry = new Date(year, month - 1);
+      const now = new Date();
+      if (expiry < new Date(now.getFullYear(), now.getMonth())) {
+        alert("Expiry date must be current or future month and year.");
+        return;
+      }
+      if (!/^\d{1,4}$/.test(cvv) || cvv < 0) {
+        alert("CVV must be a non-negative number with up to 4 digits.");
+        return;
+      }
+
       const paymentData = {
         payment: {
-          cardName: document.getElementById("card-name").value,
-          email: document.getElementById("email").value,
-          cardNumber: document.getElementById("card-number").value,
-          expiryDate: document.getElementById("expiry-date").value,
-          cvv: document.getElementById("cvv").value,
-          country: document.getElementById("country").value,
+          cardName,
+          email,
+          cardNumber,
+          expiryDate,
+          cvv,
+          country,
           totalAmount: totalAmount, // Ensure this is a number
           orderNumber: generateOrderNumber(),
+          transactionDate: new Date().toISOString().split("T")[0], // Add transaction date
         },
         paymentItems: cartItems.map((item) => ({
           itemNumber: item.itemNumber, // Ensure itemNumber is included
@@ -67,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((response) => {
           if (response.ok) {
+            localStorage.setItem("paymentData", JSON.stringify(paymentData)); // Store payment data
             alert("Payment processed successfully!");
             localStorage.removeItem("cartItems");
             window.location.href = "success.html"; // Redirect to a success page

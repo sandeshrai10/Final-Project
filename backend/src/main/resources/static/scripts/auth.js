@@ -22,10 +22,22 @@ function checkUserStatus() {
   }
 }
 
+// Function to check if the user is logged in
+function isUserLoggedIn() {
+  return !!localStorage.getItem("user");
+}
+
+// Function to handle redirection to the login page
+function redirectToLogin() {
+  localStorage.setItem("lastVisitedPage", window.location.href);
+  window.location.href = "/login.html";
+}
+
 // Function to handle user logout
 function logout() {
   localStorage.removeItem("user");
   localStorage.removeItem("userName");
+  localStorage.removeItem("cartItems"); // Clear cart items on logout
   window.location.href = "/";
 }
 
