@@ -1,6 +1,7 @@
 package com.example.techrental.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.util.Date;
 
 @Entity
@@ -16,7 +17,11 @@ public class Review {
 
     private String userName;
     private int rating;
+
+    @Size(max = 500, message = "Title cannot exceed 500 words")
     private String title;
+
+    @Size(max = 10000, message = "Comments cannot exceed 10000 words")
     private String comments;
 
     @Temporal(TemporalType.TIMESTAMP)

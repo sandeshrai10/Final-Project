@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,29 +10,24 @@
     <link rel="stylesheet" href="/styles/auth.css">
     <script src="/scripts/auth.js" defer></script>
 </head>
-
+</head>
 <body>
     <div class="container">
         <nav>
             <div class="logo">
-                <a href="/">Tech<span>Ease</span></a>
+                <a href="index.html">Tech<span>Ease</span></a>
             </div>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="/equipment.html">Equipment</a></li>
-                <!-- <li><a href="#reservation">Reservation</a></li> -->
-                <li><a href="#contact">Contact</a></li>
-                <li id="admin-link" style="display: none;"><a href="/admin.html">Admin Panel</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="index.html#reservation">Reservation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="buttons">
-                <a href="/login.html" id="login-link" class="login">Log in</a>
-                <a href="/register.html" id="register-link" class="btn">Register</a>
-                <div id="user-greeting" class="user-greeting" style="display: none;"> <!-- Added this div -->
-                    <span id="user-name"></span>
-                    <a href="#" id="logout-link" style="display: none;">Logout</a>
-                </div>
+                <a href="/login.html" class="login">Log in</a>
+                <a href="/register.html" class="btn">Register</a>
                 <div class="search-container">
                     <input type="text" id="search-input" placeholder="Search for equipment..." class="search-input">
                     <div id="suggestions" class="suggestions"></div>
@@ -72,9 +66,9 @@
                         <label for="end-date">End Date:</label>
                         <input type="date" id="end-date" name="end-date" required>
                         <button type="button" id="check-availability-btn" class="btn">Check Availability</button>
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" required min="1">
-                        <button type="submit" class="btn">Add to Cart</button>
+                        <label for="quantity" style="display: none;">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" required min="1" style="display: none;">
+                        <button type="submit" id="add-to-cart-btn" class="btn" style="display: none;">Add to Cart</button>
                     </form>
                 </div>
             </div>
@@ -85,8 +79,8 @@
         <div class="container">
             <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms and Conditions</a>
+                <a href="tc.html" id="privacy-policy-link">Privacy Policy</a> |
+            <a href="tc.html" id="terms-and-conditions-link"></a>
             </div>
             <div class="social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -114,5 +108,4 @@
     <script src="/scripts/availability.js"></script>
     <script src="/scripts/cart.js"></script>
 </body>
-
 </html>

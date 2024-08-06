@@ -1,110 +1,110 @@
 /* terms.css */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Karla', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
 }
 
 body {
-    color: #fff;
-    background-color: #333;
+  color: #fff;
+  background-color: #333;
 }
 
 .container {
-    width: 100%;
-    padding: 20px;
+  width: 100%;
+  padding: 20px;
 }
 
 nav {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #000;
-    border-radius: 10px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  border-radius: 10px;
 }
 
 nav .logo a {
-    font-size: 35px;
-    text-decoration: none;
-    color: #fff;
+  font-size: 35px;
+  text-decoration: none;
+  color: #fff;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
 nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    transition: 0.3s;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #f9004d;
+  color: #f9004d;
 }
 
 .section {
-    padding: 50px 20px;
-    text-align: center;
+  padding: 50px 20px;
+  text-align: center;
 }
 
 .section .container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 h2 {
-    margin-bottom: 20px;
-    text-align: center;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 h3 {
-    margin-top: 20px;
-    color: #f9004d;
+  margin-top: 20px;
+  color: #f9004d;
 }
 
 p {
-    margin-bottom: 20px;
-    line-height: 1.6;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 footer {
-    background: #000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 30px;
+  background: #000;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .footer-links {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 footer .social a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
 }
 
 footer .social a:hover {
-    color: #ddd;
+  color: #ddd;
 }

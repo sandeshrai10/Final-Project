@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register - TechEase Rentals</title>
-    <link rel="stylesheet" href="/styles/style.css">
-</head>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="index.html">Tech<span>Ease</span></a>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#equipment">Equipment</a></li>
-                <li><a href="index.html#reservation">Reservation</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <section class="register-section">
-            <div class="register-container">
-                <h2>Create an Account</h2>
-                <form id="register-form">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" required>
+      <nav>
+        <div class="logo">
+          <a href="index.html">Tech<span>Ease</span></a>
+        </div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#equipment">Equipment</a></li>
+          <li><a href="index.html#reservation">Reservation</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <section class="register-section">
+        <div class="register-container">
+          <h2>Create an Account</h2>
+          <form id="register-form">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required />
 
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName" required>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required />
 
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required />
 
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
 
-                    <label for="phoneNumber">Phone Number:</label>
-                    <input type="text" id="phoneNumber" name="phoneNumber" pattern="\d{10}"
-                        title="Phone number must be 10 digits" required><br><br>
+            <label for="phoneNumber">Phone Number:</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              pattern="\d{10}"
+              title="Phone number must be 10 digits"
+              required
+            /><br /><br />
 
-
-                    <button type="submit" class="btn">Register</button>
-                </form>
-            </div>
-        </section>
+            <button type="submit" class="btn">Register</button>
+          </form>
+        </div>
+      </section>
     </div>
 
     <script src="/scripts/script.js"></script>
-
-</body>
-
+  </body>
 </html>

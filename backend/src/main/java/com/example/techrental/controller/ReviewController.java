@@ -5,6 +5,8 @@ import com.example.techrental.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Valid;
 
 import java.util.HashMap;
 import java.util.List;
@@ -41,18 +43,40 @@ public class ReviewController {
         }
     }
 
+    // // Endpoint to create a new review
+    // @PostMapping
+    // public ResponseEntity<Review> createReview(@RequestBody Review review) {
+    //     try {
+    //         System.out.println("Received review: " + review); // Log incoming review
+    //         Review savedReview = reviewRepository.save(review);
+    //         return ResponseEntity.ok(savedReview);
+    //     } catch (Exception e) {
+    //         e.printStackTrace(); // Print stack trace for debugging
+    //         return ResponseEntity.status(500).body(null);
+    //     }
+    // }
+
+
+
     // Endpoint to create a new review
     @PostMapping
-    public ResponseEntity<Review> createReview(@RequestBody Review review) {
+    public ResponseEntity<?> createReview(@Valid @RequestBody Review review) {
         try {
             System.out.println("Received review: " + review); // Log incoming review
             Review savedReview = reviewRepository.save(review);
             return ResponseEntity.ok(savedReview);
+        } catch (ConstraintViolationException e) {
+            Map<String, String> errors = new HashMap<>();
+            e.getConstraintViolations().forEach(violation -> 
+                errors.put(violation.getPropertyPath().toString(), violation.getMessage()));
+            return ResponseEntity.badRequest().body(errors);
         } catch (Exception e) {
             e.printStackTrace(); // Print stack trace for debugging
-            return ResponseEntity.status(500).body(null);
+            return ResponseEntity.status(500).body("An unexpected error occurred");
         }
     }
+        
+    
 
     // Endpoint to provide rating summary for an item
     @GetMapping("/item/{itemNumber}/summary")

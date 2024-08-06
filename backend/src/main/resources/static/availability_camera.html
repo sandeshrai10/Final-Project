@@ -1,96 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Availability - TechEase Rentals</title>
-    <link rel="stylesheet" href="/styles/availability.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/styles/auth.css">
+    <link rel="stylesheet" href="/styles/availability.css" />
+    <link rel="stylesheet" href="/styles/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/auth.css" />
     <script src="/scripts/auth.js" defer></script>
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="/">Tech<span>Ease</span></a>
+      <nav>
+        <div class="logo">
+          <a href="/">Tech<span>Ease</span></a>
+        </div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="/equipment.html">Equipment</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li id="admin-link" style="display: none">
+            <a href="/admin.html">Admin Panel</a>
+          </li>
+        </ul>
+        <div class="buttons">
+          <a href="/login.html" id="login-link" class="login">Log in</a>
+          <a href="/register.html" id="register-link" class="btn">Register</a>
+          <div id="user-greeting" class="user-greeting" style="display: none">
+            <span id="user-name"></span>
+            <a href="#" id="logout-link" style="display: none">Logout</a>
+          </div>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for equipment..."
+              class="search-input"
+            />
+            <div id="suggestions" class="suggestions"></div>
+            <button id="search-button" class="search-btn">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+          <button id="cart-button" class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+      </nav>
+      <section id="availability" class="section">
+        <div class="container">
+          <div id="product-details">
+            <h3 id="product-name">Camera Name</h3>
+            <div class="image-gallery">
+              <div class="main-image">
+                <img src="" alt="Camera Image" id="mainImage" />
+              </div>
+              <div class="arrows">
+                <button onclick="changeImage(-1)">&#10094;</button>
+                <button onclick="changeImage(1)">&#10095;</button>
+              </div>
             </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="/equipment.html">Equipment</a></li>
-                <!-- <li><a href="#reservation">Reservation</a></li> -->
-                <li><a href="#contact">Contact</a></li>
-                <li id="admin-link" style="display: none;"><a href="/admin.html">Admin Panel</a></li>
+            <ul id="product-specs">
+              <!-- Product specifications will be dynamically inserted here -->
             </ul>
-            <div class="buttons">
-                <a href="/login.html" id="login-link" class="login">Log in</a>
-                <a href="/register.html" id="register-link" class="btn">Register</a>
-                <div id="user-greeting" class="user-greeting" style="display: none;"> <!-- Added this div -->
-                    <span id="user-name"></span>
-                    <a href="#" id="logout-link" style="display: none;">Logout</a>
-                </div>
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search for equipment..." class="search-input">
-                    <div id="suggestions" class="suggestions"></div>
-                    <button id="search-button" class="search-btn"><i class="fa fa-search"></i></button>
-                </div>
-                <button id="cart-button" class="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                </button>
-            </div>
-        </nav>
-        <section id="availability" class="section">
-            <div class="container">
-                <div id="product-details">
-                    <h3 id="product-name">Camera Name</h3>
-                    <div class="image-gallery">
-                        <div class="main-image">
-                            <img src="" alt="Camera Image" id="mainImage">
-                        </div>
-                        <div class="arrows">
-                            <button onclick="changeImage(-1)">&#10094;</button>
-                            <button onclick="changeImage(1)">&#10095;</button>
-                        </div>
-                    </div>
-                    <ul id="product-specs">
-                        <!-- Product specifications will be dynamically inserted here -->
-                    </ul>
-                    <p id="product-price"><strong>Price per day: $</strong></p>
-                    <p id="stock-quantity"><strong>Stock Quantity: </strong></p>
-                    <p id="status"><strong>Status: </strong></p>
-                    <form id="availability-form">
-                        <label for="start-date">Start Date:</label>
-                        <input type="date" id="start-date" name="start-date" required>
-                        <label for="end-date">End Date:</label>
-                        <input type="date" id="end-date" name="end-date" required>
-                        <button type="submit" class="btn">Rent Now</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+            <p id="product-price"><strong>Price per day: $</strong></p>
+            <p id="stock-quantity"><strong>Stock Quantity: ---</strong></p>
+            <p id="status"><strong>Status: ---</strong></p>
+            <form id="availability-form">
+              <label for="start-date">Start Date:</label>
+              <input type="date" id="start-date" name="start-date" required />
+              <label for="end-date">End Date:</label>
+              <input type="date" id="end-date" name="end-date" required />
+              <button type="button" id="check-availability-btn" class="btn">
+                Check Availability
+              </button>
+              <label for="quantity" style="display: none">Quantity:</label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                required
+                min="1"
+                style="display: none"
+              />
+              <button
+                type="submit"
+                id="add-to-cart-btn"
+                class="btn"
+                style="display: none"
+              >
+                Add to Cart
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms and Conditions</a>
-            </div>
-            <div class="social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+      <div class="container">
+        <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="tc.html" id="privacy-policy-link">Privacy Policy</a> |
+          <a href="tc.html" id="terms-and-conditions-link"></a>
         </div>
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
     </footer>
 
-    <script src="/scripts/availability_camera.js"></script>
-</body>
+    <div id="cart-container" class="cart-container">
+      <div class="cart-header">
+        <h2>My Cart</h2>
+        <button id="close-cart" class="close-cart">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-items">
+        <!-- Cart items will be dynamically inserted here -->
+      </div>
+      <div class="cart-footer">
+        <div id="total-amount">Total Amount: $0</div>
+        <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+      </div>
+    </div>
 
+    <script src="/scripts/availability_camera.js"></script>
+    <script src="/scripts/cart.js"></script>
+  </body>
 </html>

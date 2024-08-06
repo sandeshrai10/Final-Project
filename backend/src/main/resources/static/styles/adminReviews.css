@@ -1,137 +1,137 @@
 /* Basic reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
 nav {
-    background: #333;
-    color: #fff;
-    padding: 1em 0;
-    display: flex;
-    justify-content: center;
+  background: #333;
+  color: #fff;
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
 }
 
 nav .nav-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav .logo a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-right: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 20px;
 }
 
 nav ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
 nav ul li {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .section {
-    padding: 20px;
-    background: #fff;
-    margin-top: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .review-header h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .review-header input {
-    padding: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .review-item {
-    padding: 15px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    background: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #f9f9f9;
 }
 
 .review-item .reviewer-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .review-item h3 {
-    margin: 10px 0 5px;
+  margin: 10px 0 5px;
 }
 
 .review-item .star-rating {
-    color: #f39c12;
+  color: #f39c12;
 }
 
 .review-item .review-date {
-    color: #999;
-    font-size: 0.9em;
+  color: #999;
+  font-size: 0.9em;
 }
 
 #placeholder-text {
-    text-align: center;
-    font-size: 1.2em;
-    color: #999;
-    padding: 20px 0;
+  text-align: center;
+  font-size: 1.2em;
+  color: #999;
+  padding: 20px 0;
 }
 
 footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
 }
 
 footer .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
 }

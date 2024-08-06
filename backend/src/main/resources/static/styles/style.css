@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 body {
@@ -159,7 +159,7 @@ a {
 }
 
 .bgimg {
-  background-image: url('https://source.unsplash.com/1600x900/?technology');
+  background-image: url("https://source.unsplash.com/1600x900/?technology");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -383,7 +383,6 @@ footer .social a:hover {
 .signup-link a:hover {
   text-decoration: underline;
 }
-
 
 /* Additional CSS for sidebar and laptop list */
 
@@ -657,7 +656,6 @@ footer .social a:hover {
   background-color: #575757;
 }
 
-
 .camera-details .btn:hover {
   background-color: #575757;
 }
@@ -783,8 +781,6 @@ footer,
   background-color: #575757;
 }
 
-
-
 /* styles.css */
 .search-container {
   position: relative;
@@ -812,7 +808,6 @@ footer,
 .suggestion-item:hover {
   background-color: #333;
 }
-
 
 .laptop-item {
   position: relative;
@@ -845,14 +840,6 @@ footer,
   margin-left: 5px;
 }
 
-
-
-
-
-
-
-
-
 .camera-item {
   position: relative;
   margin-bottom: 20px;
@@ -884,9 +871,6 @@ footer,
   margin-left: 5px;
 }
 
-
-
-
 .tablet-item {
   position: relative;
   margin-bottom: 20px;
@@ -917,9 +901,6 @@ footer,
 .rating span {
   margin-left: 5px;
 }
-
-
-
 
 .headphone-item {
   position: relative;

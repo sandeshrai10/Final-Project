@@ -1,160 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechEase Rentals</title>
-    <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/styles/cart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/styles/auth.css">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/auth.css" />
     <script src="/scripts/auth.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="/">Tech<span>Ease</span></a>
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="/equipment.html">Equipment</a></li>
-                <!-- <li><a href="#reservation">Reservation</a></li> -->
-                <li><a href="#contact">Contact</a></li>
-                <li id="admin-link" style="display: none;"><a href="/admin.html">Admin Panel</a></li>
-            </ul>
-            <div class="buttons">
-                <a href="/login.html" id="login-link" class="login">Log in</a>
-                <a href="/register.html" id="register-link" class="btn">Register</a>
-                <div id="user-greeting" class="user-greeting" style="display: none;"> <!-- Added this div -->
-                    <span id="user-name"></span>
-                    <a href="#" id="logout-link" style="display: none;">Logout</a>
-                </div>
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search for equipment..." class="search-input">
-                    <div id="suggestions" class="suggestions"></div>
-                    <button id="search-button" class="search-btn"><i class="fa fa-search"></i></button>
-                </div>
-                <button id="cart-button" class="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                </button>
-            </div>
-        </nav>
+      <nav>
+        <div class="logo">
+          <a href="/">Tech<span>Ease</span></a>
+        </div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="/equipment.html">Equipment</a></li>
+          <!-- <li><a href="#reservation">Reservation</a></li> -->
+          <li><a href="#contact">Contact</a></li>
+          <li id="admin-link" style="display: none">
+            <a href="/admin.html">Admin Panel</a>
+          </li>
+        </ul>
+        <div class="buttons">
+          <a href="/login.html" id="login-link" class="login">Log in</a>
+          <a href="/register.html" id="register-link" class="btn">Register</a>
+          <div id="user-greeting" class="user-greeting" style="display: none">
+            <!-- Added this div -->
+            <span id="user-name"></span>
+            <a href="#" id="logout-link" style="display: none">Logout</a>
+          </div>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for equipment..."
+              class="search-input"
+            />
+            <div id="suggestions" class="suggestions"></div>
+            <button id="search-button" class="search-btn">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+          <button id="cart-button" class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+      </nav>
 
-        <section id="home" class="content bgimg">
-            <div class="overlay">
-                <h2>Welcome to TechEase Rentals</h2>
-                <p>Your one-stop solution for renting tech equipment.</p>
-                <div class="link">
-                    <a href="#about" class="hire">Learn More</a>
-                </div>
-                <div class="customer-review">
-                    <p>"TechEase Rentals provided me with the best laptop for my college projects. Highly recommend!"
-                    </p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+      <section id="home" class="content bgimg">
+        <div class="overlay">
+          <h2>Welcome to TechEase Rentals</h2>
+          <p>Your one-stop solution for renting tech equipment.</p>
+          <div class="link">
+            <a href="#about" class="hire">Learn More</a>
+          </div>
+          <div class="customer-review">
+            <p>
+              "TechEase Rentals provided me with the best laptop for my college
+              projects. Highly recommend!"
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </div>
 
     <section id="about" class="section">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>TechEase Rentals provides college students with affordable and convenient access to technology equipment.
-            </p>
-        </div>
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          TechEase Rentals provides college students with affordable and
+          convenient access to technology equipment.
+        </p>
+      </div>
     </section>
 
     <section id="services" class="section bg-light">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services">
-                <div class="service">
-                    <i class="fas fa-laptop"></i>
-                    <h3>Laptop Rentals</h3>
-                    <p>High-performance laptops for all your needs.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-camera"></i>
-                    <h3>Camera Rentals</h3>
-                    <p>Professional cameras for capturing stunning moments.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-tablet-alt"></i>
-                    <h3>Tablet Rentals</h3>
-                    <p>Versatile tablets for work and play.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-headphones-alt"></i>
-                    <h3>Accessories</h3>
-                    <p>All the accessories you need for your tech.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="services">
+          <div class="service">
+            <i class="fas fa-laptop"></i>
+            <h3>Laptop Rentals</h3>
+            <p>High-performance laptops for all your needs.</p>
+          </div>
+          <div class="service">
+            <i class="fas fa-camera"></i>
+            <h3>Camera Rentals</h3>
+            <p>Professional cameras for capturing stunning moments.</p>
+          </div>
+          <div class="service">
+            <i class="fas fa-tablet-alt"></i>
+            <h3>Tablet Rentals</h3>
+            <p>Versatile tablets for work and play.</p>
+          </div>
+          <div class="service">
+            <i class="fas fa-headphones-alt"></i>
+            <h3>Accessories</h3>
+            <p>All the accessories you need for your tech.</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <label for="contact-name">Name:</label>
-                <input type="text" id="contact-name" name="name" required>
-                <label for="contact-email">Email:</label>
-                <input type="email" id="contact-email" name="email" required>
-                <label for="contact-subject">Subject:</label>
-                <input type="text" id="contact-subject" name="subject" required>
-                <label for="contact-message">Message:</label>
-                <textarea id="contact-message" name="message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+          <label for="contact-name">Name:</label>
+          <input type="text" id="contact-name" name="name" required />
+          <label for="contact-email">Email:</label>
+          <input type="email" id="contact-email" name="email" required />
+          <label for="contact-subject">Subject:</label>
+          <input type="text" id="contact-subject" name="subject" required />
+          <label for="contact-message">Message:</label>
+          <textarea id="contact-message" name="message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms and Conditions</a>
-            </div>
-            <div class="social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+      <div class="container">
+        <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
+        <div class="footer-links">
+          <!-- Updated the href attributes -->
+          <a href="tc.html" id="privacy-policy-link">Privacy Policy</a> |
+          <a href="tc.html" id="terms-and-conditions-link"
+            >Terms and Conditions</a
+          >
         </div>
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
     </footer>
 
     <div id="cart-container" class="cart-container">
-        <div class="cart-header">
-            <h2>My Cart</h2>
-            <button id="close-cart" class="close-cart">&times;</button>
-        </div>
-        <div id="cart-items" class="cart-items">
-            <!-- Cart items will be dynamically inserted here -->
-        </div>
-        <div class="cart-footer">
-            <button id="checkout-btn" class="btn">Proceed to Checkout</button>
-        </div>
+      <div class="cart-header">
+        <h2>My Cart</h2>
+        <button id="close-cart" class="close-cart">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-items">
+        <!-- Cart items will be dynamically inserted here -->
+      </div>
+      <div class="cart-footer">
+        <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+      </div>
     </div>
 
     <script src="/scripts/script.js"></script>
     <script src="/scripts/cart.js"></script>
     <script src="/scripts/contact.js"></script>
 
-    <script>
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>

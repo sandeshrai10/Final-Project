@@ -1,20 +1,20 @@
 /* styles/auth.css */
 .user-greeting {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .user-greeting #user-name {
-    color: #ff3366;
-    /* Adjust this color as needed */
+  color: #ff3366;
+  /* Adjust this color as needed */
 }
 
 .user-greeting #logout-link {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 .user-greeting #logout-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

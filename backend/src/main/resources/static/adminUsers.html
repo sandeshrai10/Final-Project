@@ -1,82 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Manage Users</title>
-    <link rel="stylesheet" href="/styles/admin.css">
-    <link rel="stylesheet" href="/styles/adminUsers.css">
-</head>
+    <link rel="stylesheet" href="/styles/admin.css" />
+    <link rel="stylesheet" href="/styles/adminUsers.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="index.html">Tech<span>Ease</span></a>
-            </div>
-            <ul>
-                <li><a href="admin.html">Admin Home</a></li>
-            </ul>
-        </nav>
-        <section id="admin-users" class="section">
+      <nav>
+        <div class="logo">
+          <a href="index.html">Tech<span>Ease</span></a>
+        </div>
+        <ul>
+          <li><a href="admin.html">Admin Home</a></li>
+        </ul>
+      </nav>
+      <section id="admin-users" class="section">
+        <div class="container">
+          <div class="user-header">
+            <h2>Manage Users</h2>
+            <input
+              type="text"
+              id="search-user-input"
+              placeholder="Search by Name or Email"
+            />
+            <button id="add-user-btn">Add User</button>
+          </div>
+          <section id="add-user-section" class="section" style="display: none">
             <div class="container">
-                <div class="user-header">
-                    <h2>Manage Users</h2>
-                    <input type="text" id="search-user-input" placeholder="Search by Name or Email">
-                    <button id="add-user-btn">Add User</button>
-                </div>
-                <section id="add-user-section" class="section" style="display: none;">
-                    <div class="container">
-                        <h2>Add User</h2>
-                        <form id="add-user-form">
-                            <label for="firstName">First Name:</label>
-                            <input type="text" id="firstName" name="firstName" required><br>
-                            <label for="lastName">Last Name:</label>
-                            <input type="text" id="lastName" name="lastName" required><br>
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required><br>
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required><br>
-                            <label for="phoneNumber">Phone Number:</label>
-                            <input type="text" id="phoneNumber" name="phoneNumber" required><br>
-                            <button type="submit">Add User</button>
-                            <button type="button" id="cancel-add-user">Cancel</button>
-                        </form>
-                    </div>
-                </section>
-                <div class="table-responsive">
-                    <table id="users-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>Registration Date</th>
-                                <th>Role</th>
-                                <th>Edit</th>
-                                <th>Save</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody id="users-container">
-                            <tr>
-                                <td colspan="10" id="placeholder-text">Loading users...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+              <h2>Add User</h2>
+              <form id="add-user-form">
+                <label for="firstName">First Name:</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                /><br />
+                <label for="lastName">Last Name:</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                /><br />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required /><br />
+                <label for="password">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                /><br />
+                <label for="phoneNumber">Phone Number:</label>
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  required
+                  pattern="\d{10}"
+                  title="Please enter a valid 10-digit phone number"
+                />
+
+                <button type="submit">Add User</button>
+                <button type="button" id="cancel-add-user">Cancel</button>
+              </form>
+              <div
+                id="responseMessage"
+                style="color: red; margin-top: 10px"
+              ></div>
             </div>
-        </section>
+          </section>
+          <div class="table-responsive">
+            <table id="users-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Registration Date</th>
+                  <th>Role</th>
+                  <th>Edit</th>
+                  <th>Save</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id="users-container">
+                <tr>
+                  <td colspan="10" id="placeholder-text">Loading users...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
     <footer>
-        <div class="container">
-            <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2024 TechEase Rentals. All rights reserved.</p>
+      </div>
     </footer>
     <script src="/scripts/adminUsers.js"></script>
-</body>
-
+  </body>
 </html>

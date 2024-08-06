@@ -2,88 +2,154 @@ let currentImageIndex = 0;
 let images = [];
 
 function changeImage(direction) {
-    currentImageIndex += direction;
-    if (currentImageIndex < 0) {
-        currentImageIndex = images.length - 1;
-    } else if (currentImageIndex >= images.length) {
-        currentImageIndex = 0;
-    }
-    document.getElementById('mainImage').src = images[currentImageIndex];
+  currentImageIndex += direction;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1;
+  } else if (currentImageIndex >= images.length) {
+    currentImageIndex = 0;
+  }
+  document.getElementById("mainImage").src = images[currentImageIndex];
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const itemNumber = localStorage.getItem('selectedItemNumber');
-    const cameraName = localStorage.getItem('selectedCameraName');
-    const cameraSpecs = JSON.parse(localStorage.getItem('selectedCameraSpecs'));
-    images = JSON.parse(localStorage.getItem('selectedCameraImages'));
+document.addEventListener("DOMContentLoaded", function () {
+  const itemNumber = localStorage.getItem("selectedItemNumber");
+  const cameraName = localStorage.getItem("selectedCameraName");
+  const cameraSpecs = JSON.parse(localStorage.getItem("selectedCameraSpecs"));
+  images = JSON.parse(localStorage.getItem("selectedCameraImages"));
 
-    // Debugging logs
-    console.log("Fetched item number:", itemNumber);
-    console.log("Fetched camera name:", cameraName);
-    console.log("Fetched camera specs:", cameraSpecs);
-    console.log("Fetched camera images:", images);
+  // Restrict past dates in date inputs
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("start-date").setAttribute("min", today);
+  document.getElementById("end-date").setAttribute("min", today);
 
-    // Check if required elements exist
-    const productNameElem = document.getElementById('product-name');
-    const mainImageElem = document.getElementById('mainImage');
-    const specsListElem = document.getElementById('product-specs');
-    const productPriceElem = document.getElementById('product-price');
-    const stockQuantityElem = document.getElementById('stock-quantity');
-    const statusElem = document.getElementById('status');
+  // Hide quantity field and add to cart button initially
+  document.getElementById("quantity").style.display = "none";
+  document.getElementById("add-to-cart-btn").style.display = "none";
 
-    if (!itemNumber || !cameraName || !cameraSpecs || !images) {
-        console.error("Missing data in localStorage");
-        alert("Missing data in localStorage. Please select a camera from the cameras page.");
+  if (itemNumber) {
+    fetch(`/api/admin/equipment/itemNumber/${itemNumber}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((product) => {
+        document.getElementById("product-name").textContent = cameraName;
+        document.getElementById("mainImage").src = images[0];
+        const specsList = document.getElementById("product-specs");
+        specsList.innerHTML = cameraSpecs
+          .map((spec) => `<li>${spec}</li>`)
+          .join("");
+        document.getElementById(
+          "product-price"
+        ).textContent = `Price per day: $${product.dailyRentalRate}`;
+        document.getElementById(
+          "stock-quantity"
+        ).textContent = `Stock Quantity: ---`;
+        document.getElementById("status").textContent = `Status: ---`;
+      })
+      .catch((error) => {
+        console.error("Error fetching equipment details:", error);
+        alert("Error fetching equipment details: " + error.message);
+      });
+  }
+
+  document
+    .getElementById("check-availability-btn")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      const startDate = document.getElementById("start-date").value;
+      const endDate = document.getElementById("end-date").value;
+
+      if (new Date(startDate) >= new Date(endDate)) {
+        alert("Start date must be less than end date.");
         return;
-    }
+      }
 
-    if (itemNumber) {
-        fetch(`/api/admin/equipment/itemNumber/${itemNumber}`)
-            .then(response => {
-                console.log("Response status:", response.status);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(product => {
-                if (productNameElem) {
-                    productNameElem.textContent = cameraName;
-                }
-                if (mainImageElem) {
-                    mainImageElem.src = images[0];
-                }
-                if (specsListElem) {
-                    specsListElem.innerHTML = cameraSpecs.map(spec => `<li>${spec}</li>`).join('');
-                }
-                if (productPriceElem) {
-                    productPriceElem.textContent = `Price per day: $${product.dailyRentalRate}`;
-                }
-                if (stockQuantityElem) {
-                    stockQuantityElem.textContent = `Stock Quantity: ${product.stockQuantity}`;
-                }
-                if (statusElem) {
-                    statusElem.textContent = `Status: ${product.availability ? 'Available' : 'Not Available'}`;
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching availability:', error);
-                alert('Error fetching availability: ' + error.message);
-            });
-    }
+      fetch(
+        `/api/stock-handler/check-availability?itemNumber=${itemNumber}&startDate=${startDate}&endDate=${endDate}`
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const { stockQuantity, status } = data;
+          document.getElementById(
+            "stock-quantity"
+          ).textContent = `Stock Quantity: ${stockQuantity}`;
+          document.getElementById("status").textContent = `Status: ${status}`;
 
-    document.getElementById('availability-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const startDate = document.getElementById('start-date').value;
-        const endDate = document.getElementById('end-date').value;
-        alert(`Availability checked for dates: ${startDate} to ${endDate}`);
-        // If available, show the "Proceed to Checkout" button
-        const proceedButton = document.createElement('button');
-        proceedButton.textContent = 'Proceed to Checkout';
-        proceedButton.classList.add('btn');
-        proceedButton.onclick = () => {
-            window.location.href = 'payment.html';
-        };
-        document.getElementById('availability-form').appendChild(proceedButton);
+          if (status === "Available") {
+            document.getElementById("quantity").style.display = "block";
+            document.getElementById("add-to-cart-btn").style.display = "block";
+          } else {
+            document.getElementById("quantity").style.display = "none";
+            document.getElementById("add-to-cart-btn").style.display = "none";
+          }
+        })
+        .catch((error) => {
+          console.error("Error checking availability:", error);
+          alert("Error checking availability: " + error.message);
+        });
+    });
+
+  document
+    .getElementById("availability-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const startDate = document.getElementById("start-date").value;
+      const endDate = document.getElementById("end-date").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const stockQuantity = parseInt(
+        document.getElementById("stock-quantity").textContent.split(" ")[2]
+      );
+      const productName = document.getElementById("product-name").textContent;
+      const productPrice = parseFloat(
+        document.getElementById("product-price").textContent.split("$")[1]
+      );
+      const productImage = document.getElementById("mainImage").src;
+
+      if (quantity <= 0 || quantity > stockQuantity) {
+        alert(
+          "Invalid quantity. Please enter a quantity between 1 and the available stock."
+        );
+        return;
+      }
+
+      const rentalDays = Math.ceil(
+        (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24)
+      );
+      const totalPrice = productPrice * quantity * rentalDays;
+
+      const cartItem = {
+        itemNumber: itemNumber,
+        name: productName,
+        startDate: startDate,
+        endDate: endDate,
+        price: totalPrice.toFixed(2),
+        image: productImage,
+        quantity: quantity,
+      };
+
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // Check if the item already exists in the cart
+      const existingItemIndex = cartItems.findIndex(
+        (item) => item.itemNumber === itemNumber
+      );
+      if (existingItemIndex !== -1) {
+        alert("This item is already in your cart.");
+        return;
+      }
+
+      cartItems.push(cartItem);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      alert("Item added to cart!");
+      location.reload();
     });
 });
