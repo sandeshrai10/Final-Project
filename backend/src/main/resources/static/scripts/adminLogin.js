@@ -24,6 +24,7 @@ function loginAdmin(event) {
     })
     .catch((error) => {
       console.error("Login error:", error);
-      alert("Login failed: " + error.message);
+      // Redirect to adminLogin.html with error parameter
+      window.location.href = "/adminLogin.html?error=true";
     });
 }

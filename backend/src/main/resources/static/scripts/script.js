@@ -68,10 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("userName", user.firstName);
           alert(`Welcome, ${user.firstName}!`);
 
-          // Check if the user was redirected from the rating button
-          if (localStorage.getItem("redirectToReviews") === "true") {
-            localStorage.removeItem("redirectToReviews");
-            window.location.href = "reviews.html";
+          // Check if the user was redirected from the rating button or availability
+          const redirectTo = localStorage.getItem("redirectTo");
+          if (redirectTo) {
+            localStorage.removeItem("redirectTo");
+            window.location.href = redirectTo;
           } else {
             window.location.href = "index.html";
           }

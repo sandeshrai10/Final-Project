@@ -1,7 +1,4 @@
 
-
-
-
 package com.example.techrental.controller;
 
 import com.example.techrental.model.User;
@@ -10,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+// //////
+// import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -38,12 +39,13 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-public ResponseEntity<?> loginAdmin(@RequestParam String username, @RequestParam String password) {
+public ResponseEntity<?> loginAdmin(@RequestParam String username, @RequestParam String password, HttpSession session) {
     try {
         User foundUser = userService.findByEmail(username);
         if (foundUser != null && passwordEncoder.matches(password, foundUser.getPassword())) {
             if ("ROLE_ADMIN".equals(foundUser.getRole())) {
                 // Authentication successful
+                    session.setAttribute("adminUser", foundUser);  // Add this line to store the session
                 return ResponseEntity.ok().body(new ApiResponse(true, "Login successful"));
             } else {
                 return ResponseEntity.status(403).body(new ApiResponse(false, "User does not have admin role"));
@@ -54,4 +56,15 @@ public ResponseEntity<?> loginAdmin(@RequestParam String username, @RequestParam
         return ResponseEntity.status(500).body(new ApiResponse(false, "An error occurred during login"));
     }
 }
+
+
+
+//////////
+@PostMapping("/logout")
+public ResponseEntity<?> logoutAdmin(HttpSession session) {
+    session.invalidate();  // Invalidate the session on logout
+    return ResponseEntity.ok().body(new ApiResponse(true, "Logout successful"));
+}
+
+
 }

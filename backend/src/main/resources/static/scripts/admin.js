@@ -14,6 +14,28 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "adminUsers.html";
   });
 
+  // Add event listener for the logout button
+  document.getElementById("logout-btn").addEventListener("click", logoutAdmin);
+
+  // Function to handle admin logout
+  function logoutAdmin() {
+    fetch("/api/admin/logout", {
+      method: "POST",
+    })
+      .then((response) => {
+        if (response.ok) {
+          localStorage.removeItem("authToken");
+          window.location.href = "/adminLogin.html";
+        } else {
+          throw new Error("Logout failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during logout:", error);
+        alert("Logout failed: " + error.message);
+      });
+  }
+
   // Hide the loading indicator and show the admin panel
   document.getElementById("loading").style.display = "none";
   document.querySelector(".admin-panel").style.display = "block";
@@ -292,21 +314,21 @@ function deleteEquipment(id) {
     });
 }
 
-// Attach token to every request
-(function () {
-  const originalFetch = window.fetch;
-  window.fetch = function () {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      if (!arguments[1]) {
-        arguments[1] = {};
-      }
-      if (!arguments[1].headers) {
-        arguments[1].headers = {};
-      }
-      arguments[1].headers["Authorization"] = "Bearer " + token;
-      console.log("Adding token to request:", arguments[0]); // Log the URL being fetched
-    }
-    return originalFetch.apply(this, arguments);
-  };
-})();
+// // Attach token to every request
+// (function () {
+//   const originalFetch = window.fetch;
+//   window.fetch = function () {
+//     const token = localStorage.getItem("authToken");
+//     if (token) {
+//       if (!arguments[1]) {
+//         arguments[1] = {};
+//       }
+//       if (!arguments[1].headers) {
+//         arguments[1].headers = {};
+//       }
+//       arguments[1].headers["Authorization"] = "Bearer " + token;
+//       console.log("Adding token to request:", arguments[0]); // Log the URL being fetched
+//     }
+//     return originalFetch.apply(this, arguments);
+//   };
+// })();

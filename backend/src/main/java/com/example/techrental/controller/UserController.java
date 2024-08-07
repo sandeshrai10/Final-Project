@@ -1,6 +1,3 @@
-
-
-
 package com.example.techrental.controller;
 
 import com.example.techrental.model.User;

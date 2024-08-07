@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function toggleCart() {
     cartContainer.classList.toggle("open");
+    if (cartContainer.classList.contains("open")) {
+      renderCartItems();
+    }
   }
 
   async function fetchDailyRentalRate(itemNumber) {
@@ -41,21 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const cartItemElement = document.createElement("div");
       cartItemElement.className = "cart-item";
       cartItemElement.innerHTML = `
-                <img src="${item.image}" alt="${item.name}">
-                <div class="cart-item-details">
-                    <h4>${item.name}</h4>
-                    <p>Rental from ${item.startDate} to ${item.endDate}</p>
-                    <p>Quantity: ${item.quantity}</p>
-                </div>
-                <div class="cart-item-price">$${totalPrice.toFixed(2)}</div>
-                <button class="remove-item" data-index="${cartItems.indexOf(
-                  item
-                )}">&times;</button>
-            `;
+        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-item-details">
+          <h4>${item.name}</h4>
+          <p>Rental from ${item.startDate} to ${item.endDate}</p>
+          <p>Quantity: ${item.quantity}</p>
+        </div>
+        <div class="cart-item-price">$${totalPrice.toFixed(2)}</div>
+        <button class="remove-item" data-index="${cartItems.indexOf(
+          item
+        )}">&times;</button>
+      `;
       cartItemsContainer.appendChild(cartItemElement);
     }
 
-    totalAmountElement.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+    if (totalAmountElement) {
+      totalAmountElement.textContent = `Total Amount: $${totalAmount.toFixed(
+        2
+      )}`;
+    }
 
     document.querySelectorAll(".remove-item").forEach((button) => {
       button.addEventListener("click", (event) => {
@@ -63,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
         removeCartItem(index);
       });
     });
+
+    // Enable or disable the checkout button based on the cart items
+    checkoutButton.disabled = cartItems.length === 0;
   }
 
   function removeCartItem(index) {
@@ -74,8 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeCartButton.addEventListener("click", toggleCart);
   checkoutButton.addEventListener("click", () => {
-    alert("Proceeding to checkout!");
     const user = localStorage.getItem("user");
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    if (cartItems.length === 0) {
+      alert(
+        "Your cart is empty. Please add items to the cart before proceeding to checkout."
+      );
+      return;
+    }
 
     if (user) {
       // User is logged in, proceed to the payment page

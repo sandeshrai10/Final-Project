@@ -22,6 +22,28 @@ document.addEventListener("DOMContentLoaded", () => {
     reviewsContainer.innerHTML += reviewItem;
   }
 
+  // Add event listener for the logout button
+  document.getElementById("logout-btn").addEventListener("click", logoutAdmin);
+
+  // Function to handle admin logout
+  function logoutAdmin() {
+    fetch("/api/admin/logout", {
+      method: "POST",
+    })
+      .then((response) => {
+        if (response.ok) {
+          localStorage.removeItem("authToken");
+          window.location.href = "/adminLogin.html";
+        } else {
+          throw new Error("Logout failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during logout:", error);
+        alert("Logout failed: " + error.message);
+      });
+  }
+
   function fetchAllReviews() {
     fetch("/api/reviews")
       .then((response) => response.json())

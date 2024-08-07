@@ -1,4 +1,3 @@
-
 package com.example.techrental.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +43,8 @@ public class SecurityConfig {
                         "/login.html",
                         "/register.html",
                         "/adminLogin.html",
+                        "/success.html",
                         "/favicon.ico",
-
 
                         "/laptops.html",
                         "/cart.html",
@@ -57,48 +56,52 @@ public class SecurityConfig {
                         "/availability_camera.html",
                         "/availability_tablet.html",
                         "/availability_headphone.html",
-
                         "/tc.html",
+                        "/reviews.html",
 
+                        "/payment.html",
                         "/api/payments",
                         "/api/payments/orders",
                         "/api/payments/**",
-
-
-                        "/api/admin/**",
-                        "/payment.html",
-
-                        "/api/reviews",
-                        "/api/reviews/**",
-
-
                         "/api/payments/payment-items",
-                        "/api/payments/payment-items/${id}",
+                        "/api/payments/payment-items/itemNumber/**",
+                        "/api/payments/payment-items/{id}",
                         "/api/payments/payment-items/itemNumber/${itemNumber}",
+
+                        "api/contacts",
+                        "api/contacts/**",
 
                         "/api/admin/equipment",
                         "api/admin/equipment/**",
-                        "/api/users/equipment/itemNumber/${itemNumber}",
+                        "/api/admin/equipment/{id}",
+                        "/api/admin/equipment/itemNumber/{itemNumber}",
 
-                        "/adminRegister.html",
+                        "/api/admin/**",
 
-                        "api/contacts",
-
-                        "/reviews.html",
-
-                        "/api/users/create",
+                        "/api/reviews",
+                        "/api/reviews/**",
+                        "/api/reviews/item/{itemNumber}",
+                        "/api/reviews/item/{itemNumber}/summary",
 
                         "/api/stock-handler",
-                        "/api/stock-handler/check-availability",
+                        "/api/stock-handler/check-availability"
 
-                        "/success.html"
-
+                        // "/adminRegister.html",
 
                     ).permitAll()
                     .requestMatchers(
                     "/admin/**", 
                     "/admin.html", 
                     "/api/admin/**", 
+
+                    "/adminReviews.html",
+                    "/api/reviews/{id}",
+
+                    "/reviews.html",
+                    "/api/users",
+                    "/api/users/search",
+                    "/api/users/create",
+                    "/api/users/{id}",
 
                     "/adminRegister.html",
                     "/api/admin/register",
@@ -107,17 +110,13 @@ public class SecurityConfig {
                     "/api/users",
                     "/api/users/**",
 
-                    "/adminReviews.html",
-
                     "/ManageOrder.html",
-                    "/api/admin/equipment",
-                    "api/admin/equipment/**",
 
                     "/api/users/create", 
                     "/api/reviews",
                     "/api/reviews/**",
 
-
+                    "/api/admin/logout"
 
                     ).hasRole("ADMIN")
                     .anyRequest().authenticated()
@@ -129,10 +128,19 @@ public class SecurityConfig {
                 .failureUrl("/adminLogin.html?error=true")
                 .permitAll()
             )
-            .logout(logout -> logout
-                .logoutSuccessUrl("/")
+            // .logout(logout -> logout
+            //     .logoutSuccessUrl("/")
+            //     .permitAll()
+            // )
+
+             .logout(logout -> logout
+                .logoutUrl("/api/admin/logout")
+                .logoutSuccessUrl("/adminLogin.html")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
                 .permitAll()
             )
+
             .userDetailsService(customUserDetailsService);
 
         return http.build();

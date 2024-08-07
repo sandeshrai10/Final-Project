@@ -1,5 +1,3 @@
-
-
 package com.example.techrental.service;
 
 import com.example.techrental.model.Equipment;

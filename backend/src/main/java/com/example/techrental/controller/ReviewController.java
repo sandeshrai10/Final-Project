@@ -43,19 +43,6 @@ public class ReviewController {
         }
     }
 
-    // // Endpoint to create a new review
-    // @PostMapping
-    // public ResponseEntity<Review> createReview(@RequestBody Review review) {
-    //     try {
-    //         System.out.println("Received review: " + review); // Log incoming review
-    //         Review savedReview = reviewRepository.save(review);
-    //         return ResponseEntity.ok(savedReview);
-    //     } catch (Exception e) {
-    //         e.printStackTrace(); // Print stack trace for debugging
-    //         return ResponseEntity.status(500).body(null);
-    //     }
-    // }
-
 
 
     // Endpoint to create a new review

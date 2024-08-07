@@ -242,7 +242,8 @@ function navigateToReviews(itemNumber) {
     localStorage.setItem("selectedItemNumber", itemNumber);
     window.location.href = "reviews.html";
   } else {
-    localStorage.setItem("redirectToReviews", "true");
+    // localStorage.setItem("redirectToReviews", "true");
+    localStorage.setItem("redirectTo", "laptops.html");
     localStorage.setItem("selectedItemNumber", itemNumber);
     window.location.href = "login.html";
   }

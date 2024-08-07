@@ -12,6 +12,17 @@
       <section class="login-section">
         <div class="login-container">
           <h2>Admin Login</h2>
+          <!-- Error message section -->
+          <div id="error-message" style="color: red">
+            <script>
+              const urlParams = new URLSearchParams(window.location.search);
+              if (urlParams.has("error")) {
+                document.write(
+                  "Invalid username or password. Please try again."
+                );
+              }
+            </script>
+          </div>
           <form id="admin-login-form" method="post" action="/api/admin/login">
             <label for="username">Email Address:</label>
             <input
